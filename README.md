@@ -8,4 +8,4 @@ This is the repo for the [desci.global](https://desci.global) website, a resourc
 
 [desci.global](https://ethereum.org) is kept up to date by community members who submit upcoming events. If you are interested to support, you can make a pull request here or submit a desci event via this form. 
 
-*Initiated and maintainted with love by the Molecule team*
+*Initiated and maintainted with love by the [Molecule team 💙](https://www.molecule.to/about-us)*
