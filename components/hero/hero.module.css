@@ -1,0 +1,36 @@
+.wrapper { 
+    padding-left: 10%;
+}
+
+.heading {
+    padding: 3rem 0 0 0;
+    font-size: 70px;
+}
+
+.paragraph {
+    height: auto;
+    width: 70%;
+    padding: 20px 0;
+}
+
+@media (min-width: 1600px) {
+    .heading {
+    font-size: 95px;
+  }
+  .paragraph {
+    width: 60%;
+    margin-bottom: 3rem;
+  }
+  }
+  @media (max-width : 667px) {
+    .heading {
+    font-size: 50px;
+    padding: 1rem 0 0 0;
+  }
+
+  .paragraph {
+    width: 80%;
+    padding: 10px 0;
+  }
+  }
+  
