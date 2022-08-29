@@ -43,6 +43,16 @@ const DUMMY_EVENTS = [
       image: 'images/schelling-point-bogota.jpeg',
       isFeatured: true,
     },
+     {
+      id: 'e5',
+      title: '🇺🇸 DeSci Seattle',
+      description:
+      'Join us for brainstorming and help make Seattle Ground Central for \#DeSci',
+      date: '2022-09-22',
+      link: 'https://optispan.life/calendar',
+      image: 'https://www.swedish.org/~/media/Images/Swedish/Swedishlogo.png?h=50&w=200',
+      isFeatured: true,
+    },
   ];
   
   export function getFeaturedEvents() {
