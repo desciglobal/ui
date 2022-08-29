@@ -5,8 +5,8 @@
 .list {
     margin-left: 10%;
     width: 55%;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 1px 12px 2px rgba(0, 0, 0, 0.2);
-  }
+    box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
+}
 
   @media (max-width : 667px) {
     .list {
