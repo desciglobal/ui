@@ -43,6 +43,16 @@ const DESCI_EVENTS = [
     image: "images/schelling-point-bogota.jpeg",
     isFeatured: true,
   },
+  {
+    id: 'e5',
+    title: '🇺🇸 DeSci Seattle',
+    description:
+    'Join us for brainstorming and help make Seattle Ground Central for \#DeSci',
+    date: '2022-09-22',
+    link: 'https://optispan.life/calendar',
+    image: 'https://www.swedish.org/~/media/Images/Swedish/Swedishlogo.png?h=50&w=200',
+    isFeatured: true,
+  },
 ];
 
 export function getFeaturedEvents() {
@@ -81,11 +91,6 @@ getAllEvents();
 
 function isInThePast(date) {
   const today = new Date();
-
-  // 👇️ OPTIONAL!
-  // This line sets the hour of the current date to midnight
-  // so the comparison only returns `true` if the passed in date
-  // is at least yesterday
   today.setHours(0, 0, 0, 0);
   return date < today;
 }
