@@ -16,7 +16,7 @@ const DESCI_EVENTS = [
     description:
       "We know: Networking is no fun if you are an introvert person. That's why we came up with this event - it'll be so much easier. Promised!",
     location: "New Wall Street 5, 98765 New Work",
-    date: "2022-05-24",
+    date: "2022-09-15",
     link: "https://www.desci.berlin/",
     image: "images/devcon-bogota.png",
     isFeatured: true,
@@ -27,7 +27,7 @@ const DESCI_EVENTS = [
     description:
       "You probably need no help with networking in general. But focusing your energy correctly - that is something where most people can improve.",
     location: "My Street 12, 10115 Broke City",
-    date: "2022-10-11",
+    date: "2022-10-09",
     link: "https://ethbogota.com/",
     image: "images/devcon-bogota.png",
     isFeatured: true,
@@ -50,7 +50,7 @@ const DESCI_EVENTS = [
     'Join us for brainstorming and help make Seattle Ground Central for \#DeSci',
     date: '2022-09-22',
     link: 'https://optispan.life/calendar',
-    image: 'https://www.swedish.org/~/media/Images/Swedish/Swedishlogo.png?h=50&w=200',
+    image: 'images/desci-seattle.png',
     isFeatured: true,
   },
 ];

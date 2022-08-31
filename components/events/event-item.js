@@ -1,9 +1,6 @@
 import Button from "../ui/button";
 import classes from "./event-item.module.css";
-import DateIcon from "../icons/date-icon";
-import AddressIcon from "../icons/address-icon";
 import ArrowRightIcon from "../icons/arrow-right-icon";
-import Link from 'next/link';
 
 function EventItem(props) {
   const { title, image, date, location, id, link } = props;
@@ -13,8 +10,8 @@ function EventItem(props) {
     year: "numeric",
   });
 
-  const formattedAddress = location.replace(", ", "\n");
-  const exploreLink = `/events/${id}`;
+  // const formattedAddress = location.replace(", ", "\n");
+  // const exploreLink = `/events/${id}`;
 
   return (
     <li className={classes.item}>
