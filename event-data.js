@@ -87,8 +87,6 @@ export function getAllEvents() {
   return { upcomingEventsAsc, pastEventsAsc };
 }
 
-getAllEvents();
-
 function isInThePast(date) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
