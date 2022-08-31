@@ -27,7 +27,7 @@ const DESCI_EVENTS = [
     description:
       "You probably need no help with networking in general. But focusing your energy correctly - that is something where most people can improve.",
     location: "My Street 12, 10115 Broke City",
-    date: "2022-10-09",
+    date: "2022-10-11",
     link: "https://ethbogota.com/",
     image: "images/devcon-bogota.png",
     isFeatured: true,
