@@ -3,7 +3,7 @@
     background-color: white;
     padding: 0 0.5rem;
     gap: 1rem;
-    border: solid 0px #02213A;
+    border: solid 1px RGBA(2,33,58,0.4);
     border-bottom: 1px solid transparent;
     transition: 0.2s;
     display: flex;
@@ -14,7 +14,7 @@
   }
 
   .item:last-child {
-    border-bottom: solid 0px #02213A;
+    border-bottom: solid 1px RGBA(2,33,58,0.4);
   }
 
   .item:hover + .item{

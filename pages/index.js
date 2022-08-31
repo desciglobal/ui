@@ -1,11 +1,12 @@
-import {getAllEvents} from '../dummy-data';
+import {getAllEvents} from '../event-data';
 import EventList from '../components/events/event-list';
-import EventsSearch from '../components/events/events-search';
+import EventListHeading from '../components/events/event-list-heading';
+
 import Hero from '../components/hero/hero';
 import Head from "next/head";
 
 function HomePage() {
-    const allEvents = getAllEvents();
+    const {upcomingEventsAsc, pastEventsAsc} = getAllEvents();
 
     return <><Head>
         <title>Desci events around the globe</title>
@@ -13,8 +14,13 @@ function HomePage() {
     </Head>
     <Hero/>
     <div>
+        <EventListHeading EventCount={upcomingEventsAsc.length} text="Upcoming Events"/>
         <ul>
-            <EventList items={allEvents}/>
+            <EventList items={upcomingEventsAsc}/>
+        </ul>
+        <EventListHeading text="Past Events"/>
+        <ul>
+            <EventList items={pastEventsAsc}/>
         </ul>
     </div>
     </>
