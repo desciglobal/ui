@@ -28,7 +28,7 @@ function HomePage() {
           content="../public/images/og-image.png"
         />
         {/* Twitter Meta Tags */}
-        <meta name="twitter:card" content="https://res.cloudinary.com/molecule/image/upload/v1662038910/og-image_mazp3j.png" />
+        <meta name="twitter:card" content="https://desciglobal.vercel.app/images/og-image.png" />
       </Head>
 
       <Hero/>
