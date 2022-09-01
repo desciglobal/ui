@@ -5,6 +5,7 @@ import EventListHeading from '../components/events/event-list-heading';
 import Hero from '../components/hero/hero';
 import Head from "next/head";
 
+
 function HomePage() {
   const {upcomingEventsAsc, pastEventsAsc} = getAllEvents();
 
@@ -27,7 +28,7 @@ function HomePage() {
           content="../public/images/og-image.png"
         />
         {/* Twitter Meta Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:card" content={require('../public/images/og-image.png')} />
       </Head>
 
       <Hero/>
