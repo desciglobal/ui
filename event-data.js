@@ -18,7 +18,7 @@ const DESCI_EVENTS = [
     location: "New Wall Street 5, 98765 New Work",
     date: "2022-09-15",
     link: "https://www.desci.berlin/",
-    image: "images/devcon-bogota.png",
+    image: 'images/desci-berlin.png',
     isFeatured: true,
   },
   {
@@ -51,6 +51,16 @@ const DESCI_EVENTS = [
     date: '2022-09-22',
     link: 'https://optispan.life/calendar',
     image: 'images/desci-seattle.png',
+    isFeatured: true,
+  },
+  {
+    id: 'e6',
+    title: '🇩🇪 DeSci Berlin',
+    description:
+    'Join us for brainstorming and help make Seattle Ground Central for \#DeSci',
+    date: '2022-05-23',
+    link: 'https://optispan.life/calendar',
+    image: 'images/desci-berlin.png',
     isFeatured: true,
   },
 ];
