@@ -11,13 +11,25 @@ function HomePage() {
   return (
     <>
       <Head>
+
         <title>Desci events around the globe</title>
+        <meta name="description" content="A list of descentralized science events around the globe. Contribute and share Events" />
+        {/* Facebook Meta Tags */}
         <meta
-          name="description"
-          content="A list of descentralized science events around the globe. Contribute and share Events"
-        >
-        </meta>
+          property="og:url"
+          content="desci.global"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Desci events around the globe" />
+        <meta property="og:description" content="A list of descentralized science events around the globe. Contribute and share Events" />
+        <meta
+          property="og:image"
+          content="../public/images/og-image.png"
+        />
+        {/* Twitter Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
+
       <Hero/>
       <div>
         <EventListHeading
