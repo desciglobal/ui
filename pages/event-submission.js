@@ -1,13 +1,8 @@
-import { getAllEvents } from "../event-data";
-import EventList from "../components/events/event-list";
-import EventListHeading from "../components/events/event-list-heading";
-
 import Hero from "../components/hero/hero";
 import Head from "next/head";
+import classes from "./event-submission.module.css";
 
-function HomePage() {
-  const { upcomingEventsAsc, pastEventsAsc } = getAllEvents();
-
+function eventSubmission() {
   return (
     <>
       <Head>
@@ -43,22 +38,21 @@ function HomePage() {
         />
       </Head>
 
-      <Hero headingText="Upcoming Desci Events" />
-      <div>
-        <EventListHeading
-          EventCount={upcomingEventsAsc.length}
-          text="Upcoming Events"
-        />
-        <ul>
-          <EventList items={upcomingEventsAsc} />
-        </ul>
-        <EventListHeading text="Past Events" />
-        <ul>
-          <EventList items={pastEventsAsc} />
-        </ul>
+      <Hero headingText="Submit an event" />
+      <div className={classes.wrapper}>
+        <script src="https://static.airtable.com/js/embed/embed_snippet_v1.js"></script>
+        <iframe
+          class="airtable-embed airtable-dynamic-height"
+          src="https://airtable.com/embed/shrr8DVzAdZyavVmM?backgroundColor=teal"
+          frameborder="0"
+          onmousewheel=""
+          width="100%"
+          height="1020"
+          
+        ></iframe>
       </div>
     </>
   );
 }
 
-export default HomePage;
+export default eventSubmission;

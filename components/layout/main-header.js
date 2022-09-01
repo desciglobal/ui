@@ -5,11 +5,15 @@ function MainHeader() {
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
+        <Link href="/">
+          <a>
         <img
           className={classes.img}
           src={"images/desci-global-logo.svg"}
           alt="desci-global-logo"
         />
+        </a>
+        </Link>
         <Link href="/">Desci.Global</Link>
       </div>
       <div className={classes.logo}>

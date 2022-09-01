@@ -1,26 +1,27 @@
 import classes from "./hero.module.css";
 import Announcements from "./announcements";
+import HeroHeading from "./HeroHeading";
+import Link from "next/link"
 
-function Hero() {
+function Hero(props) {
   return (
     <>
       <Announcements />
       <div className={classes.wrapper}>
-        <h1 className={classes.heading}>Upcoming Desci Events</h1>
+        <HeroHeading headingText={props.headingText}/>
         <p className={classes.paragraph}>
           This is the repo for the desci.global website, a resource for the
           DeSci community. The purpose of the site is to “Be the best overview
           of decentralized science events for our growing global community".
           desci.global is kept up to date by community members who submit
           upcoming events. If you are interested to support, you can make a pull
-          request here or submit a desci event{" "}
-          <a
-            target="_blank"
-            className={classes.formlink}
-            href="https://airtable.com/shrr8DVzAdZyavVmM"
+          request here or submit a desci event{" "} <span className={classes.formlink}>
+          <Link
+            href="/event-submission"
           >
             via this form.
-          </a>
+          </Link>
+          </span>
         </p>
       </div>
     </>
