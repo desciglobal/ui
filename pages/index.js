@@ -25,7 +25,7 @@ function HomePage() {
         <meta property="og:description" content="A list of descentralized science events around the globe. Contribute and share Events" />
         <meta
           property="og:image"
-          content="../public/images/og-image.png"
+          content="https://desciglobal.vercel.app/images/og-image.png"
         />
         {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="https://desciglobal.vercel.app/images/og-image.png" />
