@@ -12,7 +12,7 @@ const DESCI_EVENTS = [
   },
   {
     id: "e2",
-    title: "🇩🇪 DeSci Berlin",
+    title: "🇩🇪 DeSci Event on ETH Berlin",
     description:
       "We know: Networking is no fun if you are an introvert person. That's why we came up with this event - it'll be so much easier. Promised!",
     location: "New Wall Street 5, 98765 New Work",

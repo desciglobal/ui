@@ -2,8 +2,9 @@ import classes from "./hero.module.css";
 import Announcements from "./announcements";
 
 function Hero() {
-    return <>
-      <Announcements/>
+  return (
+    <>
+      <Announcements />
       <div className={classes.wrapper}>
         <h1 className={classes.heading}>Upcoming Desci Events</h1>
         <p className={classes.paragraph}>
@@ -11,11 +12,19 @@ function Hero() {
           DeSci community. The purpose of the site is to “Be the best overview
           of decentralized science events for our growing global community".
           desci.global is kept up to date by community members who submit
-          upcoming events. If you are interested to support, you can make a
-          pull request here or submit a desci event via this form.
-      </p>
-    </div>
-  </>
+          upcoming events. If you are interested to support, you can make a pull
+          request here or submit a desci event{" "}
+          <a
+            target="_blank"
+            className={classes.formlink}
+            href="https://airtable.com/shrr8DVzAdZyavVmM"
+          >
+            via this form.
+          </a>
+        </p>
+      </div>
+    </>
+  );
 }
 
 export default Hero;
