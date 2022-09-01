@@ -16,11 +16,11 @@ function EventItem(props) {
   return (
     <li className={classes.item}>
       <div className={classes.positioninga}>
-      <img src={"/" + image} alt={title} />
-          <h2>{title}</h2>
-          </div>
+        <img src={"/" + image} alt={title} />
+        <h2>{title}</h2>
+      </div>
 
-        <div className={classes.positioningb}>
+      <div className={classes.positioningb}>
         <div className={classes.date}>
           <time>{humanReadableDate}</time>
         </div>

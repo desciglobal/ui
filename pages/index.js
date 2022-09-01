@@ -6,24 +6,34 @@ import Hero from '../components/hero/hero';
 import Head from "next/head";
 
 function HomePage() {
-    const {upcomingEventsAsc, pastEventsAsc} = getAllEvents();
+  const {upcomingEventsAsc, pastEventsAsc} = getAllEvents();
 
-    return <><Head>
+  return (
+    <>
+      <Head>
         <title>Desci events around the globe</title>
-        <meta name="description" content="A list of descentralized science events around the globe. Contribute and share Events"></meta>
-    </Head>
-    <Hero/>
-    <div>
-        <EventListHeading EventCount={upcomingEventsAsc.length} text="Upcoming Events"/>
+        <meta
+          name="description"
+          content="A list of descentralized science events around the globe. Contribute and share Events"
+        >
+        </meta>
+      </Head>
+      <Hero/>
+      <div>
+        <EventListHeading
+          EventCount={upcomingEventsAsc.length}
+          text="Upcoming Events"
+        />
         <ul>
-            <EventList items={upcomingEventsAsc}/>
+          <EventList items={upcomingEventsAsc}/>
         </ul>
         <EventListHeading text="Past Events"/>
         <ul>
-            <EventList items={pastEventsAsc}/>
+          <EventList items={pastEventsAsc}/>
         </ul>
-    </div>
+      </div>
     </>
+  );
 }
 
 export default HomePage;

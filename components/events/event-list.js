@@ -6,19 +6,19 @@ function EventList(props) {
   const { items } = props;
   return (
     <div className={classes.container}>
-    <ul className={classes.list}>
-      {items.map((event) => (
-        <EventItem
-          key={event.id}
-          id={event.id}
-          title={event.title}
-          link={event.link}
-          location={event.location}
-          date={event.date}
-          image={event.image}
-        />
-      ))}
-    </ul>
+      <ul className={classes.list}>
+        {items.map((event) => (
+          <EventItem
+            key={event.id}
+            id={event.id}
+            title={event.title}
+            link={event.link}
+            location={event.location}
+            date={event.date}
+            image={event.image}
+          />
+        ))}
+      </ul>
     </div>
   );
 }
