@@ -44,16 +44,6 @@ const DESCI_EVENTS = [
     isFeatured: true,
   },
   {
-    id: 'e5',
-    title: '🇺🇸 DeSci Seattle',
-    description:
-    'Join us for brainstorming and help make Seattle Ground Central for \#DeSci',
-    date: '2022-09-22',
-    link: 'https://optispan.life/calendar',
-    image: 'images/desci-seattle.png',
-    isFeatured: true,
-  },
-  {
     id: 'e6',
     title: '🇩🇪 DeSci Berlin',
     description:
