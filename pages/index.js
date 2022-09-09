@@ -5,9 +5,8 @@ import EventListHeading from "../components/events/event-list-heading";
 import Hero from "../components/hero/hero";
 import Head from "next/head";
 
-function HomePage() {
-  const { upcomingEventsAsc, pastEventsAsc } = getAllEvents();
-
+function HomePage(props) {
+  const { upcomingEventsAsc, pastEventsAsc } = props;
   return (
     <>
       <Head>
@@ -61,4 +60,31 @@ function HomePage() {
   );
 }
 
+export async function getStaticProps(context) {
+  const { upcomingEventsAsc, pastEventsAsc } = await getAllEvents();
+
+  upcomingEventsAsc.forEach((event) => {
+    event.date = event.date.toISOString().substring(0, 10);
+  });
+
+  pastEventsAsc.forEach((event) => {
+    event.date = event.date.toISOString().substring(0, 10);
+  });
+
+  if (!pastEventsAsc) {
+    return {
+      redirect: {
+        destination: "/no-data",
+      },
+    };
+  }
+
+  return {
+    props: {
+      upcomingEventsAsc,
+      pastEventsAsc,
+    },
+    revalidate: 10,
+  };
+}
 export default HomePage;
