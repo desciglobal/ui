@@ -14,6 +14,7 @@ This is the repo for the [desci.global](https://desci.global) website, a resourc
 
   <h1>How to add an event?</h1>
 </div>
+
 You can make a event submission [through this form](https://desci.global/event-submission) and email johannes[at]molecule.to if you have questions, or make a pull request on github if you want to improve the page.
 
 *Initiated and maintainted with love by the [Molecule team 💙](https://www.molecule.to/about-us)*
