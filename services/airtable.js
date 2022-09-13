@@ -1,10 +1,14 @@
-import Airtable from 'airtable';
+import Airtable, { apiKey } from 'airtable';
 
 Airtable.configure({
   endpointUrl: "https://api.airtable.com",
   apiKey: process.env.AIRTABLE_KEY,
 });
+
+
+
 var base = Airtable.base("app04sUAGh69msJ75");
+
 
 
 export async function getAirtableEvents() {
@@ -26,3 +30,27 @@ export async function getAirtableEvents() {
 }
 
 
+
+export async function postEvent(data) {
+    const {title, date, link, image} = data;
+
+    if (!title || !date || !link || !image) {
+        console.lgo("missing argument for airtable postEvent")
+        return;
+    }
+
+    await base('Events').create({
+        "title": title,
+        "approved": false,
+        "description": "DUMMY",
+        "date": date,
+        "link": link,
+        "image": image
+      }, function(err, record) {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        //console.log(record.getId());
+      });
+}

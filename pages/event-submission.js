@@ -1,8 +1,23 @@
 import Hero from "../components/hero/hero";
 import Head from "next/head";
 import classes from "./event-submission.module.css";
+import { useForm } from 'react-hook-form';
+import {postEvent} from '../services/airtable';
+import {TextField, Button} from '@mui/material';
+
 
 function eventSubmission() {
+
+  const { register, handleSubmit, formState: {errors}, reset} = useForm({
+    defaultValues: {
+      title: "",
+      date: "",
+      link: "",
+      image: ""
+    }
+  });
+
+
   return (
     <>
       <Head>
@@ -40,16 +55,24 @@ function eventSubmission() {
 
       <Hero headingText="Submit an event" />
       <div className={classes.wrapper}>
-        <script src="https://static.airtable.com/js/embed/embed_snippet_v1.js"></script>
-        <iframe
-          class="airtable-embed airtable-dynamic-height"
-          src="https://airtable.com/embed/shrr8DVzAdZyavVmM?backgroundColor=teal"
-          frameborder="0"
-          onmousewheel=""
-          width="100%"
-          height="1020"
+        
+        <form onSubmit={handleSubmit((data)=> {
+          postEvent(data);
+          reset();
+          console.log(data)
+        })}>
+
+          <TextField className={classes.TextInput} id="outlined-basic" variant="outlined" {...register("title", {required: "Event Title is required"})} placeholder="Event Title" />
+          <p>{errors.title?.message}</p>
+          <TextField className={classes.TextInput} type="date" id="outlined-basic"  variant="outlined" {...register("date", {required: "Date is required"})} placeholder="Event Date" />
+          <p>{errors.date?.message}</p>
+          <TextField className={classes.TextInput} id="outlined-basic" variant="outlined" {...register("link", {required: "Some Link is required"})} placeholder="Link to Event Page" />
+          <p>{errors.link?.message}</p>
+          <TextField className={classes.TextInput} id="outlined-basic" variant="outlined" {...register("image")} placeholder="Link to Image" />
+          <p></p>
+          <Button><input type="submit"/></Button>
           
-        ></iframe>
+        </form>
       </div>
     </>
   );

@@ -1,4 +1,9 @@
 .wrapper {
-    padding: 5rem 10%;
+    padding: 2.5rem 10%;
     width: 100%;
 }
+
+.TextInput {
+    margin-bottom: 5px;
+}
+
