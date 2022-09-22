@@ -31,7 +31,7 @@ export async function getAirtableEvents() {
 
 
 
-export async function postEvent(data) {
+export async function AirtablePostEvent(data) {
     const {title, date, link, image} = data;
 
     if (!title || !date || !link || !image) {
@@ -40,16 +40,16 @@ export async function postEvent(data) {
     }
 
     await base('Events').create({
-        "title": title,
-        "approved": false,
-        "description": "DUMMY",
-        "date": date,
-        "link": link,
-        "image": image
+        "fld9XVQSHciA2sYEr": title,
+        "fld3sdoUOlAHYcHxN": false,
+        "fldpgviLauKF7iVlB": "DUMMY",
+        "fldFj7sR6T6qtOzuu": date,
+        "fldD5McbngcHUv4iG": link,
+        "fldernUoUjIjsbDjX": image
       }, function(err, record) {
         if (err) {
           console.error(err);
-          return;
+          return err;
         }
         //console.log(record.getId());
       });

@@ -6,7 +6,7 @@ import Hero from "../components/hero/hero";
 import Head from "next/head";
 
 function HomePage(props) {
-  const { upcomingEventsAsc, pastEventsAsc } = props;
+  const { upcomingEventsAsc, pastEventsDesc } = props;
   return (
     <>
       <Head>
@@ -53,7 +53,7 @@ function HomePage(props) {
         </ul>
         <EventListHeading text="Past Events" />
         <ul>
-          <EventList items={pastEventsAsc} />
+          <EventList items={pastEventsDesc} />
         </ul>
       </div>
     </>
@@ -61,17 +61,17 @@ function HomePage(props) {
 }
 
 export async function getStaticProps(context) {
-  const { upcomingEventsAsc, pastEventsAsc } = await getAllEvents();
+  const { upcomingEventsAsc, pastEventsDesc } = await getAllEvents();
 
   upcomingEventsAsc.forEach((event) => {
     event.date = event.date.toISOString().substring(0, 10);
   });
 
-  pastEventsAsc.forEach((event) => {
+  pastEventsDesc.forEach((event) => {
     event.date = event.date.toISOString().substring(0, 10);
   });
 
-  if (!pastEventsAsc) {
+  if (!pastEventsDesc) {
     return {
       redirect: {
         destination: "/no-data",
@@ -82,7 +82,7 @@ export async function getStaticProps(context) {
   return {
     props: {
       upcomingEventsAsc,
-      pastEventsAsc,
+      pastEventsDesc,
     },
     revalidate: 10,
   };

@@ -3,7 +3,6 @@ import { getAirtableEvents } from "./services/airtable";
 export async function getAllEvents() {
   const ALL_EVENTS = await getAirtableEvents();
   const DESCI_EVENTS = ALL_EVENTS.filter((event) => event.approved);
-  console.log(DESCI_EVENTS);
  
 
   let upcomingEvents = DESCI_EVENTS.filter(
@@ -25,12 +24,12 @@ export async function getAllEvents() {
   let dateConvertedPast = pastEvents.map((obj) => {
     return { ...obj, date: new Date(obj.date) };
   });
-  let pastEventsAsc = dateConvertedPast.sort(
-    (objA, objB) => Number(objA.date) - Number(objB.date)
+  let pastEventsDesc = dateConvertedPast.sort(
+    (objA, objB) =>  Number(objB.date) - Number(objA.date)
   );
 
 
-  return { upcomingEventsAsc, pastEventsAsc };
+  return { upcomingEventsAsc, pastEventsDesc };
 }
 
 function isInThePast(date) {
