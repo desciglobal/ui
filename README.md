@@ -1,8 +1,13 @@
 
 <div align="center" style="margin-top: 1em; margin-bottom: 3em;">
   <a href="https://desci.global"><img alt="desci global logo" src="./public/images/desci-global-white-logo.png" alt="desci.global" width="400"></a>
+</div>
+
+
+<div align="center" style="margin-top: 1em; margin-bottom: 3em;">
   <h2>Welcome 👋🔬🌐</h2>
 </div>
+
 
 This is the repo for the [desci.global](https://desci.global) website, a resource for the DeSci community. The purpose of the site is to _“Be the best overview of decentralized science events for our growing global community"_.
 
