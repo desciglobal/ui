@@ -52,7 +52,7 @@ export async function airtablePostEvent(data) {
   // }
 
   try {
-    await base("eventsTemp").create({
+    let record = await base("eventsTemp").create({
       fldzGTmBuSndlvtNq: event_title,
       fldHz7TnLS88YS7p8: contact_email,
       fldQQJA0ULKiuQdh7: contact_name,
