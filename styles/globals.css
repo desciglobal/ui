@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    scroll-behavior: smooth;
+  }
+
+.calc {
+    left: calc(50% - 15rem);
+}
+
+body {
+  word-break: break-word;
+}
+
+
+
+/* style for prev/next button */
+.carousel-slider .arrow-left {
+  position: absolute;
+  top: 7.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding: 0;
+  left: 16px !important;
+  z-index: 2;
+}
+
+.carousel-slider .arrow-left > span {
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.carousel-slider .arrow-right {
+  position: absolute;
+  top: 7.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding: 0;
+  left: 45px !important;
+  z-index: 1 !important;
+}
+.carousel-slider .arrow-right:hover {
+  scale: 130%;
+  transition: 0.2s;
+}
+.carousel-slider .arrow-left:hover {
+  scale: 130%;
+  transition: 0.2s;
+}
+
+.carousel-slider .arrow-left:active {
+  scale: 110%;
+  transition: 0.2s;
+}
+
+.carousel-slider .arrow-right:active {
+  scale: 110%;
+  transition: 0.2s;
+}
+
+/* hide prev/next button in mobile client */
+@media (max-width: 991.98px) {
+  .carousel-slider .arrow-left {
+    display: none;
+  }
+
+  .carousel-slider .arrow-right {
+    display: none;
+  }
+}
+
+.control-dots {
+  display: flex;
+  position: relative;
+  top: 25%;
+  height: fit-content;
+  width: calc(50vw - 1rem) !important;
+  margin-left: 1rem !important;
+}
+
+
+
+.control-dots div:not(:first-child) {
+  padding-left:10px;
+}
+
+.add-to-calendar-button {
+  border: none;
+  background: none;
+  color: #0A22F5;
+  
+  cursor: pointer;
+}
+
+.add-to-calendar-button:hover {
+  text-decoration: underline;
+}
+
+.add-to-calendar-wrapper {
+  position: relative;
+  position: relative;
+  display: inline;
+
+}
+
+.event-card {
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  background-color: #F5F5F5;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.add-to-calendar-button-tooltip {
+  position: absolute;
+  top: -162px;
+  left: 45px;
+  width:212px;
+  height:162px;
+  background: #F5F5F5;
+  display: block;
+  z-index: 100;
+}
+
+.calendar-provider-link {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  grid-gap: 12px;
+  align-items: center;
+  height: 40px;
+  width: 100%;
+  text-align: left;
+  padding-left: 10px;
+  background: none;
+  border:none;
+  font-size: 14px;
+  text-decoration: none;
+
+  color: #666;
+}
+
+.icon__placeholder {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-image: url("../public/images/global.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.custom-img {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}
+
+.unset-img {
+  width: 100%;
+}
+.unset-img > div {
+  position: unset !important;
+}

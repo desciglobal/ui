@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3000/ -->
+<html data-lt-installed="true"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width"><meta name="next-head-count" content="2"><noscript data-n-css=""></noscript><script defer="" nomodule="" src="http://localhost:3000/_next/static/chunks/polyfills.js?ts=1667841141812"></script><script src="http://localhost:3000/_next/static/chunks/webpack.js?ts=1667841141812" defer=""></script><script src="http://localhost:3000/_next/static/chunks/main.js?ts=1667841141812" defer=""></script><script src="http://localhost:3000/_next/static/chunks/pages/_app.js?ts=1667841141812" defer=""></script><script src="http://localhost:3000/_next/static/chunks/pages/index.js?ts=1667841141812" defer=""></script><script src="http://localhost:3000/_next/static/development/_buildManifest.js?ts=1667841141812" defer=""></script><script src="http://localhost:3000/_next/static/development/_ssgManifest.js?ts=1667841141812" defer=""></script><style>/*
+! tailwindcss v3.2.0 | MIT License | https://tailwindcss.com
+*//*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/
+
+*,
+::before,
+::after {
+  box-sizing: border-box; /* 1 */
+  border-width: 0; /* 2 */
+  border-style: solid; /* 2 */
+  border-color: #e5e7eb; /* 2 */
+}
+
+::before,
+::after {
+  --tw-content: '';
+}
+
+/*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+*/
+
+html {
+  line-height: 1.5; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  -moz-tab-size: 4; /* 3 */
+  -o-tab-size: 4;
+     tab-size: 4; /* 3 */
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
+}
+
+/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
+
+body {
+  margin: 0; /* 1 */
+  line-height: inherit; /* 2 */
+}
+
+/*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
+
+hr {
+  height: 0; /* 1 */
+  color: inherit; /* 2 */
+  border-top-width: 1px; /* 3 */
+}
+
+/*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+abbr:where([title]) {
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+}
+
+/*
+Remove the default font size and weight for headings.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/*
+Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/*
+1. Use the user's configured `mono` font family by default.
+2. Correct the odd `em` font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/*
+Add the correct font size in all browsers.
+*/
+
+small {
+  font-size: 80%;
+}
+
+/*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+
+table {
+  text-indent: 0; /* 1 */
+  border-color: inherit; /* 2 */
+  border-collapse: collapse; /* 3 */
+}
+
+/*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  font-weight: inherit; /* 1 */
+  line-height: inherit; /* 1 */
+  color: inherit; /* 1 */
+  margin: 0; /* 2 */
+  padding: 0; /* 3 */
+}
+
+/*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+button,
+select {
+  text-transform: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button; /* 1 */
+  background-color: transparent; /* 2 */
+  background-image: none; /* 2 */
+}
+
+/*
+Use the modern Firefox focus style for all focusable elements.
+*/
+
+:-moz-focusring {
+  outline: auto;
+}
+
+/*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+/*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+  vertical-align: baseline;
+}
+
+/*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+[type='search'] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+summary {
+  display: list-item;
+}
+
+/*
+Removes the default spacing and border for appropriate elements.
+*/
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+Prevent resizing textareas horizontally by default.
+*/
+
+textarea {
+  resize: vertical;
+}
+
+/*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  opacity: 1; /* 1 */
+  color: #9ca3af; /* 2 */
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1; /* 1 */
+  color: #9ca3af; /* 2 */
+}
+
+/*
+Set the default cursor for buttons.
+*/
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+:disabled {
+  cursor: default;
+}
+
+/*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block; /* 1 */
+  vertical-align: middle; /* 2 */
+}
+
+/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Make elements with the HTML hidden attribute stay hidden by default */
+[hidden] {
+  display: none;
+}
+
+*, ::before, ::after {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+}
+
+::backdrop {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+}
+.absolute {
+  position: absolute;
+}
+.relative {
+  position: relative;
+}
+.right-4 {
+  right: 1rem;
+}
+.bottom-4 {
+  bottom: 1rem;
+}
+.z-40 {
+  z-index: 40;
+}
+.col-span-3 {
+  grid-column: span 3 / span 3;
+}
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
+.row-span-3 {
+  grid-row: span 3 / span 3;
+}
+.row-span-2 {
+  grid-row: span 2 / span 2;
+}
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+.ml-2 {
+  margin-left: 0.5rem;
+}
+.mr-4 {
+  margin-right: 1rem;
+}
+.mb-4 {
+  margin-bottom: 1rem;
+}
+.mr-2 {
+  margin-right: 0.5rem;
+}
+.mt-5 {
+  margin-top: 1.25rem;
+}
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+.mr-\[3\%\] {
+  margin-right: 3%;
+}
+.ml-1 {
+  margin-left: 0.25rem;
+}
+.ml-4 {
+  margin-left: 1rem;
+}
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.mt-6 {
+  margin-top: 1.5rem;
+}
+.mr-20 {
+  margin-right: 5rem;
+}
+.mb-16 {
+  margin-bottom: 4rem;
+}
+.flex {
+  display: flex;
+}
+.grid {
+  display: grid;
+}
+.h-full {
+  height: 100%;
+}
+.h-20 {
+  height: 5rem;
+}
+.h-10 {
+  height: 2.5rem;
+}
+.h-\[70\%\] {
+  height: 70%;
+}
+.h-40 {
+  height: 10rem;
+}
+.h-\[100\%\] {
+  height: 100%;
+}
+.h-5 {
+  height: 1.25rem;
+}
+.h-\[38rem\] {
+  height: 38rem;
+}
+.h-14 {
+  height: 3.5rem;
+}
+.h-16 {
+  height: 4rem;
+}
+.h-screen {
+  height: 100vh;
+}
+.h-3\/5 {
+  height: 60%;
+}
+.h-2\/5 {
+  height: 40%;
+}
+.h-12 {
+  height: 3rem;
+}
+.h-\[100vh\] {
+  height: 100vh;
+}
+.h-\[80\%\] {
+  height: 80%;
+}
+.h-\[85\%\] {
+  height: 85%;
+}
+.min-h-\[15\%\] {
+  min-height: 15%;
+}
+.w-full {
+  width: 100%;
+}
+.w-10 {
+  width: 2.5rem;
+}
+.w-2\/4 {
+  width: 50%;
+}
+.w-40 {
+  width: 10rem;
+}
+.w-5 {
+  width: 1.25rem;
+}
+.w-\[80\%\] {
+  width: 80%;
+}
+.w-\[33\%\] {
+  width: 33%;
+}
+.w-\[65\%\] {
+  width: 65%;
+}
+.w-12 {
+  width: 3rem;
+}
+.w-\[74\%\] {
+  width: 74%;
+}
+.w-32 {
+  width: 8rem;
+}
+.transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.grid-flow-col {
+  grid-auto-flow: column;
+}
+.grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid-rows-4 {
+  grid-template-rows: repeat(4, minmax(0, 1fr));
+}
+.grid-rows-2 {
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.items-end {
+  align-items: flex-end;
+}
+.items-center {
+  align-items: center;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.gap-4 {
+  gap: 1rem;
+}
+.gap-0 {
+  gap: 0px;
+}
+.gap-8 {
+  gap: 2rem;
+}
+.space-x-20 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(5rem * var(--tw-space-x-reverse));
+  margin-left: calc(5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+.space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1rem * var(--tw-space-x-reverse));
+  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
+.text-ellipsis {
+  text-overflow: ellipsis;
+}
+.rounded-full {
+  border-radius: 9999px;
+}
+.border {
+  border-width: 1px;
+}
+.border-t {
+  border-top-width: 1px;
+}
+.border-b {
+  border-bottom-width: 1px;
+}
+.border-b-2 {
+  border-bottom-width: 2px;
+}
+.border-solid {
+  border-style: solid;
+}
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+.bg-desciblue {
+  --tw-bg-opacity: 1;
+  background-color: rgb(10 34 245 / var(--tw-bg-opacity));
+}
+.bg-descired {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 20 20 / var(--tw-bg-opacity));
+}
+.bg-descigrey {
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
+}
+.bg-\[\#F5F5F5\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
+}
+.bg-featured {
+  background-image: url('/images/featured-bg.png');
+}
+.bg-hero {
+  background-image: url('/images/hero-bg.svg');
+}
+.bg-cover {
+  background-size: cover;
+}
+.bg-no-repeat {
+  background-repeat: no-repeat;
+}
+.p-4 {
+  padding: 1rem;
+}
+.p-2 {
+  padding: 0.5rem;
+}
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+.pt-2 {
+  padding-top: 0.5rem;
+}
+.pb-6 {
+  padding-bottom: 1.5rem;
+}
+.pt-3 {
+  padding-top: 0.75rem;
+}
+.pb-20 {
+  padding-bottom: 5rem;
+}
+.pb-10 {
+  padding-bottom: 2.5rem;
+}
+.pr-4 {
+  padding-right: 1rem;
+}
+.pl-4 {
+  padding-left: 1rem;
+}
+.pt-4 {
+  padding-top: 1rem;
+}
+.pb-4 {
+  padding-bottom: 1rem;
+}
+.pb-2 {
+  padding-bottom: 0.5rem;
+}
+.pr-1\.5 {
+  padding-right: 0.375rem;
+}
+.pr-1 {
+  padding-right: 0.25rem;
+}
+.pt-5 {
+  padding-top: 1.25rem;
+}
+.pl-8 {
+  padding-left: 2rem;
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+.font-normal {
+  font-weight: 400;
+}
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+.text-descigreyfont {
+  --tw-text-opacity: 1;
+  color: rgb(70 70 70 / var(--tw-text-opacity));
+}
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.text-\[\#B1B1B1\] {
+  --tw-text-opacity: 1;
+  color: rgb(177 177 177 / var(--tw-text-opacity));
+}
+.opacity-0 {
+  opacity: 0;
+}
+.opacity-50 {
+  opacity: 0.5;
+}
+.opacity-30 {
+  opacity: 0.3;
+}
+.grayscale {
+  --tw-grayscale: grayscale(100%);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+.duration-100 {
+  transition-duration: 100ms;
+}
+.ease-in {
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+.placeholder\:text-2xl::-moz-placeholder {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.placeholder\:text-2xl::placeholder {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.placeholder\:text-black::-moz-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+.placeholder\:text-black::placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+.hover\:scale-110:hover {
+  --tw-scale-x: 1.1;
+  --tw-scale-y: 1.1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.hover\:opacity-80:hover {
+  opacity: 0.8;
+}
+.focus\:outline-none:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zdHlsZXMvZ2xvYmFscy5jc3MiLCI8bm8gc291cmNlPiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Q0FBYyxDQUFkOzs7Q0FBYzs7QUFBZDs7O0VBQUEsc0JBQWMsRUFBZCxNQUFjO0VBQWQsZUFBYyxFQUFkLE1BQWM7RUFBZCxtQkFBYyxFQUFkLE1BQWM7RUFBZCxxQkFBYyxFQUFkLE1BQWM7QUFBQTs7QUFBZDs7RUFBQSxnQkFBYztBQUFBOztBQUFkOzs7OztDQUFjOztBQUFkO0VBQUEsZ0JBQWMsRUFBZCxNQUFjO0VBQWQsOEJBQWMsRUFBZCxNQUFjO0VBQWQsZ0JBQWMsRUFBZCxNQUFjO0VBQWQsY0FBYztLQUFkLFdBQWMsRUFBZCxNQUFjO0VBQWQsNE5BQWMsRUFBZCxNQUFjO0FBQUE7O0FBQWQ7OztDQUFjOztBQUFkO0VBQUEsU0FBYyxFQUFkLE1BQWM7RUFBZCxvQkFBYyxFQUFkLE1BQWM7QUFBQTs7QUFBZDs7OztDQUFjOztBQUFkO0VBQUEsU0FBYyxFQUFkLE1BQWM7RUFBZCxjQUFjLEVBQWQsTUFBYztFQUFkLHFCQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEseUNBQWM7VUFBZCxpQ0FBYztBQUFBOztBQUFkOztDQUFjOztBQUFkOzs7Ozs7RUFBQSxrQkFBYztFQUFkLG9CQUFjO0FBQUE7O0FBQWQ7O0NBQWM7O0FBQWQ7RUFBQSxjQUFjO0VBQWQsd0JBQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDs7RUFBQSxtQkFBYztBQUFBOztBQUFkOzs7Q0FBYzs7QUFBZDs7OztFQUFBLCtHQUFjLEVBQWQsTUFBYztFQUFkLGNBQWMsRUFBZCxNQUFjO0FBQUE7O0FBQWQ7O0NBQWM7O0FBQWQ7RUFBQSxjQUFjO0FBQUE7O0FBQWQ7O0NBQWM7O0FBQWQ7O0VBQUEsY0FBYztFQUFkLGNBQWM7RUFBZCxrQkFBYztFQUFkLHdCQUFjO0FBQUE7O0FBQWQ7RUFBQSxlQUFjO0FBQUE7O0FBQWQ7RUFBQSxXQUFjO0FBQUE7O0FBQWQ7Ozs7Q0FBYzs7QUFBZDtFQUFBLGNBQWMsRUFBZCxNQUFjO0VBQWQscUJBQWMsRUFBZCxNQUFjO0VBQWQseUJBQWMsRUFBZCxNQUFjO0FBQUE7O0FBQWQ7Ozs7Q0FBYzs7QUFBZDs7Ozs7RUFBQSxvQkFBYyxFQUFkLE1BQWM7RUFBZCxlQUFjLEVBQWQsTUFBYztFQUFkLG9CQUFjLEVBQWQsTUFBYztFQUFkLG9CQUFjLEVBQWQsTUFBYztFQUFkLGNBQWMsRUFBZCxNQUFjO0VBQWQsU0FBYyxFQUFkLE1BQWM7RUFBZCxVQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkOztFQUFBLG9CQUFjO0FBQUE7O0FBQWQ7OztDQUFjOztBQUFkOzs7O0VBQUEsMEJBQWMsRUFBZCxNQUFjO0VBQWQsNkJBQWMsRUFBZCxNQUFjO0VBQWQsc0JBQWMsRUFBZCxNQUFjO0FBQUE7O0FBQWQ7O0NBQWM7O0FBQWQ7RUFBQSxhQUFjO0FBQUE7O0FBQWQ7O0NBQWM7O0FBQWQ7RUFBQSxnQkFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsd0JBQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDs7RUFBQSxZQUFjO0FBQUE7O0FBQWQ7OztDQUFjOztBQUFkO0VBQUEsNkJBQWMsRUFBZCxNQUFjO0VBQWQsb0JBQWMsRUFBZCxNQUFjO0FBQUE7O0FBQWQ7O0NBQWM7O0FBQWQ7RUFBQSx3QkFBYztBQUFBOztBQUFkOzs7Q0FBYzs7QUFBZDtFQUFBLDBCQUFjLEVBQWQsTUFBYztFQUFkLGFBQWMsRUFBZCxNQUFjO0FBQUE7O0FBQWQ7O0NBQWM7O0FBQWQ7RUFBQSxrQkFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkOzs7Ozs7Ozs7Ozs7O0VBQUEsU0FBYztBQUFBOztBQUFkO0VBQUEsU0FBYztFQUFkLFVBQWM7QUFBQTs7QUFBZDtFQUFBLFVBQWM7QUFBQTs7QUFBZDs7O0VBQUEsZ0JBQWM7RUFBZCxTQUFjO0VBQWQsVUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsZ0JBQWM7QUFBQTs7QUFBZDs7O0NBQWM7O0FBQWQ7RUFBQSxVQUFjLEVBQWQsTUFBYztFQUFkLGNBQWMsRUFBZCxNQUFjO0FBQUE7O0FBQWQ7O0VBQUEsVUFBYyxFQUFkLE1BQWM7RUFBZCxjQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkOztFQUFBLGVBQWM7QUFBQTs7QUFBZDs7Q0FBYztBQUFkO0VBQUEsZUFBYztBQUFBOztBQUFkOzs7O0NBQWM7O0FBQWQ7Ozs7Ozs7O0VBQUEsY0FBYyxFQUFkLE1BQWM7RUFBZCxzQkFBYyxFQUFkLE1BQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDs7RUFBQSxlQUFjO0VBQWQsWUFBYztBQUFBOztBQUFkLHdFQUFjO0FBQWQ7RUFBQSxhQUFjO0FBQUE7O0FBQWQ7RUFBQSx3QkFBYztFQUFkLHdCQUFjO0VBQWQsbUJBQWM7RUFBZCxtQkFBYztFQUFkLGNBQWM7RUFBZCxjQUFjO0VBQWQsY0FBYztFQUFkLGVBQWM7RUFBZCxlQUFjO0VBQWQsYUFBYztFQUFkLGFBQWM7RUFBZCxrQkFBYztFQUFkLHNDQUFjO0VBQWQsZUFBYztFQUFkLG9CQUFjO0VBQWQsc0JBQWM7RUFBZCx1QkFBYztFQUFkLHdCQUFjO0VBQWQsa0JBQWM7RUFBZCwyQkFBYztFQUFkLDRCQUFjO0VBQWQsc0NBQWM7RUFBZCxrQ0FBYztFQUFkLDJCQUFjO0VBQWQsc0JBQWM7RUFBZCw4QkFBYztFQUFkLFlBQWM7RUFBZCxrQkFBYztFQUFkLGdCQUFjO0VBQWQsaUJBQWM7RUFBZCxrQkFBYztFQUFkLGNBQWM7RUFBZCxnQkFBYztFQUFkLGFBQWM7RUFBZCxtQkFBYztFQUFkLHFCQUFjO0VBQWQsMkJBQWM7RUFBZCx5QkFBYztFQUFkLDBCQUFjO0VBQWQsMkJBQWM7RUFBZCx1QkFBYztFQUFkLHdCQUFjO0VBQWQseUJBQWM7RUFBZDtBQUFjOztBQUFkO0VBQUEsd0JBQWM7RUFBZCx3QkFBYztFQUFkLG1CQUFjO0VBQWQsbUJBQWM7RUFBZCxjQUFjO0VBQWQsY0FBYztFQUFkLGNBQWM7RUFBZCxlQUFjO0VBQWQsZUFBYztFQUFkLGFBQWM7RUFBZCxhQUFjO0VBQWQsa0JBQWM7RUFBZCxzQ0FBYztFQUFkLGVBQWM7RUFBZCxvQkFBYztFQUFkLHNCQUFjO0VBQWQsdUJBQWM7RUFBZCx3QkFBYztFQUFkLGtCQUFjO0VBQWQsMkJBQWM7RUFBZCw0QkFBYztFQUFkLHNDQUFjO0VBQWQsa0NBQWM7RUFBZCwyQkFBYztFQUFkLHNCQUFjO0VBQWQsOEJBQWM7RUFBZCxZQUFjO0VBQWQsa0JBQWM7RUFBZCxnQkFBYztFQUFkLGlCQUFjO0VBQWQsa0JBQWM7RUFBZCxjQUFjO0VBQWQsZ0JBQWM7RUFBZCxhQUFjO0VBQWQsbUJBQWM7RUFBZCxxQkFBYztFQUFkLDJCQUFjO0VBQWQseUJBQWM7RUFBZCwwQkFBYztFQUFkLDJCQUFjO0VBQWQsdUJBQWM7RUFBZCx3QkFBYztFQUFkLHlCQUFjO0VBQWQ7QUFBYztBQUVkO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUEsdUJBQW1CO0VBQW5CLG9EQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBLHVCQUFtQjtFQUFuQixvREFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBLHNCQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBLHNCQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBLGtCQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBLGtCQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBLGtCQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBLGtCQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBLGtCQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBLGtCQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBLGtCQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBLGlCQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBLG1CQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQSxpQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSxtQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSxrQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSxrQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSxtQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSxtQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBLG9CQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBLG9CQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBLG9CQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBLG9CQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBLCtCQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFGbkI7RUFBQSxrQkNBQTtFREFBO0NDQUE7QURBQTtFQUFBLGtCQ0FBO0VEQUE7Q0NBQTtBREFBO0VBQUEscUJDQUE7RURBQTtDQ0FBO0FEQUE7RUFBQSxxQkNBQTtFREFBO0NDQUE7QURBQTtFQUFBLGtCQ0FBO0VEQUEsa0JDQUE7RURBQTtDQ0FBO0FEQUE7RUFBQTtDQ0FBO0FEQUE7RUFBQSwrQkNBQTtFREFBO0NDQUEiLCJzb3VyY2VzQ29udGVudCI6WyJAdGFpbHdpbmQgYmFzZTtcbkB0YWlsd2luZCBjb21wb25lbnRzO1xuQHRhaWx3aW5kIHV0aWxpdGllcztcblxuIixudWxsXSwic291cmNlUm9vdCI6IiJ9 */</style><noscript id="__next_css__DO_NOT_USE__"></noscript><style type="text/css">
+@font-face {
+  font-weight: 400;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/CircularXXWeb-Book.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 500;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/CircularXXWeb-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 700;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/CircularXXWeb-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 900;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/CircularXXWeb-Black.woff2') format('woff2');
+}</style></head><body style=""><div id="__next"><section><div class="pt-4 pr-4 pl-4 h-screen"><div class="h-3/5"><div class="bg-hero bg-no-repeat h-full w-full bg-cover"><nav><div class="grid grid-col-6 grid-flow-col gap-4 h-5 items-center text-sm"><div></div><div class="flex justify-center"><a class="" href="http://localhost:3000/html/">Events</a><a class="ml-4" href="http://localhost:3000/html/">Resources</a><a class="ml-4" href="http://localhost:3000/html/">Bounties</a></div><div></div><div></div><div><div><a class="" href="http://localhost:3000/html/">Contributions</a></div></div><div></div></div></nav></div></div><div class="h-2/5 "><div class="grid grid-cols-3 gap-0 h-full"><div class="col-span-2 flex items-center pr-1.5"><p class="text-3xl font-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam orci nec elit congue sodales a quis erat. Quisque eget est quis orci ornare interdum. Suspendisse tincidunt ligula quis ultrices sollicitudin. Donec aliquam orci nec elit congue sodales a quis erat.<!-- --> </p></div><div class="bg-black text-white ml-2 flex items-center"><ul class="w-full mt-6"><li class="w-full flex flex-row"><div class="w-full text-xl border-solid border-white p-2 border-t border-b "><href>Subscribe to future events</href></div><div class="w-12 h-12 ml-2 bg-desciblue flex items-center justify-center"><svg width="29" height="36" viewBox="0 0 29 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.565082 13.8464L0.565078 21.3352C0.565079 21.3846 0.584721 21.432 0.619681 21.467L14.1897 35.037C14.3353 35.1826 14.5713 35.1826 14.7169 35.037L28.2869 21.467C28.3219 21.432 28.3415 21.3846 28.3415 21.3352L28.3415 13.8464C28.3415 13.6803 28.1407 13.5972 28.0233 13.7146L17.1564 24.5815L17.1564 0.533463C17.1564 0.327551 16.9894 0.160624 16.7835 0.160625L12.1231 0.160626C11.9171 0.160625 11.7502 0.32755 11.7502 0.533464L11.7502 24.5815L0.883317 13.7146C0.765879 13.5972 0.565082 13.6804 0.565082 13.8464Z" fill="white"></path></svg></div></li><li class="w-full flex flex-row"><div class="w-full text-xl border-solid border-white p-2 border-b "><href>Subscribe to event calendar</href></div><div class="w-12 h-12 ml-2 bg-descired flex items-center justify-center"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.3895 25.8526L27.8211 20.421C27.8569 20.3852 27.8771 20.3365 27.8771 20.2858V0.601181C27.8771 0.389971 27.7058 0.21875 27.4946 0.218751L7.81001 0.21875C7.7593 0.21875 7.71066 0.238897 7.6748 0.274757L2.24322 5.70634C2.12276 5.8268 2.20807 6.03277 2.37843 6.03277L18.142 6.03277L0.699902 23.4748C0.550554 23.6242 0.550554 23.8663 0.699902 24.0157L4.08015 27.3959C4.22949 27.5453 4.47163 27.5453 4.62098 27.3959L22.063 9.95385V25.7174C22.063 25.8877 22.269 25.9731 22.3895 25.8526Z" fill="black"></path></svg></div></li></ul></div></div></div></div></section><section><div class="pl-4 h-[38rem] flex"><div class="w-2/4 pr-4 flex flex-col justify-between"><div class="h-20 flex items-center"><p class="text-4xl text-black">Higlighted this week</p></div><div class="flex h-14 items-center"><div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" transform="rotate(-90 12 12)" fill="#B1B1B1"></circle><path d="M15 6.75L6 12L15 17.25" fill="white"></path></svg></div><div class="ml-1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle r="12" transform="matrix(0 -1 -1 0 12 12)" fill="black"></circle><path d="M9 6.75L18 12L9 17.25" fill="white"></path></svg></div></div><div class="flex w-full space-x-4 text-2xl h-10 items-center"><p>Desci Zurich</p><p class="opacity-50">Desci Boston</p><p class="opacity-30">Desci Zurich</p></div><div class="pt-2 pb-2"><p class="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam orci nec elit. congue sodales a quis erat. Quisque eget est quis orci ornare interdum. Suspendisse tincidunt ligula quis ultrices solicitudin. Done tincidunt pulvinar nisl, at interdum libero mollis ac. Donec ut dignissim dui. Integer ac est congue, congue velit ut, tempus purus. Donec ut dignissim dui. Integer ac est congue, congue velit. ut, tempus purus..</p></div><div><div class="w-full bg-black text-white h-10 flex items-center justify-center rounded-full text-xl mb-6"><a>Explore More</a></div><div class="pt-3"><ul><li><div class="h-10 border-solid border-t border-black flex items-center justify-between"><p>Location</p><p>Zürich</p></div></li><li><div class="h-10 border-solid border-t border-black flex items-center justify-between"><p>Date</p><date>10th Dec 2022</date></div></li><li><div class="h-10 border-solid border-t border-b border-black flex items-center justify-between"><p>Type</p><p>Online</p></div></li></ul></div></div></div><div class="w-2/4 bg-featured bg-no-repeat bg-cover flex justify-end"><div class="w-[33%] "><div class="ml-4 mt-2 h-16 flex items-center"><p class="text-xl text-white border-solid border-b-2">Desci Zürich</p></div></div><div class="w-[65%] mr-4 h-full bg-desciblue opacity-30"></div></div></div></section><section><div class="p-4 flex items-end pb-10"><div class="w-2/4 h-[70%] flex flex-col justify-between"><h2 class="text-4xl py-10">All Events</h2><p class="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam orci nec elit congue sodales a quis erat. Quisque eget est quis orci ornare interdum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Done aliquam orci nec elit congue sodales a quis erat. Quisque eget est quis orci ornare interdum. Done aliquam orci nec elit congue sodales a quis erat. Quisque eget est quis orci ornare interdum.</p></div></div><div class="bg-desciblue w-full pr-4 pl-4 h-10 grid grid-cols-6 items-center text-white text-lg"><div class="col-span-3">UPCOMING</div><div>LOCATION</div><div>TYPE</div><div class="">DATE</div></div><div class="pt-4 pb-4"><ul><li><div class="h-10 w-full pr-4 pl-4 grid grid-cols-6 items-center text-2xl"><p class="col-span-3">DeSci Boston</p><div class="flex items-center"><img class="h-5 w-5 mr-2 rounded-full" src="./localhost_files/de.svg" alt="" variant="flag"><p>Zurüch</p></div><p>Meetup</p><p>16. November 2022</p></div></li><li><div class="h-10 w-full pr-4 pl-4 grid grid-cols-6 items-center text-2xl"><p class="col-span-3">DeSci Boston</p><div class="flex items-center"><img class="h-5 w-5 mr-2 rounded-full" src="./localhost_files/de.svg" alt="" variant="flag"><p>Zurüch</p></div><p>Meetup</p><p>16. November 2022</p></div></li><li><div class="h-10 w-full pr-4 pl-4 grid grid-cols-6 items-center text-2xl"><p class="col-span-3">DeSci Boston</p><div class="flex items-center"><img class="h-5 w-5 mr-2 rounded-full" src="./localhost_files/de.svg" alt="" variant="flag"><p>Zurüch</p></div><p>Meetup</p><p>16. November 2022</p></div></li><li><div class="h-10 w-full pr-4 pl-4 grid grid-cols-6 items-center text-2xl"><p class="col-span-3">DeSci Boston</p><div class="flex items-center"><img class="h-5 w-5 mr-2 rounded-full" src="./localhost_files/de.svg" alt="" variant="flag"><p>Zurüch</p></div><p>Meetup</p><p>16. November 2022</p></div></li><li><div class="h-10 w-full pr-4 pl-4 grid grid-cols-6 items-center text-2xl"><p class="col-span-3">DeSci Boston</p><div class="flex items-center"><img class="h-5 w-5 mr-2 rounded-full" src="./localhost_files/de.svg" alt="" variant="flag"><p>Zurüch</p></div><p>Meetup</p><p>16. November 2022</p></div></li><li><div class="h-10 w-full pr-4 pl-4 grid grid-cols-6 items-center text-2xl"><p class="col-span-3">DeSci Boston</p><div class="flex items-center"><img class="h-5 w-5 mr-2 rounded-full" src="./localhost_files/cz.svg" alt="" variant="flag"><p>Zurüch</p></div><p>Meetup</p><p>16. November 2022</p></div></li><li><div class="h-10 w-full pr-4 pl-4 grid grid-cols-6 items-center text-2xl"><p class="col-span-3">DeSci Boston</p><div class="flex items-center"><img class="h-5 w-5 mr-2 rounded-full" src="./localhost_files/es.svg" alt="" variant="flag"><p>Zurüch</p></div><p>Meetup</p><p>16. November 2022</p></div></li><li><div class="h-10 w-full pr-4 pl-4 grid grid-cols-6 items-center text-2xl"><p class="col-span-3">DeSci Boston</p><div class="flex items-center"><img class="h-5 w-5 mr-2 rounded-full" src="./localhost_files/it.svg" alt="" variant="flag"><p>Zurüch</p></div><p>Meetup</p><p>16. November 2022</p></div></li><li><div class="h-10 w-full pr-4 pl-4 grid grid-cols-6 items-center text-2xl"><p class="col-span-3">DeSci Boston</p><div class="flex items-center"><img class="h-5 w-5 mr-2 rounded-full" src="./localhost_files/de.svg" alt="" variant="flag"><p>Zurüch</p></div><p>Meetup</p><p>16. November 2022</p></div></li><li><div class="h-10 w-full pr-4 pl-4 grid grid-cols-6 items-center text-2xl"><p class="col-span-3">DeSci Boston</p><div class="flex items-center"><img class="h-5 w-5 mr-2 rounded-full" src="./localhost_files/ch.svg" alt="" variant="flag"><p>Zurüch</p></div><p>Meetup</p><p>16. November 2022</p></div></li></ul></div><div class="bg-descigrey w-full mt-5 pr-4 pl-4 h-10 grid grid-cols-6 items-center text-lg"><div class="col-span-3">PREVIOUS</div><div>LOCATION</div><div>TYPE</div><div class="">DATE</div></div><div class="pt-4 pb-4"><ul><div class="pt-4 pb-4"><ul><li><div class="h-10 w-full pr-4 pl-4 grid grid-cols-6 items-center text-2xl"><p class="col-span-3">DeSci Boston</p><div class="flex items-center"><img class="h-5 w-5 mr-2 rounded-full" src="./localhost_files/de.svg" alt="" variant="flag"><p>Zurüch</p></div><p>Meetup</p><p>16. Mai 2022</p></div></li><li><div class="h-10 w-full pr-4 pl-4 grid grid-cols-6 items-center text-2xl"><p class="col-span-3">DeSci Boston</p><div class="flex items-center"><img class="h-5 w-5 mr-2 rounded-full" src="./localhost_files/de.svg" alt="" variant="flag"><p>Zurüch</p></div><p>Meetup</p><p>16. Mai 2022</p></div></li><li><div class="h-10 w-full pr-4 pl-4 grid grid-cols-6 items-center text-2xl"><p class="col-span-3">DeSci Boston</p><div class="flex items-center"><img class="h-5 w-5 mr-2 rounded-full" src="./localhost_files/de.svg" alt="" variant="flag"><p>Zurüch</p></div><p>Meetup</p><p>16. Mai 2022</p></div></li><li><div class="h-10 w-full pr-4 pl-4 grid grid-cols-6 items-center text-2xl"><p class="col-span-3">DeSci Boston</p><div class="flex items-center"><img class="h-5 w-5 mr-2 rounded-full" src="./localhost_files/de.svg" alt="" variant="flag"><p>Zurüch</p></div><p>Meetup</p><p>16. Mai 2022</p></div></li><li><div class="h-10 w-full pr-4 pl-4 grid grid-cols-6 items-center text-2xl"><p class="col-span-3">DeSci Boston</p><div class="flex items-center"><img class="h-5 w-5 mr-2 rounded-full" src="./localhost_files/de.svg" alt="" variant="flag"><p>Zurüch</p></div><p>Meetup</p><p>16. Mai 2022</p></div></li><li><div class="h-10 w-full pr-4 pl-4 grid grid-cols-6 items-center text-2xl"><p class="col-span-3">DeSci Boston</p><div class="flex items-center"><img class="h-5 w-5 mr-2 rounded-full" src="./localhost_files/cz.svg" alt="" variant="flag"><p>Zurüch</p></div><p>Meetup</p><p>16. Mai 2022</p></div></li><li><div class="h-10 w-full pr-4 pl-4 grid grid-cols-6 items-center text-2xl"><p class="col-span-3">DeSci Boston</p><div class="flex items-center"><img class="h-5 w-5 mr-2 rounded-full" src="./localhost_files/es.svg" alt="" variant="flag"><p>Zurüch</p></div><p>Meetup</p><p>16. Mai 2022</p></div></li><li><div class="h-10 w-full pr-4 pl-4 grid grid-cols-6 items-center text-2xl"><p class="col-span-3">DeSci Boston</p><div class="flex items-center"><img class="h-5 w-5 mr-2 rounded-full" src="./localhost_files/it.svg" alt="" variant="flag"><p>Zurüch</p></div><p>Meetup</p><p>16. Mai 2022</p></div></li><li><div class="h-10 w-full pr-4 pl-4 grid grid-cols-6 items-center text-2xl"><p class="col-span-3">DeSci Boston</p><div class="flex items-center"><img class="h-5 w-5 mr-2 rounded-full" src="./localhost_files/de.svg" alt="" variant="flag"><p>Zurüch</p></div><p>Meetup</p><p>16. Mai 2022</p></div></li><li><div class="h-10 w-full pr-4 pl-4 grid grid-cols-6 items-center text-2xl"><p class="col-span-3">DeSci Boston</p><div class="flex items-center"><img class="h-5 w-5 mr-2 rounded-full" src="./localhost_files/ch.svg" alt="" variant="flag"><p>Zurüch</p></div><p>Meetup</p><p>16. Mai 2022</p></div></li></ul></div></ul></div><div class="p-4"><form class="" action="http://localhost:3000/send-data-here" method="post"><label class="mb-5 text-[#B1B1B1]" for="email">SIGNUP FOR FUTURE EVENTS</label><div class="flex justify-between border-solid border-b border-black mr-[3%]"><input type="email" class="w-[80%] h-10 placeholder:text-black placeholder:text-2xl focus:outline-none" placeholder="your@email.com" id="first" name="first"><button type="submit" class="text-2xl">Submit</button></div></form></div><div class="p-4"><form class="" action="http://localhost:3000/send-data-here" method="post"><label class="mb-5 text-[#B1B1B1]" for="email">SUBSCRIBE TO CALENDAR</label><div class="flex justify-between border-solid border-b border-black mr-[3%]"><input type="email" class="w-[80%] h-10 placeholder:text-black placeholder:text-2xl focus:outline-none" placeholder="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2IQ6uZjtq2x3IEGTwDU2JTJ2u&amp;." id="first" name="first"><button type="submit" class="text-2xl">Add</button></div></form></div></section><section><div class="h-[100vh] flex items-center justify-center"><div class="h-[80%] w-[74%]"><h2 class="text-4xl text-black pt-5 min-h-[15%]">Resources</h2><div class="grid grid-cols-2 grid-rows-4 gap-4 h-[85%]"><div class="row-span-3 relative"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=%2Fimages%2Fresources-1.png&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=%2Fimages%2Fresources-1.png&amp;w=640&amp;q=75 640w, /_next/image?url=%2Fimages%2Fresources-1.png&amp;w=750&amp;q=75 750w, /_next/image?url=%2Fimages%2Fresources-1.png&amp;w=828&amp;q=75 828w, /_next/image?url=%2Fimages%2Fresources-1.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=%2Fimages%2Fresources-1.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=%2Fimages%2Fresources-1.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=%2Fimages%2Fresources-1.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=%2Fimages%2Fresources-1.png&amp;w=3840&amp;q=75 3840w"><noscript><img sizes="100vw" srcSet="/_next/image?url=%2Fimages%2Fresources-1.png&amp;w=640&amp;q=75 640w, /_next/image?url=%2Fimages%2Fresources-1.png&amp;w=750&amp;q=75 750w, /_next/image?url=%2Fimages%2Fresources-1.png&amp;w=828&amp;q=75 828w, /_next/image?url=%2Fimages%2Fresources-1.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=%2Fimages%2Fresources-1.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=%2Fimages%2Fresources-1.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=%2Fimages%2Fresources-1.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=%2Fimages%2Fresources-1.png&amp;w=3840&amp;q=75 3840w" src="/_next/image?url=%2Fimages%2Fresources-1.png&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" loading="lazy"/></noscript></span></div><div class="bg-[#F5F5F5] row-span-2"></div><div class="row-span-2"> <div class="flex"><div class="w-32"><h3 class="text-xl">Resource 2</h3></div><div class="w-full pl-8"><p class="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam orci nec elit congue sodales a quis erat. Quisque eget est quis orci ornare interdum. Suspendisse tincidunt ligula quis ultrices solicitudin. Done tincidunt pulvinar nisl, at interdum libero mollis ac.</p></div></div></div><div class="flex pt-4"><div class="w-32"><h3 class="text-xl">Resource 1</h3></div><div class="w-full pl-8"><p class="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Done aliquam orci nec elit congue sodales a quis erat.</p></div></div></div></div></div></section><section><div class="h-[100vh] flex items-center p-4"><div class="h-[80%] w-[74%]"><div class="grid grid-cols-2 grid-rows-4 gap-4 h-[85%]"><div class="row-span-2 bg-[#F5F5F5]">1</div><div class="row-span-3 relative"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=%2Fimages%2Fresources-1.png&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=%2Fimages%2Fresources-1.png&amp;w=640&amp;q=75 640w, /_next/image?url=%2Fimages%2Fresources-1.png&amp;w=750&amp;q=75 750w, /_next/image?url=%2Fimages%2Fresources-1.png&amp;w=828&amp;q=75 828w, /_next/image?url=%2Fimages%2Fresources-1.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=%2Fimages%2Fresources-1.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=%2Fimages%2Fresources-1.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=%2Fimages%2Fresources-1.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=%2Fimages%2Fresources-1.png&amp;w=3840&amp;q=75 3840w"></span></div><div class="row-span-2"> <div class="flex"><div class="w-32"><h3 class="text-xl">Resource 3</h3></div><div class="w-full pl-8"><p class="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam orci nec elit congue sodales a quis erat. Quisque eget est quis orci ornare interdum. Suspendisse tincidunt ligula quis ultrices solicitudin. Done tincidunt pulvinar nisl, at interdum libero mollis ac.</p></div></div></div><div class="row"> <div class="flex"><div class="w-32"><h3 class="text-xl">Resource 4</h3></div><div class="w-full pl-8"><p class="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Done aliquam orci nec elit congue sodales a quis erat.</p></div></div></div></div></div></div></section><section><div class="h-[100vh] mb-16 flex items-center justify-center"><div class="h-[100%] w-[74%]"><h2 class="text-4xl text-black pt-5 min-h-[15%]">Videos</h2><div class="grid grid-rows-2 grid-cols-2 gap-8 h-[85%] border border-white"><div><div class=" h-[80%] relative"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=%2Fimages%2Fvideo1.png&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=%2Fimages%2Fvideo1.png&amp;w=640&amp;q=75 640w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=750&amp;q=75 750w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=828&amp;q=75 828w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=3840&amp;q=75 3840w"><noscript><img sizes="100vw" srcSet="/_next/image?url=%2Fimages%2Fvideo1.png&amp;w=640&amp;q=75 640w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=750&amp;q=75 750w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=828&amp;q=75 828w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=3840&amp;q=75 3840w" src="/_next/image?url=%2Fimages%2Fvideo1.png&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" loading="lazy"/></noscript></span><div class="w-12 h-12 right-4 bottom-4 flex items-center justify-center absolute"><svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="43" height="43" fill="black"></rect><path d="M12.5 10L30.5 21.3684L12.5 32.7368V10Z" fill="white"></path></svg></div></div><div class="flex pt-2"><div class="w-32"><h3 class="text-xl">Video</h3></div><div class="w-full pl-8"><p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Donec aliquam orci nec elit congue sodales a...</p></div></div></div><div><div class=" h-[80%] relative"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=%2Fimages%2Fvideo1.png&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=%2Fimages%2Fvideo1.png&amp;w=640&amp;q=75 640w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=750&amp;q=75 750w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=828&amp;q=75 828w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=3840&amp;q=75 3840w"><noscript><img sizes="100vw" srcSet="/_next/image?url=%2Fimages%2Fvideo1.png&amp;w=640&amp;q=75 640w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=750&amp;q=75 750w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=828&amp;q=75 828w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=3840&amp;q=75 3840w" src="/_next/image?url=%2Fimages%2Fvideo1.png&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" loading="lazy"/></noscript></span><div class="w-12 h-12 right-4 bottom-4 flex items-center justify-center absolute"><svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="43" height="43" fill="black"></rect><path d="M12.5 10L30.5 21.3684L12.5 32.7368V10Z" fill="white"></path></svg></div></div><div class="flex pt-2"><div class="w-32"><h3 class="text-xl">Video</h3></div><div class="w-full pl-8"><p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Donec aliquam orci nec elit congue sodales a...</p></div></div></div><div><div class=" h-[80%] relative"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=%2Fimages%2Fvideo1.png&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=%2Fimages%2Fvideo1.png&amp;w=640&amp;q=75 640w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=750&amp;q=75 750w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=828&amp;q=75 828w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=%2Fimages%2Fvideo1.png&amp;w=3840&amp;q=75 3840w"></span><div class="w-12 h-12 right-4 bottom-4 flex items-center justify-center absolute"><svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="43" height="43" fill="black"></rect><path d="M12.5 10L30.5 21.3684L12.5 32.7368V10Z" fill="white"></path></svg></div></div><div class="flex pt-2"><div class="w-32"><h3 class="text-xl">Video</h3></div><div class="w-full pl-8"><p class="text text-ellipsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Donec aliquam orci nec elit congue sodales a quis erat.</p></div></div></div><div><div class=" h-[80%] relative"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=%2Fimages%2Fvideo2.png&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=%2Fimages%2Fvideo2.png&amp;w=640&amp;q=75 640w, /_next/image?url=%2Fimages%2Fvideo2.png&amp;w=750&amp;q=75 750w, /_next/image?url=%2Fimages%2Fvideo2.png&amp;w=828&amp;q=75 828w, /_next/image?url=%2Fimages%2Fvideo2.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=%2Fimages%2Fvideo2.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=%2Fimages%2Fvideo2.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=%2Fimages%2Fvideo2.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=%2Fimages%2Fvideo2.png&amp;w=3840&amp;q=75 3840w"><noscript><img sizes="100vw" srcSet="/_next/image?url=%2Fimages%2Fvideo2.png&amp;w=640&amp;q=75 640w, /_next/image?url=%2Fimages%2Fvideo2.png&amp;w=750&amp;q=75 750w, /_next/image?url=%2Fimages%2Fvideo2.png&amp;w=828&amp;q=75 828w, /_next/image?url=%2Fimages%2Fvideo2.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=%2Fimages%2Fvideo2.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=%2Fimages%2Fvideo2.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=%2Fimages%2Fvideo2.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=%2Fimages%2Fvideo2.png&amp;w=3840&amp;q=75 3840w" src="/_next/image?url=%2Fimages%2Fvideo2.png&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" loading="lazy"/></noscript></span><div class="w-12 h-12 right-4 bottom-4 flex items-center justify-center absolute"><svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="43" height="43" fill="black"></rect><path d="M12.5 10L30.5 21.3684L12.5 32.7368V10Z" fill="white"></path></svg></div></div><div class="flex pt-2"><div class="w-32"><h3 class="text-xl">Video</h3></div><div class="w-full pl-8"><p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Donec aliquam orci nec elit congue sodales a...</p></div></div></div></div></div></div></section><section><div class="flex items-center justify-center px-4 py-20 space-x-20"><div class="w-full h-full bg-white"> <div class="h-20 flex items-center"><h2 class="text-2xl text-black">Join us in organizing an event</h2></div><div class="pt-2 pb-6"><p class="text-lg text-descigreyfont">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam orci nec elit. congue sodales a quis erat. Quisque eget est quis orci ornare interdum. Suspendisse tincidunt ligula quis ultrices solicitudin. Done tincidunt pulvinar nisl, at interdum libero mollis ac. Donec ut dignissim dui. Integer ac est congue, congue velit ut, tempus purus. Donec ut dignissim dui. Integer ac est congue, congue velit. ut, tempus purus..</p></div><div><div class="w-full bg-black text-white h-10 flex items-center justify-center rounded-full text-xl mb-6"><a>Explore More</a></div><div class="pt-3"><ul><li><div class="flex w-full"><div class="h-10 border-solid border-t w-full border-black flex items-center justify-between"><p>Helpful link #3</p></div><div class="w-10 h-10 ml-2 bg-desciblue flex items-center justify-center"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.3895 25.8526L27.8211 20.421C27.8569 20.3852 27.8771 20.3365 27.8771 20.2858V0.601181C27.8771 0.389971 27.7058 0.21875 27.4946 0.218751L7.81001 0.21875C7.7593 0.21875 7.71066 0.238897 7.6748 0.274757L2.24322 5.70634C2.12276 5.8268 2.20807 6.03277 2.37843 6.03277L18.142 6.03277L0.699902 23.4748C0.550554 23.6242 0.550554 23.8663 0.699902 24.0157L4.08015 27.3959C4.22949 27.5453 4.47163 27.5453 4.62098 27.3959L22.063 9.95385V25.7174C22.063 25.8877 22.269 25.9731 22.3895 25.8526Z" fill="white"></path></svg></div></div></li><div class="flex w-full"><div class="h-10 border-solid border-t w-full border-black flex items-center justify-between"><p>Helpful link #3</p></div><div class="w-10 h-10 ml-2 bg-descired flex items-center justify-center"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.3895 25.8526L27.8211 20.421C27.8569 20.3852 27.8771 20.3365 27.8771 20.2858V0.601181C27.8771 0.389971 27.7058 0.21875 27.4946 0.218751L7.81001 0.21875C7.7593 0.21875 7.71066 0.238897 7.6748 0.274757L2.24322 5.70634C2.12276 5.8268 2.20807 6.03277 2.37843 6.03277L18.142 6.03277L0.699902 23.4748C0.550554 23.6242 0.550554 23.8663 0.699902 24.0157L4.08015 27.3959C4.22949 27.5453 4.47163 27.5453 4.62098 27.3959L22.063 9.95385V25.7174C22.063 25.8877 22.269 25.9731 22.3895 25.8526Z" fill="white"></path></svg></div></div><li><div class="flex w-full"><div class="h-10 border-solid border-t border-b w-full border-black flex items-center justify-between"><p>Helpful link #3</p></div><div class="w-10 h-10 ml-2 bg-black flex items-center justify-center"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.3895 25.8526L27.8211 20.421C27.8569 20.3852 27.8771 20.3365 27.8771 20.2858V0.601181C27.8771 0.389971 27.7058 0.21875 27.4946 0.218751L7.81001 0.21875C7.7593 0.21875 7.71066 0.238897 7.6748 0.274757L2.24322 5.70634C2.12276 5.8268 2.20807 6.03277 2.37843 6.03277L18.142 6.03277L0.699902 23.4748C0.550554 23.6242 0.550554 23.8663 0.699902 24.0157L4.08015 27.3959C4.22949 27.5453 4.47163 27.5453 4.62098 27.3959L22.063 9.95385V25.7174C22.063 25.8877 22.269 25.9731 22.3895 25.8526Z" fill="white"></path></svg></div></div></li></ul></div></div></div><div class="w-full h-full bg-white "><div class="h-20 flex items-center"><h2 class="text-2xl text-black">Contribute to decentralized science</h2></div><div class="pt-2 pb-6"><p class="text-lg text-descigreyfont">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam orci nec elit. congue sodales a quis erat. Quisque eget est quis orci ornare interdum. Suspendisse tincidunt ligula quis ultrices solicitudin. Done tincidunt pulvinar nisl, at interdum libero mollis ac. Donec ut dignissim dui. Integer ac est congue, congue velit ut, tempus purus. Donec ut dignissim dui. Integer ac est congue, congue velit. ut, tempus purus..</p></div><div><div class="w-full bg-black text-white h-10 flex items-center justify-center rounded-full text-xl mb-6"><a>Explore More</a></div><div class="pt-3"><ul><li><div class="flex w-full"><div class="h-10 border-solid border-t w-full border-black flex items-center justify-between"><p>How to create an event</p></div><div class="w-10 h-10 ml-2 bg-desciblue flex items-center justify-center"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.3895 25.8526L27.8211 20.421C27.8569 20.3852 27.8771 20.3365 27.8771 20.2858V0.601181C27.8771 0.389971 27.7058 0.21875 27.4946 0.218751L7.81001 0.21875C7.7593 0.21875 7.71066 0.238897 7.6748 0.274757L2.24322 5.70634C2.12276 5.8268 2.20807 6.03277 2.37843 6.03277L18.142 6.03277L0.699902 23.4748C0.550554 23.6242 0.550554 23.8663 0.699902 24.0157L4.08015 27.3959C4.22949 27.5453 4.47163 27.5453 4.62098 27.3959L22.063 9.95385V25.7174C22.063 25.8877 22.269 25.9731 22.3895 25.8526Z" fill="white"></path></svg></div></div></li><div class="flex w-full"><div class="h-10 border-solid border-t w-full border-black flex items-center justify-between"><p>Join our telegram group</p></div><div class="w-10 h-10 ml-2 bg-descired flex items-center justify-center"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.3895 25.8526L27.8211 20.421C27.8569 20.3852 27.8771 20.3365 27.8771 20.2858V0.601181C27.8771 0.389971 27.7058 0.21875 27.4946 0.218751L7.81001 0.21875C7.7593 0.21875 7.71066 0.238897 7.6748 0.274757L2.24322 5.70634C2.12276 5.8268 2.20807 6.03277 2.37843 6.03277L18.142 6.03277L0.699902 23.4748C0.550554 23.6242 0.550554 23.8663 0.699902 24.0157L4.08015 27.3959C4.22949 27.5453 4.47163 27.5453 4.62098 27.3959L22.063 9.95385V25.7174C22.063 25.8877 22.269 25.9731 22.3895 25.8526Z" fill="white"></path></svg></div></div><li><div class="flex w-full"><div class="h-10 border-solid border-t border-b w-full border-black flex items-center justify-between"><p>Get in touch with our team</p></div><div class="w-10 h-10 ml-2 bg-black flex items-center justify-center"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.3895 25.8526L27.8211 20.421C27.8569 20.3852 27.8771 20.3365 27.8771 20.2858V0.601181C27.8771 0.389971 27.7058 0.21875 27.4946 0.218751L7.81001 0.21875C7.7593 0.21875 7.71066 0.238897 7.6748 0.274757L2.24322 5.70634C2.12276 5.8268 2.20807 6.03277 2.37843 6.03277L18.142 6.03277L0.699902 23.4748C0.550554 23.6242 0.550554 23.8663 0.699902 24.0157L4.08015 27.3959C4.22949 27.5453 4.47163 27.5453 4.62098 27.3959L22.063 9.95385V25.7174C22.063 25.8877 22.269 25.9731 22.3895 25.8526Z" fill="white"></path></svg></div></div></li></ul></div></div></div></div></section><section class="pb-20"><div class="p-4 flex"><div class="w-2/4 h-[70%] flex flex-col justify-between"><h2 class="text-4xl pb-10">Contributors</h2><p class="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam orci nec elit congue sodales a quis erat. Quisque eget est quis orci ornare interdum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Done aliquam orci nec elit congue sodales a quis erat. Quisque eget est quis orci ornare interdum. Done aliquam orci nec elit congue sodales a quis erat. Quisque eget est quis orci ornare interdum.</p></div></div><ul><div class="flex flex-wrap p-4"><li class="mr-4 mb-4"><a href="https://twitter.com/paulkhls" target="_blank" rel="noreferrer"><div class="grid h-40 w-40"><div class=" h-[100%] relative grayscale"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=3840&amp;q=75 3840w" alt="Paul Kolhaas"></span></div><div class="bg-black absolute h-40 w-40 z-40 opacity-0 text-white items-center flex justify-center hover:opacity-80 ease-in duration-100">@Paul Kolhaas</div></div></a></li><li class="mr-4 mb-4"><a href="https://twitter.com/joweniger" target="_blank" rel="noreferrer"><div class="grid h-40 w-40"><div class=" h-[100%] relative grayscale"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=3840&amp;q=75 3840w" alt="Johannes Weniger"></span></div><div class="bg-black absolute h-40 w-40 z-40 opacity-0 text-white items-center flex justify-center hover:opacity-80 ease-in duration-100">@Johannes Weniger</div></div></a></li><li class="mr-4 mb-4"><a href="https://twitter.com/vincentweisse" target="_blank" rel="noreferrer"><div class="grid h-40 w-40"><div class=" h-[100%] relative grayscale"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=3840&amp;q=75 3840w" alt="Vincent Weisser"></span></div><div class="bg-black absolute h-40 w-40 z-40 opacity-0 text-white items-center flex justify-center hover:opacity-80 ease-in duration-100">@Vincent Weisser</div></div></a></li><li class="mr-4 mb-4"><a href="https://twitter.com/schmackofant" target="_blank" rel="noreferrer"><div class="grid h-40 w-40"><div class=" h-[100%] relative grayscale"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=3840&amp;q=75 3840w" alt="Schmackofant"></span></div><div class="bg-black absolute h-40 w-40 z-40 opacity-0 text-white items-center flex justify-center hover:opacity-80 ease-in duration-100">@Schmackofant</div></div></a></li><li class="mr-4 mb-4"><a href="https://twitter.com/paulkhls" target="_blank" rel="noreferrer"><div class="grid h-40 w-40"><div class=" h-[100%] relative grayscale"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=3840&amp;q=75 3840w" alt="Paul Kolhaas"></span></div><div class="bg-black absolute h-40 w-40 z-40 opacity-0 text-white items-center flex justify-center hover:opacity-80 ease-in duration-100">@Paul Kolhaas</div></div></a></li><li class="mr-4 mb-4"><a href="https://twitter.com/joweniger" target="_blank" rel="noreferrer"><div class="grid h-40 w-40"><div class=" h-[100%] relative grayscale"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=3840&amp;q=75 3840w" alt="Johannes Weniger"></span></div><div class="bg-black absolute h-40 w-40 z-40 opacity-0 text-white items-center flex justify-center hover:opacity-80 ease-in duration-100">@Johannes Weniger</div></div></a></li><li class="mr-4 mb-4"><a href="https://twitter.com/vincentweisse" target="_blank" rel="noreferrer"><div class="grid h-40 w-40"><div class=" h-[100%] relative grayscale"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=3840&amp;q=75 3840w" alt="Vincent Weisser"></span></div><div class="bg-black absolute h-40 w-40 z-40 opacity-0 text-white items-center flex justify-center hover:opacity-80 ease-in duration-100">@Vincent Weisser</div></div></a></li><li class="mr-4 mb-4"><a href="https://twitter.com/schmackofant" target="_blank" rel="noreferrer"><div class="grid h-40 w-40"><div class=" h-[100%] relative grayscale"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=3840&amp;q=75 3840w" alt="Schmackofant"></span></div><div class="bg-black absolute h-40 w-40 z-40 opacity-0 text-white items-center flex justify-center hover:opacity-80 ease-in duration-100">@Schmackofant</div></div></a></li><li class="mr-4 mb-4"><a href="https://twitter.com/paulkhls" target="_blank" rel="noreferrer"><div class="grid h-40 w-40"><div class=" h-[100%] relative grayscale"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=3840&amp;q=75 3840w" alt="Paul Kolhaas"></span></div><div class="bg-black absolute h-40 w-40 z-40 opacity-0 text-white items-center flex justify-center hover:opacity-80 ease-in duration-100">@Paul Kolhaas</div></div></a></li><li class="mr-4 mb-4"><a href="https://twitter.com/joweniger" target="_blank" rel="noreferrer"><div class="grid h-40 w-40"><div class=" h-[100%] relative grayscale"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=3840&amp;q=75 3840w" alt="Johannes Weniger"></span></div><div class="bg-black absolute h-40 w-40 z-40 opacity-0 text-white items-center flex justify-center hover:opacity-80 ease-in duration-100">@Johannes Weniger</div></div></a></li><li class="mr-4 mb-4"><a href="https://twitter.com/vincentweisse" target="_blank" rel="noreferrer"><div class="grid h-40 w-40"><div class=" h-[100%] relative grayscale"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=3840&amp;q=75 3840w" alt="Vincent Weisser"></span></div><div class="bg-black absolute h-40 w-40 z-40 opacity-0 text-white items-center flex justify-center hover:opacity-80 ease-in duration-100">@Vincent Weisser</div></div></a></li><li class="mr-4 mb-4"><a href="https://twitter.com/schmackofant" target="_blank" rel="noreferrer"><div class="grid h-40 w-40"><div class=" h-[100%] relative grayscale"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=3840&amp;q=75 3840w" alt="Schmackofant"></span></div><div class="bg-black absolute h-40 w-40 z-40 opacity-0 text-white items-center flex justify-center hover:opacity-80 ease-in duration-100">@Schmackofant</div></div></a></li><li class="mr-4 mb-4"><a href="https://twitter.com/B666S" target="_blank" rel="noreferrer"><div class="grid h-40 w-40"><div class=" h-[100%] relative grayscale"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1364654447402627072%2FJBOjysvH_400x400.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1364654447402627072%2FJBOjysvH_400x400.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1364654447402627072%2FJBOjysvH_400x400.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1364654447402627072%2FJBOjysvH_400x400.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1364654447402627072%2FJBOjysvH_400x400.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1364654447402627072%2FJBOjysvH_400x400.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1364654447402627072%2FJBOjysvH_400x400.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1364654447402627072%2FJBOjysvH_400x400.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1364654447402627072%2FJBOjysvH_400x400.jpg&amp;w=3840&amp;q=75 3840w" alt="Brittney Scott"></span></div><div class="bg-black absolute h-40 w-40 z-40 opacity-0 text-white items-center flex justify-center hover:opacity-80 ease-in duration-100">@Brittney Scott</div></div></a></li><li class="mr-4 mb-4"><a href="https://twitter.com/paulkhls" target="_blank" rel="noreferrer"><div class="grid h-40 w-40"><div class=" h-[100%] relative grayscale"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=3840&amp;q=75 3840w" alt="Paul Kolhaas"></span></div><div class="bg-black absolute h-40 w-40 z-40 opacity-0 text-white items-center flex justify-center hover:opacity-80 ease-in duration-100">@Paul Kolhaas</div></div></a></li><li class="mr-4 mb-4"><a href="https://twitter.com/joweniger" target="_blank" rel="noreferrer"><div class="grid h-40 w-40"><div class=" h-[100%] relative grayscale"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=3840&amp;q=75 3840w" alt="Johannes Weniger"></span></div><div class="bg-black absolute h-40 w-40 z-40 opacity-0 text-white items-center flex justify-center hover:opacity-80 ease-in duration-100">@Johannes Weniger</div></div></a></li><li class="mr-4 mb-4"><a href="https://twitter.com/vincentweisse" target="_blank" rel="noreferrer"><div class="grid h-40 w-40"><div class=" h-[100%] relative grayscale"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=3840&amp;q=75 3840w" alt="Vincent Weisser"></span></div><div class="bg-black absolute h-40 w-40 z-40 opacity-0 text-white items-center flex justify-center hover:opacity-80 ease-in duration-100">@Vincent Weisser</div></div></a></li><li class="mr-4 mb-4"><a href="https://twitter.com/schmackofant" target="_blank" rel="noreferrer"><div class="grid h-40 w-40"><div class=" h-[100%] relative grayscale"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=3840&amp;q=75 3840w" alt="Schmackofant"></span></div><div class="bg-black absolute h-40 w-40 z-40 opacity-0 text-white items-center flex justify-center hover:opacity-80 ease-in duration-100">@Schmackofant</div></div></a></li><li class="mr-4 mb-4"><a href="https://twitter.com/paulkhls" target="_blank" rel="noreferrer"><div class="grid h-40 w-40"><div class=" h-[100%] relative grayscale"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1444995367146344454%2F3YJbxvwq_400x400.jpg&amp;w=3840&amp;q=75 3840w" alt="Paul Kolhaas"></span></div><div class="bg-black absolute h-40 w-40 z-40 opacity-0 text-white items-center flex justify-center hover:opacity-80 ease-in duration-100">@Paul Kolhaas</div></div></a></li><li class="mr-4 mb-4"><a href="https://twitter.com/joweniger" target="_blank" rel="noreferrer"><div class="grid h-40 w-40"><div class=" h-[100%] relative grayscale"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1569978786837417985%2FtFHHxUB0_400x400.jpg&amp;w=3840&amp;q=75 3840w" alt="Johannes Weniger"></span></div><div class="bg-black absolute h-40 w-40 z-40 opacity-0 text-white items-center flex justify-center hover:opacity-80 ease-in duration-100">@Johannes Weniger</div></div></a></li><li class="mr-4 mb-4"><a href="https://twitter.com/vincentweisse" target="_blank" rel="noreferrer"><div class="grid h-40 w-40"><div class=" h-[100%] relative grayscale"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1483740433461264384%2F7EQIjO7l_400x400.jpg&amp;w=3840&amp;q=75 3840w" alt="Vincent Weisser"></span></div><div class="bg-black absolute h-40 w-40 z-40 opacity-0 text-white items-center flex justify-center hover:opacity-80 ease-in duration-100">@Vincent Weisser</div></div></a></li><li class="mr-4 mb-4"><a href="https://twitter.com/schmackofant" target="_blank" rel="noreferrer"><div class="grid h-40 w-40"><div class=" h-[100%] relative grayscale"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img src="http://localhost:3000/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:cover" sizes="100vw" srcset="/_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1400053908228259841%2F7z2EWJ_Z_400x400.jpg&amp;w=3840&amp;q=75 3840w" alt="Schmackofant"></span></div><div class="bg-black absolute h-40 w-40 z-40 opacity-0 text-white items-center flex justify-center hover:opacity-80 ease-in duration-100">@Schmackofant</div></div></a></li></div></ul></section><section><div class="p-4 flex"><div class="w-2/4 h-[70%] flex flex-col justify-between"><h2 class="text-4xl pb-10">In Participation with</h2></div></div><ul><div class="flex flex-wrap p-4"><li class="mr-20 mb-4 hover:scale-110 duration-100"><a href="https://www.vitadao.com/" target="_blank" rel="noreferrer"><div class=" w-40 flex items-center justify-center h-20"><div class="relative grayscale"><img src="./localhost_files/6179a1b748955b071c6eeca6_vitadao-logo-dark.svg" layout="fill" objectfit="cover"></div></div></a></li><li class="mr-20 mb-4 hover:scale-110 duration-100"><a href="https://www.valleydao.bio/" target="_blank" rel="noreferrer"><div class=" w-40 flex items-center justify-center h-20"><div class="relative grayscale"><img src="./localhost_files/6315f76f93b5737098b53f90_logo.svg" layout="fill" objectfit="cover"></div></div></a></li><li class="mr-20 mb-4 hover:scale-110 duration-100"><a href="https://www.valleydao.bio/" target="_blank" rel="noreferrer"><div class=" w-40 flex items-center justify-center h-20"><div class="relative grayscale"><img src="./localhost_files/labdao-full-2x-a118264c.png" layout="fill" objectfit="cover"></div></div></a></li><li class="mr-20 mb-4 hover:scale-110 duration-100"><a href="https://psydao.io/" target="_blank" rel="noreferrer"><div class=" w-40 flex items-center justify-center h-20"><div class="relative grayscale"><img src="./localhost_files/9EKVxeyM_400x400.jpg" layout="fill" objectfit="cover"></div></div></a></li></div></ul></section></div><script src="http://localhost:3000/_next/static/chunks/react-refresh.js?ts=1667841141812"></script><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"events":[{"id":"e1","title":"DeSci Boston","description":"Everyone can learn to code! Yes, everyone! In this live event, we are going to go through all the key basics and get you started with programming as well.","location":"Somestreet 25, 12345 San Somewhereo","date":"2021-05-12","image":"images/coding-event.png","country":"DE","isFeatured":false},{"id":"e1","title":"DeSci Boston","description":"Everyone can learn to code! Yes, everyone! In this live event, we are going to go through all the key basics and get you started with programming as well.","location":"Somestreet 25, 12345 San Somewhereo","date":"2021-05-12","image":"images/coding-event.png","country":"DE","isFeatured":false},{"id":"e1","title":"DeSci Boston","description":"Everyone can learn to code! Yes, everyone! In this live event, we are going to go through all the key basics and get you started with programming as well.","location":"Somestreet 25, 12345 San Somewhereo","date":"2021-05-12","image":"images/coding-event.png","country":"DE","isFeatured":false},{"id":"e1","title":"DeSci Boston","description":"Everyone can learn to code! Yes, everyone! In this live event, we are going to go through all the key basics and get you started with programming as well.","location":"Somestreet 25, 12345 San Somewhereo","date":"2021-05-12","image":"images/coding-event.png","country":"DE","isFeatured":false},{"id":"e1","title":"DeSci Boston","description":"Everyone can learn to code! Yes, everyone! In this live event, we are going to go through all the key basics and get you started with programming as well.","location":"Somestreet 25, 12345 San Somewhereo","date":"2021-05-12","image":"images/coding-event.png","country":"DE","isFeatured":false},{"id":"e1","title":"DeSci Boston","description":"Everyone can learn to code! Yes, everyone! In this live event, we are going to go through all the key basics and get you started with programming as well.","location":"Somestreet 25, 12345 San Somewhereo","date":"2021-05-12","image":"images/coding-event.png","country":"CZ","isFeatured":false},{"id":"e1","title":"DeSci Boston","description":"Everyone can learn to code! Yes, everyone! In this live event, we are going to go through all the key basics and get you started with programming as well.","location":"Somestreet 25, 12345 San Somewhereo","date":"2021-05-12","image":"images/coding-event.png","country":"ES","isFeatured":false},{"id":"e1","title":"DeSci Boston","description":"Everyone can learn to code! Yes, everyone! In this live event, we are going to go through all the key basics and get you started with programming as well.","location":"Somestreet 25, 12345 San Somewhereo","date":"2021-05-12","image":"images/coding-event.png","country":"IT","isFeatured":false},{"id":"e1","title":"DeSci Boston","description":"Everyone can learn to code! Yes, everyone! In this live event, we are going to go through all the key basics and get you started with programming as well.","location":"Somestreet 25, 12345 San Somewhereo","date":"2021-05-12","image":"images/coding-event.png","country":"DE","isFeatured":false},{"id":"e1","title":"DeSci Boston","description":"Everyone can learn to code! Yes, everyone! In this live event, we are going to go through all the key basics and get you started with programming as well.","location":"Somestreet 25, 12345 San Somewhereo","date":"2021-05-12","image":"images/coding-event.png","country":"CH","isFeatured":false}]},"__N_SSG":true},"page":"/","query":{},"buildId":"development","isFallback":false,"gsp":true,"scriptLoader":[]}</script><div id="__next-build-watcher" style="position: fixed; bottom: 10px; right: 20px; width: 0px; height: 0px; z-index: 99999;"></div><next-route-announcer><p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; overflow-wrap: normal;"></p></next-route-announcer></body><loom-container id="lo-engage-ext-container"><loom-shadow classname="resolved"></loom-shadow></loom-container><loom-container id="lo-companion-container"><loom-shadow classname="resolved"></loom-shadow></loom-container></html>
