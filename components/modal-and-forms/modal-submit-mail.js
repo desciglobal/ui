@@ -29,7 +29,7 @@ function ModalSubmitMail(props) {
 
   return (
     <div
-      className="bg-white p-4 flex flex-col items-center z-40 fixed shadow-white-500/50 left-0 top-0 w-full h-full lg:w-1/2 lg:h-5/6 lg:left-[50%] lg:top-[50%] lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2"
+      className="bg-white p-4 flex flex-col items-center z-40 fixed shadow-white-500/50 left-0 top-0 w-full h-full lg:w-1/2 lg:h-1/2 lg:left-[50%] lg:top-[50%] lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2"
       id="modal"
     >
       <div className="h-full w-full">
