@@ -142,7 +142,7 @@ function AllEventsSection(props) {
                           ></img>
                           <p>{event.event_city}</p>
                         </div>
-                        <p>Meetup</p>
+                        <p className="text-sm">{event.meetup_type}</p>
                         <p className="text-sm">{event.event_local_date}</p>
                       </div>
                     </li>
