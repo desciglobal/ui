@@ -73,7 +73,7 @@ function ModalSubmitEvent(props) {
       className="bg-white p-4 flex flex-col items-center calc w-[30rem] z-40 fixed top-[10vh] shadow-white-500/50"
       id="modal"
     >
-      <div className="h-full w-full">
+      <div className="h-full w-full relative">
         <h2 className="text-4xl pt-4 pb-8">Submit an Event 📆 🔬</h2>
         <div>
           <p className="text-lg">
@@ -172,6 +172,11 @@ function ModalSubmitEvent(props) {
               {isSubmitting ? "Submittin" : "Submit"}
             </button>
           </form>
+        </div>
+        <div className="absolute top-0 right-0 p-1 cursor-pointer" onClick={props.onClick}>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
         </div>
       </div>
     </div>
