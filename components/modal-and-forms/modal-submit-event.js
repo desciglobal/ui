@@ -74,7 +74,7 @@ function ModalSubmitEvent(props) {
       id="modal"
     >
       <div className="h-full w-full relative">
-        <h2 className="text-4xl pt-4 pb-8">Submit an Event 📆 🔬</h2>
+        <h2 className="text-2xl pt-4 pb-8">Submit an Event 📆 🔬</h2>
         <div>
           <p className="text-lg">
             Submit your event and contribute to the descentralized science

@@ -108,7 +108,7 @@ function HeroSection() {
           </div>
         </div>
       </div>
-      {emailIsOpen && <ModalSubmitMail />}
+      {emailIsOpen && <ModalSubmitMail onClick={closeEmailHandler} />}
       {emailIsOpen && <Backdrop onClick={closeEmailHandler} />}
       {modalIsOpen && <ModalSubmitEvent onClick={closeModalHandler} />}
       {modalIsOpen && <Backdrop onClick={closeModalHandler} />}

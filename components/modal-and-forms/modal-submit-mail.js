@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
-function ModalSubmitMail() {
+function ModalSubmitMail(props) {
   const schema = yup
     .object({
       email: yup.string().required().email(),
@@ -29,11 +29,11 @@ function ModalSubmitMail() {
 
   return (
     <div
-      className="bg-white p-4 flex flex-col items-center calc w-[30rem] z-40 fixed top-[20vh] shadow-white-500/50"
+      className="bg-white p-4 flex flex-col items-center z-40 fixed shadow-white-500/50 left-0 top-0 w-full h-full lg:w-1/2 lg:h-5/6 lg:left-[50%] lg:top-[50%] lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2"
       id="modal"
     >
       <div className="h-full w-full">
-        <h2 className="text-4xl pt-4 pb-12">Get the latest desci news 💌</h2>
+        <h2 className="text-2xl pt-4 pb-12">Get the latest desci news 💌</h2>
         <div>
           <p className="text-lg">
             Submit your email and stay up to date with the events and news in
@@ -64,6 +64,11 @@ function ModalSubmitMail() {
               </button>
             </div>
           </form>
+        </div>
+        <div className="absolute top-0 right-0 p-8 cursor-pointer" onClick={props.onClick}>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
         </div>
       </div>
     </div>
