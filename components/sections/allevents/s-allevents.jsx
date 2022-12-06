@@ -82,13 +82,13 @@ function AllEventsSection(props) {
                     ></img>
                     <p className="lg:block hidden">{event.event_city}</p>
                   </div>
-                  <p className="lg:block hidden">{event.meetup_type}</p>
+                  <p className="lg:block hidden text-sm">{event.meetup_type}</p>
                   {event.meetup_type == "To be Finalized" ? (
                     <p className="lg:block hidden">
                       {month} {year}
                     </p>
                   ) : (
-                    <p className="lg:block hidden">{event.event_local_date}</p>
+                    <p className="lg:block hidden text-sm">{event.event_local_date}</p>
                   )}
 
                   <div className="lg:hidden text-l  flex justify-end col-span-2">
@@ -143,7 +143,7 @@ function AllEventsSection(props) {
                           <p>{event.event_city}</p>
                         </div>
                         <p>Meetup</p>
-                        <p>{event.event_local_date}</p>
+                        <p className="text-sm">{event.event_local_date}</p>
                       </div>
                     </li>
                   );
