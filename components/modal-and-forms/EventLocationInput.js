@@ -36,37 +36,30 @@ export default class LocationSearchInput extends React.Component {
         
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-          
-          <div>
+
+          <div className="relative">
             <input
               {...getInputProps({
+                id: 'location-input',
                 placeholder: 'Search Event Locations and Addresses ...',
                 className: 'form-input block w-[97%] px-0.5 border-0 border-b border-black focus:ring-0 focus:border-black',
               })}
             />
-            <div className="autocomplete-dropdown-container">
-              {loading && <div>Loading...</div>}
-              {suggestions.map(suggestion => {
-
-                const className = suggestion.active
-                  ? 'suggestion-item--active'
-                  : 'suggestion-item';
-                // inline style for demonstration purpose
-                const style = suggestion.active
-                  ? { backgroundColor: '#fafafa', cursor: 'pointer' }
-                  : { backgroundColor: '#ffffff', cursor: 'pointer' };
-                return (
-                  <div
-                    {...getSuggestionItemProps(suggestion, {
-                      className,
-                      style,
-                    })}
-                  >
-                    <span>{suggestion.description}</span>
-                  </div>
-                );
-              })}
-            </div>
+            {!!suggestions.length && <div class="absolute left-0 bottom-[110%] z-10 mt-2 w-[97%] origin-bottom-right rounded-md bg-white shadow-lg shadow-zinc-400 ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="location-input" tabindex="-1">
+              <div class="py-1" role="none">
+                {loading && <div>Loading...</div>}
+                {suggestions.map(suggestion => (
+                    <div
+                      {...getSuggestionItemProps(suggestion, {
+                        className: `text-gray-700 block px-4 py-2 text-sm cursor-pointer ${suggestion.active ? 'bg-slate-100' : 'bg-white'}`,
+                      })}
+                      key={suggestion.id}
+                    >
+                      <span>{suggestion.description}</span>
+                    </div>
+                ))}
+              </div>
+            </div>}
           </div>
         )}
       </PlacesAutocomplete>
