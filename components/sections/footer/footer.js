@@ -59,8 +59,8 @@ function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="" target="_blank" rel={"noreferrer"}>
-                    instagram
+                  <a href="https://github.com/desciglobal/ui" target="_blank" rel={"noreferrer"}>
+                    github
                   </a>
                 </li>
                 <li>
