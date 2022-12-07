@@ -169,7 +169,7 @@ function ModalSubmitEvent(props) {
             </div> */}
             <LocationSearchInput setAddress={getAddress} />
             <button type="submit" className="text-l mt-5">
-              {isSubmitting ? "Submittin" : "Submit"}
+              {isSubmitting ? "Submitting" : "Submit"}
             </button>
           </form>
         </div>

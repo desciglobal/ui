@@ -1,11 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { MixpanelTracking } from "../../services/mixpanel";
+import {airtablePostEmail} from "../../services/airtable";
+
+
 
 
 function EmailandEventCalForm() {
+  const [submitted, setSubmitted] = useState(false);
+
+
   const schema = yup
     .object({
       email: yup.string().required().email(),
@@ -19,13 +25,15 @@ function EmailandEventCalForm() {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = async (data) => {
-    fetch("/api/postEmail", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    }).then((response) => console.log("API Response :", response));
+
+    try {
+      await airtablePostEmail(data);
+      setSubmitted(true);
+      
+    } catch (err) {
+      alert(`Error submitting Email to Airtable: ${err.message}`);
+    }
+
   };
 
   function trackCalendarSubscribed(){
@@ -40,17 +48,17 @@ function EmailandEventCalForm() {
           <label className="mb-5 text-[#B1B1B1]" htmlFor="email">
             GET THE LATEST DESCI NEWS
           </label>
-          <div className="flex justify-between border-solid border-b border-black mr-[3%]">
+          <div className="flex justify-between border-solid border-b text-xl border-black mr-[3%]">
             <input
               type="email"
-              className="w-[80%] h-10 placeholder:text-black lg:placeholder:text-2xl focus:outline-none focus:placeholder:opacity-0"
+              className="w-[80%] h-10 placeholder:text-black lg:placeholder:text-xl focus:outline-none focus:text-xl focus:placeholder:opacity-0"
               placeholder="your@email.com"
               id="first"
               name="first"
               {...register("email")}
             />
             <button type="submit" className="lg:text-2xl">
-              Submit
+            {submitted ? "Submitted" : "Submit"}
             </button>
           </div>
         </form>
@@ -61,7 +69,7 @@ function EmailandEventCalForm() {
           <label className="mb-5 text-[#B1B1B1]" htmlFor="email">
             SUBSCRIBE TO CALENDAR
           </label>
-          <div className="flex justify-between border-solid border-b border-black mr-[3%]">
+          <div className="flex justify-between border-solid border-b border-black mr-[3%] text-xl">
             <input
               type="email"
               className="w-[80%] h-10 placeholder:text-black lg:placeholder:text-2xl focus:outline-none"

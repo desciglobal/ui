@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import {airtablePostEmail} from "../../services/airtable";
 
 function ModalSubmitMail() {
   const schema = yup
@@ -18,13 +19,13 @@ function ModalSubmitMail() {
 
   const onSubmit = async (data) => {
 
-    fetch("/api/postEmail", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    }).then((response) => console.log("API Response :", response));
+    try {
+      await airtablePostEmail(data);
+      alert("Your Email was submitted, you can close the modal now!");
+    } catch (err) {
+      alert(`Error submitting Email to Airtable: ${err.message}`);
+    }
+
   };
 
   return (
@@ -52,7 +53,7 @@ function ModalSubmitMail() {
             <div className="flex justify-between border-solid border-b border-black mr-[3%]">
               <input
                 type="email"
-                className="w-[80%] h-10 placeholder:text-black placeholder:text-l focus:outline-none"
+                className="w-[80%] h-10 placeholder:text-black placeholder:text-l  focus:outline-none focus:placeholder:opacity-0"
                 placeholder="your@email.com"
                 id="first"
                 name="first"
@@ -60,7 +61,7 @@ function ModalSubmitMail() {
               />
               {errors.email?.message}
               <button type="submit" className="text-l">
-                Submit
+              {isSubmitting ? "Submitting" : "Submit"}
               </button>
             </div>
           </form>
