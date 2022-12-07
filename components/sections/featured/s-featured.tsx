@@ -50,8 +50,8 @@ export default class withCustomStatusArrowsAndIndicators extends Component <any,
                 className="space-x-4 text flex items-center h-10 cursor-pointer text-[#464646ae] max-w-[15rem] leading-5	text-left"
                 onClick={clickHandler}
               >
-                <div className="h-6 w-6 hover:scale-110 duration-100">
-                  <img src="/images/global.svg"></img>
+                <div className="h-6 w-6 hover:scale-110 duration-100 ">
+                  <img src="/images/global.svg" className="rounded-full"></img>
                 </div>
               </div>
             </div>

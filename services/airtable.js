@@ -10,7 +10,7 @@ var base = Airtable.base("app04sUAGh69msJ75");
 export async function getAirtableEvents() {
   let recordsArray = [];
 
-  await base("eventsTemp")
+  await base("events")
     .select({
       view: "Grid view",
     })
@@ -52,7 +52,7 @@ export async function airtablePostEvent(data) {
   // }
 
   try {
-    let record = await base("eventsTemp").create({
+    let record = await base("events").create({
       fldzGTmBuSndlvtNq: event_title,
       fldHz7TnLS88YS7p8: contact_email,
       fldQQJA0ULKiuQdh7: contact_name,
@@ -77,17 +77,14 @@ export async function airtablePostEvent(data) {
 export async function airtablePostEmail(data) {
   const { name, email } = data;
 
-  await base("Emails").create(
-    {
+  try {
+    let record = await base("Emails").create({
       fldis9mH2C4LhJD6o: name,
       fldw9fd9fccgs0Y69: email,
-    },
-    function (err, record) {
-      if (err) {
-        console.error(err);
-        return err;
-      }
-      return record.getId();
-    }
-  );
+    });
+
+    return record.getId();
+  } catch (err) {
+    throw new Error(`Error posting event to Airtable: ${err.message}`);
+  }
 }
