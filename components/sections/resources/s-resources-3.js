@@ -2,7 +2,7 @@ import Image from "next/image";
 
 function ResourcesSectionThree() {
   return (
-    <section className="mt-40">
+    <section id="resources" className="mt-40">
       <h2 className="lg:text-4xl text-2xl pb-10 lg:ml-4 ml-2 ">Resources</h2>
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
