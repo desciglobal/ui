@@ -147,7 +147,7 @@ function ModalSubmitEvent(props) {
             <div className="flex justify-between border-solid border-b border-black mr-[3%]">
               <input
                 type="datetime-local"
-                className="w-[80%] h-10 placeholder:text-black placeholder:text-l focus:outline-none focus:placeholder:opacity-0"
+                className="w-[80%] grow h-10 placeholder:text-black placeholder:text-l focus:outline-none focus:placeholder:opacity-0"
                 id="event_date"
                 name="event_date"
                 {...register("event_date")}
@@ -157,7 +157,7 @@ function ModalSubmitEvent(props) {
             <div className="flex justify-between border-solid border-b border-black mr-[3%]">
               <input
                 type="datetime-local"
-                className="w-[80%] h-10 placeholder:text-black placeholder:text-l focus:outline-none focus:placeholder:opacity-0"
+                className="w-[80%] grow h-10 placeholder:text-black placeholder:text-l focus:outline-none focus:placeholder:opacity-0"
                 id="event_end_date"
                 name="event_end_date"
                 {...register("event_end_date")}
