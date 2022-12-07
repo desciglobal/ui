@@ -39,7 +39,7 @@ function HeroSection() {
   return (
     <section>
        <Navigation />
-      <div className="lg:pt-4 lg:px-4 pl-2 pr-2 lg:h-screen pt-10">
+      <div className="lg:pt-4 lg:px-4 pl-2 pr-2 lg:h-screen pt-2">
         <div className="">
           <div className=" lg:h-auto lg:min-w-[100%] "> 
             <img src="/images/hero-bg.png" ></img>

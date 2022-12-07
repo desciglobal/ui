@@ -6,7 +6,7 @@ function ContributorsSection() {
   const contributors = getAllContributors();
 
   return (
-    <section className="pb-20 lg:mt-0 mt-20">
+    <section id="contributors" className="pb-20 lg:mt-0 mt-20">
       <div className="lg:p-4 p-2 flex">
         <div className="lg:w-2/4 lg:h-[70%] flex flex-col justify-between">
           <h2 className="lg:text-4xl text-2xl pb-10">Contribute</h2>

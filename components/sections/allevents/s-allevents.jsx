@@ -24,7 +24,7 @@ function AllEventsSection(props) {
           </p>
         </div>
       </div>
-      <div className="lg:bg-desciblue bg-descigrey w-full lg:px-4 px-2 h-10 grid lg:grid-cols-6 grid-cols-2 items-center lg:text-white text-lg">
+      <div id="upcoming" className="lg:bg-desciblue bg-descigrey w-full lg:px-4 px-2 h-10 grid lg:grid-cols-6 grid-cols-2 items-center lg:text-white text-lg">
         <div className="lg:col-span-3 ">UPCOMING</div>
         <div className="lg:block hidden">LOCATION</div>
         <div className="lg:block hidden">TYPE</div>

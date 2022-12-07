@@ -10,7 +10,7 @@ function FeaturedSectionMobile(props) {
       <div className="px-2">
         <div className="">
           <div className="h-20 flex items-center">
-            <p className="text-xl text-black">Higlighted this week</p>
+            <p id="highlights" className="text-xl text-black">Highlighted this week</p>
           </div>
           <div className=" bg-featured bg-no-repeat h-[20rem] bg-cover flex justify-end">
           </div>
