@@ -48,6 +48,13 @@ const DUMMY_CONTRIBUTORS = [
         twitterLink: 'https://twitter.com/alxdobrin',
         image: '/images/alex-dobrin.jpg',
       },
+      {
+        id: 'c17',
+        name: 'Alfred Brown',
+        twitter: '@AlfredJBrown99',
+        twitterLink: 'https://twitter.com/AlfredJBrown99',
+        image: 'https://pbs.twimg.com/profile_images/1522522539226025984/qMTzB8oI_400x400.jpg',
+      },
   ];
   
 
