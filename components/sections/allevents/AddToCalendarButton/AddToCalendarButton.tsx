@@ -18,7 +18,7 @@ export default function AddToCalendarButton({
     <React.Fragment>
       <div className="add-to-calendar-wrapper">
         <button
-          className="add-to-calendar-button text-sm"
+          className="add-to-calendar-button text-sm text-end"
           onClick={handleClick}
         >
           {buttonText}

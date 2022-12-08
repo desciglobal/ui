@@ -28,10 +28,10 @@ function AllEventsSection(props) {
         id="upcoming"
         className="lg:bg-desciblue bg-descigrey w-full lg:px-4 px-2 h-10 grid lg:grid-cols-6 grid-cols-2 items-center lg:text-white text-lg"
       >
-        <div className="lg:col-span-3 ">UPCOMING</div>
+        <div className="lg:col-span-3">UPCOMING</div>
         <div className="lg:block hidden">LOCATION</div>
         <div className="lg:block hidden">TYPE</div>
-        <div className="lg:block flex justify-end">DATE</div>
+        <div className="lg:block text-end">DATE</div>
       </div>
       <div className="pt-4 pb-4">
         <ul>
@@ -53,13 +53,14 @@ function AllEventsSection(props) {
 
             return (
               <li key={event.id}>
-                <div className="lg:h-10 h-12 w-full lg:px-4 px-2 grid lg:grid-cols-6 grid-cols-4 lg:items-center lg:text-xl text-l leading-4">
-                  <div className="col-span-2 ">
+                <div className="lg:max-h-10 max-h-12 mb-4 w-full lg:px-4 px-2 grid lg:grid-cols-6 grid-cols-4 lg:items-center lg:text-xl text-l leading-4">
+                  <div className="col-span-3 lg:col-span-2">
                     <a
                       className="lg:hover:underline lg:font-normal font-medium md:text-base"
                       target={"_blank"}
                       href={event.event_link}
                       onClick={() => trackEventLinkClicked(event.event_title)}
+                      rel="noreferrer"
                     >
                       {event.event_title}
                     </a>
@@ -93,19 +94,21 @@ function AllEventsSection(props) {
                       {month} {year}
                     </p>
                   ) : (
-                    <p className="lg:block hidden text-base">
-                      {event.event_local_date}
+                    <p className="lg:block hidden text-base text-end">
+                      {new Date(event.event_local_date).toLocaleDateString()}
                     </p>
                   )}
 
-                  <div className="lg:hidden text-l  flex justify-end col-span-2">
+                  <div className="lg:hidden text-l  flex justify-end col-span-1">
                     {" "}
                     {event.meetup_type == "To be Finalized" ? (
                       <p className="block lg:hidden text-s">To be Finalized</p>
                     ) : (
                       <AddToCalendarButton
                         calendarEvent={CALENDAR_EVENT}
-                        buttonText={event.event_local_date}
+                        buttonText={new Date(
+                          event.event_local_date
+                        ).toLocaleDateString()}
                       />
                     )}
                   </div>
@@ -121,7 +124,7 @@ function AllEventsSection(props) {
           <div className="col-span-3">PREVIOUS</div>
           <div>LOCATION</div>
           <div>TYPE</div>
-          <div className="">DATE</div>
+          <div className="text-end">DATE</div>
         </div>
         <div className="pt-4 pb-4">
           <ul>
@@ -136,6 +139,7 @@ function AllEventsSection(props) {
                             className="hover:underline "
                             target={"_blank"}
                             href={event.event_link}
+                            rel="noreferrer"
                           >
                             {event.event_title}
                           </a>
@@ -150,7 +154,11 @@ function AllEventsSection(props) {
                           <p>{event.event_city}</p>
                         </div>
                         <p className="text-base">{event.meetup_type}</p>
-                        <p className="text-base">{event.event_local_date}</p>
+                        <p className="text-base text-end">
+                          {new Date(
+                            event.event_local_date
+                          ).toLocaleDateString()}
+                        </p>
                       </div>
                     </li>
                   );
