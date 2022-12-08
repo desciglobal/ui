@@ -54,6 +54,14 @@ const DUMMY_PARTNERS = [
     Link: "https://www.blockchainforscience.com/",
     image:
       "https://uploads-ssl.webflow.com/61e91d0563b3f4255e8d141f/61e9895704289eaac032e65f_WPHeader-p-500.png",
+  },
+  {
+    id: "7",
+    name: "Foresight Institute",
+    twitter: "@foresightinst",
+    Link: "https://foresight.org/",
+    image:
+      "/images/foresight-logo.png",
   }
 ];
 

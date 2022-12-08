@@ -55,6 +55,41 @@ const DUMMY_CONTRIBUTORS = [
         twitterLink: 'https://twitter.com/AlfredJBrown99',
         image: 'https://pbs.twimg.com/profile_images/1522522539226025984/qMTzB8oI_400x400.jpg',
       },
+      {
+        id: 'c18',
+        name: 'Joshua',
+        twitter: '@jb87ua',
+        twitterLink: 'https://twitter.com/jb87ua',
+        image: 'https://pbs.twimg.com/profile_images/1357721001534976000/RfeUFp92_400x400.jpg',
+      },
+      {
+        id: 'c19',
+        name: 'Aleksandra Smilek',
+        twitter: '@jed_voras',
+        twitterLink: 'https://twitter.com/jed_voras',
+        image: '/images/Aleksandra-Smilek.png',
+      },
+      {
+        id: 'c20',
+        name: 'Allison Duettmann',
+        twitter: '@allisondman',
+        twitterLink: 'https://twitter.com/allisondman',
+        image: 'https://pbs.twimg.com/profile_images/1379077728708755461/VQSyaZh__400x400.jpg',
+      },
+      {
+        id: 'c21',
+        name: 'Eleanor',
+        twitter: '@gwei_sha',
+        twitterLink: 'https://twitter.com/gwei_sha?',
+        image: 'https://pbs.twimg.com/profile_images/1566431488681205761/aF82EPTY_400x400.jpg',
+      },
+      {
+        id: 'c22',
+        name: 'Martin Etzrodt',
+        twitter: '@EtzrodtMartin',
+        twitterLink: 'https://twitter.com/etzrodtmartin',
+        image: 'https://pbs.twimg.com/profile_images/1479556693935722497/MKLufAAP_400x400.jpg',
+      },
   ];
   
 
