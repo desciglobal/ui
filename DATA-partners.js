@@ -4,8 +4,7 @@ const DUMMY_PARTNERS = [
     name: "Molecule",
     twitter: "@Molecule_dao",
     Link: "https://www.molecule.to/",
-    image:
-      "/images/molecule-logo.svg",
+    image: "/images/molecule-logo.svg",
   },
   {
     id: "5",
@@ -44,8 +43,7 @@ const DUMMY_PARTNERS = [
     name: "PsyDAO",
     twitter: "@ValleyDAO",
     Link: "https://psydao.io/",
-    image:
-      "/images/psydao-logo.png",
+    image: "/images/psydao-logo.png",
   },
   {
     id: "6",
@@ -54,7 +52,7 @@ const DUMMY_PARTNERS = [
     Link: "https://www.blockchainforscience.com/",
     image:
       "https://uploads-ssl.webflow.com/61e91d0563b3f4255e8d141f/61e9895704289eaac032e65f_WPHeader-p-500.png",
-  }
+  },
 ];
 
 export function getAllPartners() {

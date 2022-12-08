@@ -11,14 +11,14 @@ const nextConfig = {
     appDir: false,
   },
   swcMinify: true,
-  images:  {
+  images: {
     domains: [
-      'images.unsplash.com',
-      'pbs.twimg.com',
-      's3.amazonaws.com',
-      'img.youtube.com'
+      "images.unsplash.com",
+      "pbs.twimg.com",
+      "s3.amazonaws.com",
+      "img.youtube.com",
     ],
-  }
-}
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

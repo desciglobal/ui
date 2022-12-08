@@ -5,13 +5,13 @@ import { getVideos } from "../../../DATA-video";
 function VideoSection() {
   const videos = getVideos();
 
-
-
   return (
     <section className="my-40">
       <div className="h-[100vh] mb-16 flex items-center justify-center">
         <div className="h-[100%] lg:w-[74%] p-2 ">
-          <h2 className="lg:text-4xl text-2xl text-black pt-5 min-h-[15%]">Videos</h2>
+          <h2 className="lg:text-4xl text-2xl text-black pt-5 min-h-[15%]">
+            Videos
+          </h2>
           <div className="grid grid-rows-2 grid-cols-2 lg:gap-10 gap-2 h-[85%] border border-white">
             <div>
               <a href={videos[0].link} target={"_blank"}>
@@ -89,7 +89,7 @@ function VideoSection() {
               </a>
             </div>
             <div>
-            <a href={videos[3].link} target={"_blank"}>
+              <a href={videos[3].link} target={"_blank"}>
                 <div className=" lg:h-[80%] h-32 relative group/video">
                   <Image
                     src={videos[3].image}

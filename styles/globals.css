@@ -3,18 +3,16 @@
 @tailwind utilities;
 
 html {
-    scroll-behavior: smooth;
-  }
+  scroll-behavior: smooth;
+}
 
 .calc {
-    left: calc(50% - 15rem);
+  left: calc(50% - 15rem);
 }
 
 body {
   word-break: break-word;
 }
-
-
 
 /* style for prev/next button */
 .carousel-slider .arrow-left {
@@ -89,17 +87,15 @@ body {
   margin-left: 1rem !important;
 }
 
-
-
 .control-dots div:not(:first-child) {
-  padding-left:10px;
+  padding-left: 10px;
 }
 
 .add-to-calendar-button {
   border: none;
   background: none;
-  color: #0A22F5;
-  
+  color: #0a22f5;
+
   cursor: pointer;
 }
 
@@ -111,13 +107,12 @@ body {
   position: relative;
   position: relative;
   display: inline;
-
 }
 
 .event-card {
   border: 1px solid #aaa;
   border-radius: 8px;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
   text-align: left;
   padding-left: 10px;
 }
@@ -126,9 +121,9 @@ body {
   position: absolute;
   top: -162px;
   left: 45px;
-  width:212px;
-  height:162px;
-  background: #F5F5F5;
+  width: 212px;
+  height: 162px;
+  background: #f5f5f5;
   display: block;
   z-index: 100;
 }
@@ -143,7 +138,7 @@ body {
   text-align: left;
   padding-left: 10px;
   background: none;
-  border:none;
+  border: none;
   font-size: 14px;
   text-decoration: none;
 

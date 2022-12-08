@@ -24,7 +24,10 @@ function AllEventsSection(props) {
           </p>
         </div>
       </div>
-      <div id="upcoming" className="lg:bg-desciblue bg-descigrey w-full lg:px-4 px-2 h-10 grid lg:grid-cols-6 grid-cols-2 items-center lg:text-white text-lg">
+      <div
+        id="upcoming"
+        className="lg:bg-desciblue bg-descigrey w-full lg:px-4 px-2 h-10 grid lg:grid-cols-6 grid-cols-2 items-center lg:text-white text-lg"
+      >
         <div className="lg:col-span-3 ">UPCOMING</div>
         <div className="lg:block hidden">LOCATION</div>
         <div className="lg:block hidden">TYPE</div>
@@ -56,7 +59,7 @@ function AllEventsSection(props) {
                       className="lg:hover:underline lg:font-normal font-medium md:text-base"
                       target={"_blank"}
                       href={event.event_link}
-                      onClick={() => trackEventLinkClicked(event.event_title )}
+                      onClick={() => trackEventLinkClicked(event.event_title)}
                     >
                       {event.event_title}
                     </a>
@@ -82,13 +85,17 @@ function AllEventsSection(props) {
                     ></img>
                     <p className="lg:block hidden">{event.event_city}</p>
                   </div>
-                  <p className="lg:block hidden text-base">{event.meetup_type}</p>
+                  <p className="lg:block hidden text-base">
+                    {event.meetup_type}
+                  </p>
                   {event.meetup_type == "To be Finalized" ? (
                     <p className="lg:block hidden">
                       {month} {year}
                     </p>
                   ) : (
-                    <p className="lg:block hidden text-base">{event.event_local_date}</p>
+                    <p className="lg:block hidden text-base">
+                      {event.event_local_date}
+                    </p>
                   )}
 
                   <div className="lg:hidden text-l  flex justify-end col-span-2">

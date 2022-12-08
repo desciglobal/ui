@@ -21,7 +21,11 @@ function ResourcesSectionThree() {
               Explore this summary of decentralized science to better understand
               what this movement is about.
             </p>
-            <a className="text-desciblue inline-flex items-center mt-3" href="https://ethereum.org/en/desci/" target="_blank">
+            <a
+              className="text-desciblue inline-flex items-center mt-3"
+              href="https://ethereum.org/en/desci/"
+              target="_blank"
+            >
               Learn More
               <svg
                 fill="none"
@@ -51,7 +55,11 @@ function ResourcesSectionThree() {
               Join the Blockchain for Science community to stay connected with
               others.
             </p>
-            <a className="text-desciblue inline-flex items-center mt-3" href="https://t.me/BlockchainForScience" target="_blank">
+            <a
+              className="text-desciblue inline-flex items-center mt-3"
+              href="https://t.me/BlockchainForScience"
+              target="_blank"
+            >
               Learn More
               <svg
                 fill="none"
@@ -81,7 +89,11 @@ function ResourcesSectionThree() {
               DeSci WG - Check out this working group to get the most up to date
               alpha on what’s happening across the DeSci ecosystem.
             </p>
-            <a className="text-desciblue inline-flex items-center mt-3" href="https://t.me/BlockchainForScience" target="_blank">
+            <a
+              className="text-desciblue inline-flex items-center mt-3"
+              href="https://t.me/BlockchainForScience"
+              target="_blank"
+            >
               Learn More
               <svg
                 fill="none"
@@ -105,12 +117,17 @@ function ResourcesSectionThree() {
               />
             </div>
             <h2 className="text-xl font-medium title-font text-gray-900 mt-5">
-            Landscape
+              Landscape
             </h2>
             <p className="text-base leading-relaxed mt-2">
-            Explore all of the organizations and sectors that make up the DeSci space.
+              Explore all of the organizations and sectors that make up the
+              DeSci space.
             </p>
-            <a className="text-desciblue inline-flex items-center mt-3" href="https://twitter.com/UltraRareBio/status/1580988333693730821?s=20&t=9eCaWimS9cyzpc-dn4N6GQ" target="_blank">
+            <a
+              className="text-desciblue inline-flex items-center mt-3"
+              href="https://twitter.com/UltraRareBio/status/1580988333693730821?s=20&t=9eCaWimS9cyzpc-dn4N6GQ"
+              target="_blank"
+            >
               Learn More
               <svg
                 fill="none"

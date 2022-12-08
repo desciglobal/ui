@@ -40,9 +40,10 @@ function ContributorsSection() {
                   <div className="bg-black hidden absolute h-40 w-40 z-1 opacity-0 text-white items-center lg:flex justify-center lg:hover:opacity-80 ease-in duration-100">
                     {contributor.twitter}
                   </div>
-                  
                 </div>
-                <div className="flex items-center justify-center">{contributor.name}</div>
+                <div className="flex items-center justify-center">
+                  {contributor.name}
+                </div>
               </a>
             </li>
           ))}

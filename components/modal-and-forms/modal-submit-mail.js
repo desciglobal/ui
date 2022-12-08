@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import {airtablePostEmail} from "../../services/airtable";
+import { airtablePostEmail } from "../../services/airtable";
 
 function ModalSubmitMail(props) {
   const schema = yup
@@ -18,14 +18,12 @@ function ModalSubmitMail(props) {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = async (data) => {
-
     try {
       await airtablePostEmail(data);
       alert("Your Email was submitted, you can close the modal now!");
     } catch (err) {
       alert(`Error submitting Email to Airtable: ${err.message}`);
     }
-
   };
 
   return (
@@ -61,14 +59,28 @@ function ModalSubmitMail(props) {
               />
               {errors.email?.message}
               <button type="submit" className="text-l">
-              {isSubmitting ? "Submitting" : "Submit"}
+                {isSubmitting ? "Submitting" : "Submit"}
               </button>
             </div>
           </form>
         </div>
-        <div className="absolute top-0 right-0 p-8 cursor-pointer" onClick={props.onClick}>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+        <div
+          className="absolute top-0 right-0 p-8 cursor-pointer"
+          onClick={props.onClick}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </div>
       </div>

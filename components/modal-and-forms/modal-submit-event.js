@@ -68,8 +68,9 @@ function ModalSubmitEvent(props) {
     }
   };
 
-  const [startDatePlaceholder, setStartDatePlaceholder] = useState('Start date');
-  const [endDatePlaceholder, setEndDatePlaceholder] = useState('End date');
+  const [startDatePlaceholder, setStartDatePlaceholder] =
+    useState("Start date");
+  const [endDatePlaceholder, setEndDatePlaceholder] = useState("End date");
 
   return (
     <div
@@ -156,7 +157,11 @@ function ModalSubmitEvent(props) {
                 {...register("event_date")}
                 onFocus={() => setStartDatePlaceholder(undefined)}
               />
-              {startDatePlaceholder && <div className="absolute w-full h-full bg-white flex items-center pointer-events-none"><span>{startDatePlaceholder}</span></div>}
+              {startDatePlaceholder && (
+                <div className="absolute w-full h-full bg-white flex items-center pointer-events-none">
+                  <span>{startDatePlaceholder}</span>
+                </div>
+              )}
               {errors.event_date?.message}
             </div>
             <div className="flex justify-between border-solid border-b border-black mr-[3%] relative">
@@ -168,7 +173,11 @@ function ModalSubmitEvent(props) {
                 {...register("event_end_date")}
                 onFocus={() => setEndDatePlaceholder(undefined)}
               />
-              {endDatePlaceholder && <div className="absolute w-full h-full bg-white flex items-center pointer-events-none"><span>{endDatePlaceholder}</span></div>}
+              {endDatePlaceholder && (
+                <div className="absolute w-full h-full bg-white flex items-center pointer-events-none">
+                  <span>{endDatePlaceholder}</span>
+                </div>
+              )}
               {errors.event_end_date?.message}
             </div>
             {/* <div className="flex justify-between border-solid border-b border-black mr-[3%]">
@@ -180,9 +189,23 @@ function ModalSubmitEvent(props) {
             </button>
           </form>
         </div>
-        <div className="absolute top-0 right-0 p-4 cursor-pointer" onClick={props.onClick}>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+        <div
+          className="absolute top-0 right-0 p-4 cursor-pointer"
+          onClick={props.onClick}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </div>
       </div>

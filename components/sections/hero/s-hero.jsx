@@ -6,7 +6,6 @@ import ModalSubmitMail from "../../modal-and-forms/modal-submit-mail";
 import ModalSubmitEvent from "../../modal-and-forms/modal-submit-event";
 import { MixpanelTracking } from "../../../services/mixpanel";
 
-
 import { useState } from "react";
 
 function HeroSection() {
@@ -32,17 +31,17 @@ function HeroSection() {
     document.body.style.overflow = "scroll";
   }
 
-  function trackCalendarSubscribed(){
+  function trackCalendarSubscribed() {
     MixpanelTracking.getInstance().calendarSubscribed("hero");
   }
 
   return (
     <section>
-       <Navigation />
+      <Navigation />
       <div className="lg:pt-4 lg:px-4 pl-2 pr-2 lg:h-screen pt-2">
         <div className="">
-          <div className=" lg:h-auto lg:min-w-[100%] "> 
-            <img src="/images/hero-bg.png" ></img>
+          <div className=" lg:h-auto lg:min-w-[100%] ">
+            <img src="/images/hero-bg.png"></img>
 
             {/* */}
           </div>
@@ -51,14 +50,15 @@ function HeroSection() {
           <div class="lg:grid grid-cols-3 gap-0 h-full">
             <div class="col-span-2 flex items-center pr-1.5 py-4">
               <p className="lg:text-2xl font-normal">
-                Desci.global provides you an calendar overview of upcoming and past descentralized science events. You can add events to your calendar and submit your own event.
-                Join this schelling point to help extend DeSci to the ends of
-                the globe.{" "}
+                Desci.global provides you an calendar overview of upcoming and
+                past descentralized science events. You can add events to your
+                calendar and submit your own event. Join this schelling point to
+                help extend DeSci to the ends of the globe.{" "}
               </p>
             </div>
             <div class="lg:bg-black lg:text-white lg:ml-2 flex items-center  pb-10">
               <ul className="w-full lg:mt-6 mt-2">
-              <li
+                <li
                   className="w-full flex flex-row group/edit  hover:bg-white hover:text-black ease-in duration-200 hover:cursor-pointer"
                   onClick={openModalHandler}
                 >
@@ -68,7 +68,7 @@ function HeroSection() {
                   <div className="w-12 h-12 ml-2 bg-desciblue flex items-center justify-center">
                     <div className="lg:group-hover/edit:rotate-45 duration-200">
                       {" "}
-                      <ArrowDownRight color="white"/>{" "}
+                      <ArrowDownRight color="white" />{" "}
                     </div>
                   </div>
                 </li>
@@ -82,7 +82,7 @@ function HeroSection() {
                   <div className="w-12 h-12 ml-2 bg-descired flex items-center justify-center">
                     <div className="lg:group-hover/edit:rotate-45 duration-200">
                       {" "}
-                      <ArrowDownRight color="white"/>{" "}
+                      <ArrowDownRight color="white" />{" "}
                     </div>
                   </div>
                 </li>
@@ -94,7 +94,7 @@ function HeroSection() {
                       onClick={trackCalendarSubscribed}
                     >
                       Subscribe to event calendar
-                      </a>
+                    </a>
                   </div>
                   <div className="w-12 h-12 ml-2 bg-black flex items-center justify-center">
                     <div className="lg:group-hover/edit:rotate-45 duration-200">

@@ -150,7 +150,6 @@ function ContributeSection() {
                   >
                     <div>Telegram Group link</div>
 
-
                     <div className="w-10 h-10 ml-2 bg-descired flex items-center justify-center">
                       <div className="group-hover/edit:rotate-45 duration-200">
                         <ArrowUpRight color="white" />
@@ -181,7 +180,12 @@ function ContributeSection() {
 
       {emailIsOpen && <ModalSubmitMail onClick={closeEmailHandler} />}
       {emailIsOpen && <Backdrop onClick={closeEmailHandler} />}
-      {modalIsOpen && <ModalSubmitEvent onClick={closeModalHandler} closeModal={closeModalHandler}/>}
+      {modalIsOpen && (
+        <ModalSubmitEvent
+          onClick={closeModalHandler}
+          closeModal={closeModalHandler}
+        />
+      )}
       {modalIsOpen && <Backdrop onClick={closeModalHandler} />}
     </section>
   );

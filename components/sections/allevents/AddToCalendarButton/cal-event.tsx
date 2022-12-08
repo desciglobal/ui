@@ -1,6 +1,3 @@
-
-
-
 export interface CalendarEvent {
   title: string;
   description: string;
@@ -9,4 +6,3 @@ export interface CalendarEvent {
   durationInMinutes?: number;
   address?: string;
 }
-

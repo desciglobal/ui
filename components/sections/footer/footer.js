@@ -59,7 +59,11 @@ function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="https://github.com/desciglobal/ui" target="_blank" rel={"noreferrer"}>
+                  <a
+                    href="https://github.com/desciglobal/ui"
+                    target="_blank"
+                    rel={"noreferrer"}
+                  >
                     github
                   </a>
                 </li>
@@ -81,11 +85,7 @@ function Footer() {
               Copyright 2022 Desci.Global ©
             </div>
             <div className="bg-white h-[100%] w-[50%] flex items-center justify-end  lg:pl-0 pl-10 pr-[8%]">
-              <a
-                href="https://molecule.to/"
-                target="_blank"
-                rel={"noreferrer"}
-              >
+              <a href="https://molecule.to/" target="_blank" rel={"noreferrer"}>
                 Initiated by Molecule
               </a>
             </div>
