@@ -70,25 +70,24 @@ function ModalSubmitEvent(props) {
 
   return (
     <div
-      className="bg-white p-4 flex flex-col items-center z-40 fixed shadow-white-500/50 left-0 top-0 w-full h-full lg:w-1/2 lg:h-5/6 lg:left-[50%] lg:top-[50%] lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2"
+      className="bg-white flex flex-col items-center z-40 fixed shadow-white-500/50 left-0 top-0 w-full h-full lg:w-1/2 lg:h-5/6 lg:left-[50%] lg:top-[50%] lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2"
       id="modal"
     >
       <div className="h-full w-full relative">
-        <h2 className="text-2xl pt-4 pb-8">Submit an Event 📆 🔬</h2>
+        <h2 className="text-2xl pt-10 pb-8 px-4">Submit an Event 📆 🔬</h2>
         <div>
-          <p className="text-lg">
+          <p className="text-lg px-4 lg:w-2/3">
             Submit your event and contribute to the descentralized science
             ecosystem.{" "}
           </p>
+          <p className="px-4 mt-2 text-[#B1B1B1]" htmlFor="email">
+              your Event will be posted after ~ 24 hours
+            </p>
         </div>
-        {/* ##email newsletter */}
 
-        <div className="my-14">
+        <div className="my-14 bg-white w-full p-4">
           <form onSubmit={handleSubmit(onSubmit)}>
             {console.log(errors)}
-            <label className=" pb-8 text-[#B1B1B1]" htmlFor="email">
-              you Event will be posted after ~ 24 hours
-            </label>
             <div className="flex justify-between border-solid border-b border-black mr-[3%]">
               <input
                 type="text"
@@ -164,18 +163,29 @@ function ModalSubmitEvent(props) {
               />
               {errors.event_end_date?.message}
             </div>
-            {/* <div className="flex justify-between border-solid border-b border-black mr-[3%]">
-              <CountrySelector onChange={getCountry} />
-            </div> */}
             <LocationSearchInput setAddress={getAddress} />
             <button type="submit" className="text-l mt-5">
               {isSubmitting ? "Submitting" : "Submit"}
             </button>
           </form>
         </div>
-        <div className="absolute top-0 right-0 p-4 cursor-pointer" onClick={props.onClick}>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+        <div
+          className="absolute top-0 right-0 p-4 cursor-pointer"
+          onClick={props.onClick}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </div>
       </div>
