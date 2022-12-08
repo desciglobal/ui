@@ -50,10 +50,10 @@ function AllEventsSection(props) {
 
             return (
               <li key={event.id}>
-                <div className="lg:h-10 h-12 w-full lg:px-4  px-2 grid lg:grid-cols-6 grid-cols-4 lg:items-center lg:text-xl text-l leading-4">
+                <div className="lg:h-10 h-12 w-full lg:px-4 px-2 grid lg:grid-cols-6 grid-cols-4 lg:items-center lg:text-xl text-l leading-4">
                   <div className="col-span-2 ">
                     <a
-                      className="lg:hover:underline lg:font-normal font-medium"
+                      className="lg:hover:underline lg:font-normal font-medium md:text-base"
                       target={"_blank"}
                       href={event.event_link}
                       onClick={() => trackEventLinkClicked(event.event_title )}
@@ -73,22 +73,22 @@ function AllEventsSection(props) {
                   </div>
                   {/* https://codesandbox.io/s/8g6dl?file=/src/AddToCalendarButton/AddToCalendarButton.tsx:0-911 */}
 
-                  <div className="items-center lg:flex hidden">
+                  <div className="items-center lg:flex hidden text-base">
                     <img
-                      className="h-5 w-5 mr-2 rounded-full"
+                      className="h-4 w-4 mr-2 rounded-full"
                       src={`/images/flags/${event.event_country.toLowerCase()}.svg`}
                       alt=""
                       variant="flag"
                     ></img>
                     <p className="lg:block hidden">{event.event_city}</p>
                   </div>
-                  <p className="lg:block hidden text-sm">{event.meetup_type}</p>
+                  <p className="lg:block hidden text-base">{event.meetup_type}</p>
                   {event.meetup_type == "To be Finalized" ? (
                     <p className="lg:block hidden">
                       {month} {year}
                     </p>
                   ) : (
-                    <p className="lg:block hidden text-sm">{event.event_local_date}</p>
+                    <p className="lg:block hidden text-base">{event.event_local_date}</p>
                   )}
 
                   <div className="lg:hidden text-l  flex justify-end col-span-2">
@@ -123,7 +123,7 @@ function AllEventsSection(props) {
                 {pastEvents.map((event) => {
                   return (
                     <li key={event.id}>
-                      <div className="h-10 w-full pr-4 pl-4 grid grid-cols-6 items-center text-xl">
+                      <div className="h-10 w-full pr-4 pl-4 grid grid-cols-6 items-center">
                         <div className="col-span-3">
                           <a
                             className="hover:underline "
@@ -135,15 +135,15 @@ function AllEventsSection(props) {
                         </div>
                         <div className="flex items-center grayscale">
                           <img
-                            className="h-5 w-5 mr-2 rounded-full"
+                            className="h-4 w-4 mr-2 rounded-full"
                             src={`/images/flags/${event.event_country.toLowerCase()}.svg`}
                             alt=""
                             variant="flag"
                           ></img>
                           <p>{event.event_city}</p>
                         </div>
-                        <p className="text-sm">{event.meetup_type}</p>
-                        <p className="text-sm">{event.event_local_date}</p>
+                        <p className="text-base">{event.meetup_type}</p>
+                        <p className="text-base">{event.event_local_date}</p>
                       </div>
                     </li>
                   );
