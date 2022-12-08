@@ -1,6 +1,7 @@
 import AddToCalendarButton from "./AddToCalendarButton/AddToCalendarButton";
 import EmailandEventCalForm from "../../modal-and-forms/email-event-cal-form";
 import { MixpanelTracking } from "../../../services/mixpanel";
+import { useMediaQuery } from "../../../utils/useMediaQuery";
 
 function AllEventsSection(props) {
   const { upComingEvents, pastEvents } = props;
@@ -8,6 +9,12 @@ function AllEventsSection(props) {
   function trackEventLinkClicked(eventName) {
     MixpanelTracking.getInstance().eventLinkClicked(eventName);
   }
+
+  const isDesktop = useMediaQuery(1024);
+  const getDate = (value) =>
+    isDesktop
+      ? new Date(value).toDateString()
+      : new Date(value).toLocaleDateString();
 
   return (
     <section id="events">
@@ -95,7 +102,7 @@ function AllEventsSection(props) {
                     </p>
                   ) : (
                     <p className="lg:block hidden text-base text-end">
-                      {new Date(event.event_local_date).toLocaleDateString()}
+                      {getDate(event.event_local_date)}
                     </p>
                   )}
 
@@ -106,9 +113,7 @@ function AllEventsSection(props) {
                     ) : (
                       <AddToCalendarButton
                         calendarEvent={CALENDAR_EVENT}
-                        buttonText={new Date(
-                          event.event_local_date
-                        ).toLocaleDateString()}
+                        buttonText={getDate(event.event_local_date)}
                       />
                     )}
                   </div>
@@ -155,9 +160,7 @@ function AllEventsSection(props) {
                         </div>
                         <p className="text-base">{event.meetup_type}</p>
                         <p className="text-base text-end">
-                          {new Date(
-                            event.event_local_date
-                          ).toLocaleDateString()}
+                          {getDate(event.event_local_date)}
                         </p>
                       </div>
                     </li>
