@@ -68,6 +68,9 @@ function ModalSubmitEvent(props) {
     }
   };
 
+  const [startDatePlaceholder, setStartDatePlaceholder] = useState('Start date');
+  const [endDatePlaceholder, setEndDatePlaceholder] = useState('End date');
+
   return (
     <div
       className="bg-white p-4 flex flex-col items-center z-40 fixed shadow-white-500/50 left-0 top-0 w-full h-full lg:w-1/2 lg:h-5/6 lg:left-[50%] lg:top-[50%] lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2"
@@ -144,24 +147,28 @@ function ModalSubmitEvent(props) {
               />
               {errors.event_description?.message}
             </div>
-            <div className="flex justify-between border-solid border-b border-black mr-[3%]">
+            <div className="flex justify-between border-solid border-b border-black mr-[3%] relative">
               <input
                 type="datetime-local"
-                className="w-[80%] grow h-10 placeholder:text-black placeholder:text-l focus:outline-none focus:placeholder:opacity-0"
+                className="grow h-10 placeholder:text-black placeholder:text-l focus:outline-none bg-transparent"
                 id="event_date"
                 name="event_date"
                 {...register("event_date")}
+                onFocus={() => setStartDatePlaceholder(undefined)}
               />
+              {startDatePlaceholder && <div className="absolute w-full h-full bg-white flex items-center pointer-events-none"><span>{startDatePlaceholder}</span></div>}
               {errors.event_date?.message}
             </div>
-            <div className="flex justify-between border-solid border-b border-black mr-[3%]">
+            <div className="flex justify-between border-solid border-b border-black mr-[3%] relative">
               <input
                 type="datetime-local"
-                className="w-[80%] grow h-10 placeholder:text-black placeholder:text-l focus:outline-none focus:placeholder:opacity-0"
+                className="grow h-10 placeholder:text-black placeholder:text-l focus:outline-none bg-transparent"
                 id="event_end_date"
                 name="event_end_date"
                 {...register("event_end_date")}
+                onFocus={() => setEndDatePlaceholder(undefined)}
               />
+              {endDatePlaceholder && <div className="absolute w-full h-full bg-white flex items-center pointer-events-none"><span>{endDatePlaceholder}</span></div>}
               {errors.event_end_date?.message}
             </div>
             {/* <div className="flex justify-between border-solid border-b border-black mr-[3%]">

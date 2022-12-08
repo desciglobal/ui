@@ -174,3 +174,7 @@ body {
 .unset-img > div {
   position: unset !important;
 }
+
+input::-webkit-date-and-time-value {
+  text-align: left;
+}
