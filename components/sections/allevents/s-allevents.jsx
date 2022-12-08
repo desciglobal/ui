@@ -88,7 +88,7 @@ function AllEventsSection(props) {
                       {month} {year}
                     </p>
                   ) : (
-                    <p className="lg:block hidden text-base">{event.event_local_date}</p>
+                    <p className="lg:block hidden text-base">{event.event_date}</p>
                   )}
 
                   <div className="lg:hidden text-l  flex justify-end col-span-2">
@@ -143,7 +143,7 @@ function AllEventsSection(props) {
                           <p>{event.event_city}</p>
                         </div>
                         <p className="text-base">{event.meetup_type}</p>
-                        <p className="text-base">{event.event_local_date}</p>
+                        <p className="text-base">{event.event_date}</p>
                       </div>
                     </li>
                   );
