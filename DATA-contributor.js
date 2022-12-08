@@ -62,6 +62,14 @@ const DUMMY_CONTRIBUTORS = [
     image:
       "https://pbs.twimg.com/profile_images/1522522539226025984/qMTzB8oI_400x400.jpg",
   },
+  {
+    id: "c18",
+    name: "Konstantin Kornev",
+    twitter: "@konstantin_gm",
+    twitterLink: "https://twitter.com/konstantin_gm",
+    image:
+      "https://pbs.twimg.com/profile_images/1502343752446361610/KlDsCQ99_400x400.jpg",
+  },
 ];
 
 export function getAllContributors() {
