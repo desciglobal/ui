@@ -71,7 +71,7 @@ function MenuItem({ children, subitems, onClick }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border-b border-white/[.40] mx-2">
+    <div className="border-b border-white/[.40] mx-2 cursor-pointer">
       <div className="flex justify-between items-center text-white">
         <div className="grow py-3" onClick={onClick}>{children}</div>
         {!!subitems && <button className="pl-2" onClick={() => setIsOpen(!isOpen)}>{isOpen ? '-' : '+'}</button>}
