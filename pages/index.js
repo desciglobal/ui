@@ -12,6 +12,7 @@ import Footer from "../components/sections/footer/footer";
 import FeaturedSection from "../components/sections/featured/s-featured";
 import FeaturedSectionMobile from "../components/sections/featured/s-featured-mobile";
 import { MixpanelTracking } from '../services/mixpanel'
+import Navigation from "../components/sections/hero/navigation";
 
 
 
@@ -24,6 +25,7 @@ export default function Home(props) {
 
   return (
     <>
+    <Navigation />
       <HeroSection />
       <FeaturedSection featuredEvents={featuredEvents}/>
       <FeaturedSectionMobile featuredEvents={featuredEvents}/>

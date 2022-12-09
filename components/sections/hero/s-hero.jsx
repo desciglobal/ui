@@ -1,6 +1,5 @@
 import ArrowDown from "../../icons/ArrowDown";
 import ArrowDownRight from "../../icons/ArrowUpRight";
-import Navigation from "./navigation";
 import Backdrop from "../../modal-and-forms/backdrop";
 import ModalSubmitMail from "../../modal-and-forms/modal-submit-mail";
 import ModalSubmitEvent from "../../modal-and-forms/modal-submit-event";
@@ -38,8 +37,7 @@ function HeroSection() {
 
   return (
     <section>
-       <Navigation />
-      <div className="lg:pt-4 lg:px-4 pl-2 pr-2 lg:h-screen pt-2">
+      <div className=" lg:px-4 pl-2 pr-2 lg:h-screen">
         <div className="">
           <div className=" lg:h-auto lg:min-w-[100%] "> 
             <img src="/images/hero-bg.png" ></img>

@@ -7,7 +7,7 @@ function Navigation() {
   const toggleMenu = (x) => setIsMenuOn(!isMenuOn);
 
   return (
-    <nav>
+    <nav className='sticky top-0 bg-white h-9 z-30'>
       <div class="lg:grid grid-col-6 grid-flow-col gap-4 h-5 items-center text-sm hidden ">
         <div></div>
         <div className="flex justify-center">
@@ -25,8 +25,8 @@ function Navigation() {
         <div></div>
         <div>
           <div>
-            <a className="ml-4 hover:bg-black hover:text-white hover:ease-in duration-100 p-2" href="#contribute">
-              Contributions
+            <a className="ml-4 bg-desciblue hover:bg-black hover:text-white hover:ease-in duration-100 p-2" href="#contribute">
+              Contribute
             </a>
           </div>
         </div>

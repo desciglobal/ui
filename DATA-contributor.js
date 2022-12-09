@@ -88,7 +88,7 @@ const DUMMY_CONTRIBUTORS = [
         name: 'Martin Etzrodt',
         twitter: '@EtzrodtMartin',
         twitterLink: 'https://twitter.com/etzrodtmartin',
-        image: 'https://pbs.twimg.com/profile_images/1479556693935722497/MKLufAAP_400x400.jpg',
+        image: '/images/martin-etzrodt.png',
       },
   ];
   
