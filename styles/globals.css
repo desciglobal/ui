@@ -174,3 +174,18 @@ body {
 .unset-img > div {
   position: unset !important;
 }
+
+
+body::-webkit-scrollbar {
+  width: 1em;
+  scrollbar-gutter: auto;
+  
+}
+ 
+
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: #0A22F5;
+  outline: 1px solid rgb(255, 255, 255);
+  scrollbar-gutter: auto;
+}

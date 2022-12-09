@@ -1,5 +1,5 @@
 import { getAllEvents } from "../services/sort-event-data";
-import {getContributors} from "../services/sort-contributor-data";
+import { getContributors } from "../services/sort-contributor-data";
 import { useEffect } from "react";
 
 import HeroSection from "../components/sections/hero/s-hero";
@@ -12,26 +12,28 @@ import PartnerLogoSection from "../components/sections/partners/s-partners";
 import Footer from "../components/sections/footer/footer";
 import FeaturedSection from "../components/sections/featured/s-featured";
 import FeaturedSectionMobile from "../components/sections/featured/s-featured-mobile";
-import { MixpanelTracking } from '../services/mixpanel'
+import { MixpanelTracking } from "../services/mixpanel";
 import Navigation from "../components/sections/hero/navigation";
 
-
-
 export default function Home(props) {
-  const { upcomingEventsAsc, pastEventsDesc, featuredEvents, contributors } = props;
+  const { upcomingEventsAsc, pastEventsDesc, featuredEvents, contributors } =
+    props;
 
   useEffect(() => {
-    MixpanelTracking.getInstance().pageView()
-  }, [])
+    MixpanelTracking.getInstance().pageView();
+  }, []);
 
   return (
     <>
-    <Navigation />
+      <Navigation />
       <HeroSection />
-      <FeaturedSection featuredEvents={featuredEvents}/>
-      <FeaturedSectionMobile featuredEvents={featuredEvents}/>
-      <AllEventsSection upComingEvents={upcomingEventsAsc} pastEvents={pastEventsDesc}/>
-      <ResourcesSectionThree/>
+      <FeaturedSection featuredEvents={featuredEvents} />
+      <FeaturedSectionMobile featuredEvents={featuredEvents} />
+      <AllEventsSection
+        upComingEvents={upcomingEventsAsc}
+        pastEvents={pastEventsDesc}
+      />
+      <ResourcesSectionThree />
       <ContributeSection />
       <VideoSection />
       <ContributorsSection contributors={contributors} />
@@ -42,7 +44,8 @@ export default function Home(props) {
 }
 
 export async function getStaticProps() {
-  const { upcomingEventsAsc, pastEventsDesc, featuredEvents } = await getAllEvents();
+  const { upcomingEventsAsc, pastEventsDesc, featuredEvents } =
+    await getAllEvents();
   const contributors = await getContributors();
 
   upcomingEventsAsc.forEach((event) => {
@@ -65,20 +68,20 @@ export async function getStaticProps() {
     ).toLocaleDateString(undefined, {
       year: "numeric",
       month: "long",
-      day: "numeric"
+      day: "numeric",
     });
   });
 
   featuredEvents.forEach((event) => {
-    event.event_date = new Date(
-      event.event_date
-    ).toLocaleDateString(undefined, {
-      year: "numeric",
-      month: "long",
-      day: "numeric"
-    });
+    event.event_date = new Date(event.event_date).toLocaleDateString(
+      undefined,
+      {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }
+    );
   });
-  
 
   if (!pastEventsDesc) {
     return {
@@ -93,7 +96,7 @@ export async function getStaticProps() {
       upcomingEventsAsc,
       pastEventsDesc,
       featuredEvents,
-      contributors
+      contributors,
     },
     revalidate: 10,
   };
