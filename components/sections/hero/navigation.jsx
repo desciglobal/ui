@@ -17,15 +17,15 @@ function Navigation() {
           <a className="ml-4 hover:bg-black hover:text-white hover:ease-in duration-100 p-2" href="#resources">
             Resources
           </a>
-          <a className="ml-4 hover:bg-black hover:text-white hover:ease-in duration-100 p-2" href="#partners">
-            Bounties
+          <a className="ml-4 hover:bg-black hover:text-white hover:ease-in duration-100 p-2" href="#videos">
+            Videos
           </a>
         </div>
         <div></div>
         <div></div>
         <div>
           <div>
-            <a className="ml-4 bg-desciblue hover:bg-black hover:text-white hover:ease-in duration-100 p-2" href="#contribute">
+            <a className="ml-4 bg-desciblue hover:bg-black text-white hover:ease-in duration-100 p-2" href="#contribute">
               Contribute
             </a>
           </div>

@@ -90,6 +90,13 @@ const DUMMY_CONTRIBUTORS = [
         twitterLink: 'https://twitter.com/etzrodtmartin',
         image: '/images/martin-etzrodt.png',
       },
+      {
+        id: 'c23',
+        name: 'Erik Van Winkle',
+        twitter: '@erik_vanwinkle',
+        twitterLink: 'https://twitter.com/erik_vanwinkle',
+        image: 'https://pbs.twimg.com/profile_images/1559297054635134980/TuFVPK0W_400x400.jpg',
+      },
   ];
   
 

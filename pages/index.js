@@ -1,4 +1,5 @@
 import { getAllEvents } from "../services/sort-event-data";
+import {getContributors} from "../services/sort-contributor-data";
 import { useEffect } from "react";
 
 import HeroSection from "../components/sections/hero/s-hero";
@@ -17,7 +18,7 @@ import Navigation from "../components/sections/hero/navigation";
 
 
 export default function Home(props) {
-  const { upcomingEventsAsc, pastEventsDesc, featuredEvents } = props;
+  const { upcomingEventsAsc, pastEventsDesc, featuredEvents, contributors } = props;
 
   useEffect(() => {
     MixpanelTracking.getInstance().pageView()
@@ -33,7 +34,7 @@ export default function Home(props) {
       <ResourcesSectionThree/>
       <ContributeSection />
       <VideoSection />
-      <ContributorsSection />
+      <ContributorsSection contributors={contributors} />
       <PartnerLogoSection />
       <Footer />
     </>
@@ -42,6 +43,7 @@ export default function Home(props) {
 
 export async function getStaticProps() {
   const { upcomingEventsAsc, pastEventsDesc, featuredEvents } = await getAllEvents();
+  const contributors = await getContributors();
 
   upcomingEventsAsc.forEach((event) => {
     event.event_date = event.event_date.toISOString().substring(0, 10);
@@ -90,7 +92,8 @@ export async function getStaticProps() {
     props: {
       upcomingEventsAsc,
       pastEventsDesc,
-      featuredEvents
+      featuredEvents,
+      contributors
     },
     revalidate: 10,
   };

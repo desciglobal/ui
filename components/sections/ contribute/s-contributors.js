@@ -2,8 +2,9 @@ import Image from "next/image";
 
 import { getAllContributors } from "../../../DATA-contributor.js";
 
-function ContributorsSection() {
-  const contributors = getAllContributors();
+function ContributorsSection(props) {
+  // const contributors = getAllContributors();
+  const {contributors} = props;
 
   return (
     <section id="contributors" className="pb-20 lg:mt-0 mt-20">

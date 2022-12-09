@@ -8,7 +8,7 @@ function VideoSection() {
 
 
   return (
-    <section className="my-40">
+    <section className="my-40" id="videos">
       <div className="h-[100vh] mb-16 flex items-center justify-center">
         <div className="h-[100%] lg:w-[74%] p-2 ">
           <h2 className="lg:text-4xl text-2xl text-black pt-5 min-h-[15%]">Videos</h2>

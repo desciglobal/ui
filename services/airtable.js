@@ -30,6 +30,29 @@ export async function getAirtableEvents() {
   return events;
 }
 
+export async function getAirtableContributors() {
+  let recordsArray = [];
+
+  await base("contributors")
+    .select({
+      view: "view1",
+    })
+    .eachPage((records, fetchNextPage) => {
+      recordsArray = [...recordsArray, ...records];
+      fetchNextPage();
+    })
+    .catch((error) => {
+      console.error(error);
+      return false;
+    });
+  const contributors = recordsArray.map(function (contributor) {
+    const rawContributor = contributor.fields;
+    rawContributor.recordId = contributor.id;
+    return rawContributor;
+  });
+  return contributors;
+}
+
 export async function airtablePostEvent(data) {
   const {
     event_title,
