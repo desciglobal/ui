@@ -24,7 +24,7 @@ You can make a event submission on the website and start a discussion here on gi
 
 **Join us as a contributor by making a pull request here, or join a discussion** and see our amazing [contributors 💙](https://www.desci.global/#contribute)
 
-<img alt="desci global logo" src="./public/images/contributors.png" alt="desci.global" >
+<img alt="desci global logo" src="./public/images/contributors.png" alt="desci.global" width="600">
 
 —
 
