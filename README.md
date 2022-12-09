@@ -20,7 +20,15 @@ This is the repo for the [desci.global](https://desci.global) website, a resourc
   <h2>How to add an event?</h2>
 </div>
 
-You can make a event submission on the website and email johannes@molecule.to if you have questions, or make a pull request on github if you want to improve the page. Desci.Global is a next.js (react) app with tailwind as CSS lib. To get the page working on your local machine, you will need the airtable api key, email me at johannes@molecule.to and we will set you up in no time.
+You can make a event submission on the website and start a discussion here on github if you have ideas or questions, or make a pull request on github if you want to improve the page. Desci.Global is a next.js (react) app with tailwind as CSS lib. To get the page working on your local machine, you will need the airtable api key, email me at johannes@molecule.to and we will set you up in no time. Initiated with love by the [Molecule team 💙](https://www.molecule.to/about-us).
 
-*Initiated and maintainted with love by the [Molecule team 💙](https://www.molecule.to/about-us)*
+**Join us as a contributor by making a pull request here, or join a discussion** and see our amazing [contributors 💙](https://www.desci.global/#contribute)
+
+<img alt="desci global logo" src="./public/images/contributors.png" alt="desci.global" width="600">
+
+—
+
+### Preview
+
+<img alt="desci global logo" src="./public/images/desciglobal-preview.png" alt="desci.global" width="400">
 
