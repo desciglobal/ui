@@ -22,5 +22,5 @@ This is the repo for the [desci.global](https://desci.global) website, a resourc
 
 You can make a event submission on the website and start a discussion here on github if you have ideas or questions, or make a pull request on github if you want to improve the page. Desci.Global is a next.js (react) app with tailwind as CSS lib. To get the page working on your local machine, you will need the airtable api key, email me at johannes@molecule.to and we will set you up in no time. Initiated with love by the [Molecule team 💙](https://www.molecule.to/about-us).
 
-*Contribute, and see our amazing [contributors 💙](https://www.desci.global/#contribute)*
+*Join us a contributor, and see our amazing [contributors 💙](https://www.desci.global/#contribute)*
 
