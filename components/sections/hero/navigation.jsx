@@ -9,7 +9,7 @@ function Navigation() {
   return (
     <nav className='sticky top-0 bg-white h-9 z-30'>
       <div class="lg:grid grid-col-6 grid-flow-col gap-4 h-5 items-center text-sm hidden ">
-        <div></div>
+        <div className='h-full w-full pl-4'><Logo /></div>
         <div className="flex justify-center">
           <a className="ml-4 hover:bg-black hover:text-white hover:ease-in duration-100 p-2" href="#events">
             Events
