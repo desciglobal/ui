@@ -61,7 +61,7 @@ const DUMMY_PARTNERS = [
     twitter: "@beakerdao",
     Link: "https://beakerdao.xyz/",
     image:
-      "./public/images/beakerdao-logo.png",
+      "/images/beakerdao-logo.png",
   },
   {
     id: "7",
