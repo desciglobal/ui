@@ -86,7 +86,7 @@ const DUMMY_PARTNERS = [
     twitter: "@TheSCInitiative",
     Link: "https://thesciencecommons.org/",
     image:
-      "/public/images/Sci_vector.svg",
+      "/images/Sci_vector.svg",
   },
   {
     id: "7",
