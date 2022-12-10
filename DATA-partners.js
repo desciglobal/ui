@@ -95,6 +95,14 @@ const DUMMY_PARTNERS = [
     Link: "https://foresight.org/",
     image:
       "/images/foresight-logo.png",
+  },
+     {
+    id: "12",
+    name: "DeSci World",
+    twitter: "@DeSciWorld",
+    Link: "https://desci.world/",
+    image:
+      "/images/desciworld.png",
   }
 ];
 
