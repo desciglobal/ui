@@ -105,6 +105,22 @@ const DUMMY_PARTNERS = [
       "/images/ResearchHubLogo.png",
   },
      {
+    id: "4",
+    name: "Protocol Labs",
+    twitter: "@ProtocolLabs",
+    Link: "https://protocol.ai/",
+    image:
+      "/images/protocollabs.svg",
+  },
+     {
+    id: "4",
+    name: "Funding the commons",
+    twitter: "@FundingCommons",
+    Link: "https://fundingthecommons.io/",
+    image:
+      "/images/fundingthecommons.png",
+  },
+     {
     id: "12",
     name: "DeSci World",
     twitter: "@DeSciWorld",
