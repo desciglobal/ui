@@ -96,6 +96,14 @@ const DUMMY_PARTNERS = [
     image:
       "/images/foresight-logo.png",
   },
+   {
+    id: "5",
+    name: "ResearchHub",
+    twitter: "@ResearchHub",
+    Link: "https://www.researchhub.com/",
+    image:
+      "/images/ResearchHubLogo.png",
+  },
      {
     id: "12",
     name: "DeSci World",
