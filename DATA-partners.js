@@ -55,6 +55,14 @@ const DUMMY_PARTNERS = [
     image:
       "https://uploads-ssl.webflow.com/61e91d0563b3f4255e8d141f/61e9895704289eaac032e65f_WPHeader-p-500.png",
   },
+   {
+    id: "8",
+    name: "BeakerDAO",
+    twitter: "@beakerdao",
+    Link: "https://beakerdao.xyz/",
+    image:
+      "./public/images/beakerdao-logo.png",
+  },
   {
     id: "7",
     name: "Foresight Institute",
