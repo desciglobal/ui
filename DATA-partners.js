@@ -63,6 +63,31 @@ const DUMMY_PARTNERS = [
     image:
       "/images/beakerdao-logo.png",
   },
+    {
+    id: "9",
+    name: "DeSci Foundation",
+    twitter: "@DesciFoundation",
+    Link: "https://descifoundation.org/",
+    image:
+      "/images/DeSci_Foundation_BW_Horizontal.svg",
+  },
+    {
+    id: "10",
+    name: "DeSci Labs",
+    twitter: "@descilabs",
+    Link: "https://desci.com/",
+    image:
+      "/images/DeSci-Labs_BW_withText.svg",
+  },
+
+    {
+    id: "11",
+    name: "The Science Commons Initiative",
+    twitter: "@TheSCInitiative",
+    Link: "https://thesciencecommons.org/",
+    image:
+      "/public/images/Sci_vector.svg",
+  },
   {
     id: "7",
     name: "Foresight Institute",
