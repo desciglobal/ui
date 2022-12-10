@@ -13,7 +13,7 @@ const DUMMY_PARTNERS = [
     twitter: "@bio_xyz",
     Link: "https://www.bio.xyz/",
     image:
-      "https://uploads-ssl.webflow.com/62873e140841d3b072b63035/632302705ff61a2d0b5ca0d5_logo.svg",
+      "/images/bioxyzlogo.png",
   },
   {
     id: "1",
