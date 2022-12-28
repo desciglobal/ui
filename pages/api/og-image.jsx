@@ -43,12 +43,12 @@ export default async function () {
             <div>15 Jan 2023</div>
           </div>
           <div tw="flex w-full mt-10 justify-between h-10 text-2xl items-center border-solid border-t border-black">
-            <div>DeSci Denver</div>
-            <div>24 Feb 2023</div>
+            <div>Funding the Commons Barcelona</div>
+            <div>01 Feb 2023</div>
           </div>
           <div tw="flex w-full mt-10 justify-between h-10 text-2xl items-center border-solid border-t border-black">
-            <div>DeSci Boston</div>
-            <div>23 Sep 2023</div>
+            <div>DeSci Denver, at ETH Denver</div>
+            <div>24 Feb 2023</div>
           </div>
           <div tw="flex h-10 bg-[#1231D5] mt-10 p-2 text-white rounded-full w-full items-center text-xl justify-center">Join the Network</div>
         </div>
