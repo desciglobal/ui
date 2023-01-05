@@ -11,7 +11,7 @@ const DUMMY_CONTRIBUTORS = [
         name: 'Vincent Weisser',
         twitter: '@vincentweisser',
         twitterLink: 'https://twitter.com/vincentweisser',
-        image: 'https://pbs.twimg.com/profile_images/1483740433461264384/7EQIjO7l_400x400.jpg',
+        image: 'https://pbs.twimg.com/profile_images/1608263092768587777/CYc6n-nk_400x400.jpg',
       },
       {
         id: 'c4',

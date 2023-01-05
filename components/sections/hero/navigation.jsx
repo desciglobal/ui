@@ -1,10 +1,22 @@
 import {useState} from 'react'
-
+import ModalSubmitEvent from "../../modal-and-forms/modal-submit-event";
+import Backdrop from "../../modal-and-forms/backdrop";
 import Logo from '../../icons/Logo'
 
 function Navigation() {
   const [isMenuOn, setIsMenuOn] = useState(false);
   const toggleMenu = (x) => setIsMenuOn(!isMenuOn);
+  const [modalIsOpen, setModalisOpen] = useState(false);
+
+  function openModalHandler() {
+    setModalisOpen(true);
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModalHandler() {
+    setModalisOpen(false);
+    document.body.style.overflow = "scroll";
+  }
 
   return (
     <nav className='sticky top-0 bg-white h-9 z-30'>
@@ -25,8 +37,8 @@ function Navigation() {
         <div></div>
         <div>
           <div>
-            <a className="ml-4 bg-desciblue hover:bg-black text-white hover:ease-in duration-100 p-2" href="#contribute">
-              Contribute
+            <a onClick={openModalHandler} className="ml-4 bg-desciblue hover:bg-black text-white hover:ease-in duration-100 p-2">
+              Submit Event!
             </a>
           </div>
         </div>
@@ -36,6 +48,8 @@ function Navigation() {
         <button className="mr-2" onClick={toggleMenu}>Menu</button>
         {isMenuOn && <Menu onToggle={toggleMenu} />}
       </div>
+      {modalIsOpen && <ModalSubmitEvent onClick={closeModalHandler} />}
+      {modalIsOpen && <Backdrop onClick={closeModalHandler} />}
     </nav>
   );
 }

@@ -127,6 +127,14 @@ const DUMMY_PARTNERS = [
     Link: "https://desci.world/",
     image:
       "/images/desciworld.png",
+  },
+  {
+    id: "13",
+    name: "Athena DAO",
+    twitter: "@athena_DAO_",
+    Link: "https://www.athenadao.co/",
+    image:
+      "/images/athenadao.png",
   }
 ];
 
