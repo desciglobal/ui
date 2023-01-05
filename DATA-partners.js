@@ -32,6 +32,14 @@ const DUMMY_PARTNERS = [
       "https://uploads-ssl.webflow.com/630dbea24a4625cd2f1e793f/6315f76f93b5737098b53f90_logo.svg",
   },
   {
+    id: "13",
+    name: "Athena DAO",
+    twitter: "@athena_DAO_",
+    Link: "https://www.athenadao.co/",
+    image:
+      "/images/athenadao.png",
+  },
+  {
     id: "3",
     name: "LabDAO",
     twitter: "@LabDAO",
@@ -127,14 +135,6 @@ const DUMMY_PARTNERS = [
     Link: "https://desci.world/",
     image:
       "/images/desciworld.png",
-  },
-  {
-    id: "13",
-    name: "Athena DAO",
-    twitter: "@athena_DAO_",
-    Link: "https://www.athenadao.co/",
-    image:
-      "/images/athenadao.png",
   }
 ];
 
