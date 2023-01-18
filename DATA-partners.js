@@ -45,7 +45,7 @@ const DUMMY_PARTNERS = [
     twitter: "@LabDAO",
     Link: "https://www.labdao.xyz/",
     image:
-      "https://www.labdao.xyz/_app/immutable/assets/labdao-full-2x-a118264c.png",
+      "/images/labdao.png",
   },
   {
     id: "4",
