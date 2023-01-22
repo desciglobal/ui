@@ -26,6 +26,12 @@ function ModalSubmitEvent(props) {
   const [timeZone, setTimeZone] = useState("");
   const [address, setAddress] = useState("");
 
+  // here should be two more fields / states registered 
+  // ISO code for country (ex. GB for England, PT for Portugal)
+  // Event City as String
+  // this informaation can be optained most likely with the latlng that we already get
+  // finally, we could make the form more bulletproof and userfriendly(only possible to submit when all information there, remove js alert or replace)
+
   const getAddress = (a) => {
     setAddress(a.address);
   };
@@ -33,7 +39,7 @@ function ModalSubmitEvent(props) {
   useEffect(() => {
     geocodeByAddress(address)
       .then((results) => getLatLng(results[0]))
-      .then((latLng) => setlatLng(latLng));
+      .then((latLng) => setlatLng(latLng))
   }, [address]);
 
   useEffect(() => {

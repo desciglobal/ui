@@ -26,7 +26,6 @@
     "react-add-to-calendar": "^0.1.5",
     "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
-    "react-google-autocomplete": "^2.7.0",
     "react-hook-form": "^7.39.3",
     "react-places-autocomplete": "^7.3.0",
     "react-responsive-carousel": "^3.2.23",

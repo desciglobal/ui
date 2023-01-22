@@ -1,8 +1,5 @@
 import React from 'react';
 import PlacesAutocomplete from 'react-places-autocomplete';
-
-
-
  
 export default class LocationSearchInput extends React.Component {
   constructor(props) {
@@ -21,6 +18,7 @@ export default class LocationSearchInput extends React.Component {
   handleSelect = (address) => {
    this.setState({ address })
    this.props.setAddress({address})
+   console.log(address)
   }
 
 
