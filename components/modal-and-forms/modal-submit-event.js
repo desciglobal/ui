@@ -19,14 +19,23 @@ function ModalSubmitEvent(props) {
       event_description: yup.string().required(),
       event_date: yup.date().required(),
       event_end_date: yup.date().required(),
+      event_city: yup.string().required(),
     })
     .required();
+
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors, isSubmitting },
+  } = useForm({ resolver: yupResolver(schema) });
 
   const [latLng, setlatLng] = useState("");
   const [timeZone, setTimeZone] = useState("");
   const [address, setAddress] = useState("");
+  const [countryCode, setCountryCode] = useState("");
 
-  // here should be two more fields / states registered 
+  // here should be two more fields / states registered
   // ISO code for country (ex. GB for England, PT for Portugal)
   // Event City as String
   // this informaation can be optained most likely with the latlng that we already get
@@ -38,8 +47,24 @@ function ModalSubmitEvent(props) {
 
   useEffect(() => {
     geocodeByAddress(address)
-      .then((results) => getLatLng(results[0]))
-      .then((latLng) => setlatLng(latLng))
+      .then((results) => {
+        const cityNameObj = results[0].address_components.find(
+          (address_component) =>
+            ["locality", "sublocality", "colloquial_area"].some(
+              (word) => ~address_component.types.indexOf(word)
+            )
+        );
+        cityNameObj && setValue("event_city", cityNameObj.long_name);
+
+        const countyObj = results[0].address_components.find(
+          (address_component) =>
+            address_component.types.find((type) => type === "country")
+        );
+        countyObj && setCountryCode(countyObj.short_name);
+
+        return getLatLng(results[0]);
+      })
+      .then((latLng) => setlatLng(latLng));
   }, [address]);
 
   useEffect(() => {
@@ -51,18 +76,14 @@ function ModalSubmitEvent(props) {
     // .catch((error) => console.error("Error", error));
   }, [latLng]);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm({ resolver: yupResolver(schema) });
-
   // posting data to Airtable and catching errors
   const onSubmit = async (data) => {
     data.event_address = address;
     const date = new Date(data.event_date);
     data.event_date = date.toISOString();
     data.event_timezone = timeZone;
+    data.event_country_code = countryCode;
+    data.event_city = data.event_city;
     // airtablePostEvent(data);
 
     try {
@@ -87,8 +108,8 @@ function ModalSubmitEvent(props) {
             ecosystem.{" "}
           </p>
           <p className="px-4 mt-2 text-[#B1B1B1]" htmlFor="email">
-              your Event will be posted after ~ 24 hours
-            </p>
+            your Event will be posted after ~ 24 hours
+          </p>
         </div>
 
         <div className="my-14 bg-white w-full p-4">
@@ -170,6 +191,17 @@ function ModalSubmitEvent(props) {
               {errors.event_end_date?.message}
             </div>
             <LocationSearchInput setAddress={getAddress} />
+            <div className="flex justify-between border-solid border-b border-black mr-[3%]">
+              <input
+                type="text"
+                className="w-[80%] grow h-10 placeholder:text-black placeholder:text-l focus:outline-none focus:placeholder:opacity-0"
+                id="event_city"
+                name="event_city"
+                placeholder="Event City"
+                {...register("event_city")}
+              />
+              {errors.event_city?.message}
+            </div>
             <button type="submit" className="text-l mt-5">
               {isSubmitting ? "Submitting" : "Submit"}
             </button>
