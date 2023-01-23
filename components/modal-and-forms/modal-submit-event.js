@@ -34,6 +34,7 @@ function ModalSubmitEvent(props) {
   const [timeZone, setTimeZone] = useState("");
   const [address, setAddress] = useState("");
   const [countryCode, setCountryCode] = useState("");
+  const [isOnline, setIsOnline] = useState(false);
 
   // here should be two more fields / states registered
   // ISO code for country (ex. GB for England, PT for Portugal)
@@ -44,6 +45,7 @@ function ModalSubmitEvent(props) {
   const getAddress = (a) => {
     setAddress(a.address);
   };
+
 
   useEffect(() => {
     geocodeByAddress(address)
@@ -84,7 +86,7 @@ function ModalSubmitEvent(props) {
     data.event_timezone = timeZone;
     data.event_country_code = countryCode;
     data.event_city = data.event_city;
-    // airtablePostEvent(data);
+    data.event_meetupType = isOnline ? 'Online' : 'Meetup'
 
     try {
       await airtablePostEvent(data);
@@ -201,6 +203,23 @@ function ModalSubmitEvent(props) {
                 {...register("event_city")}
               />
               {errors.event_city?.message}
+            </div>
+            <div className="">
+              <div class="form-check">
+                <input
+                  class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                  type="checkbox"
+                  value={isOnline}
+                  onChange={ ( ) => setIsOnline(!isOnline)}
+                  id="flexCheckDefault"
+                />
+                <label
+                  class="form-check-label inline-block text-gray-800"
+                  for="flexCheckDefault"
+                >
+                  Online Event
+                </label>
+              </div>
             </div>
             <button type="submit" className="text-l mt-5">
               {isSubmitting ? "Submitting" : "Submit"}
