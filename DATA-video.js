@@ -23,10 +23,10 @@ const VIDEOS = [
     },
     {
       id: 'v4',
-      title: 'DeSci @ Schelling Point Bogotá',
-      link: 'https://www.youtube.com/watch?v=ENz5BuY6rZQ&list=PLvTrX8LNPbPnH3RUVw1_yJ_VHgPSmkQ4T&index=10',
-      description: 'A playlist from the DeSci stage at Schelling Point Bogotá, an unconference for planetary wellbeing & flourishing.',
-      image: 'https://img.youtube.com/vi/ENz5BuY6rZQ/sddefault.jpg',
+      title: 'Vitalik Buterin on Decentralized Science and Scientific Progress',
+      link: 'https://www.youtube.com/watch?v=qtBsL90-J_4',
+      description: 'Interview about the intersection of science and crypto, focusing on the concept of "decentralized science',
+      image: 'https://img.youtube.com/vi/qtBsL90-J_4/sddefault.jpg',
     },
   ];
   
