@@ -3,12 +3,12 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import LocationSearchInput from "./EventLocationInput";
+import LocationSearchInput from "../components/modal-and-forms/EventLocationInput";
 import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
-import { airtablePostEvent } from "../../services/airtable";
-import { MixpanelTracking } from "../../services/mixpanel";
+import { airtablePostEvent } from "../services/airtable";
+import { MixpanelTracking } from "../services/mixpanel";
 
-function ModalSubmitEvent(props) {
+function SubmitEvent(props) {
   const schema = yup
     .object({
       event_title: yup.string().required().max(80),
@@ -45,7 +45,6 @@ function ModalSubmitEvent(props) {
   const getAddress = (a) => {
     setAddress(a.address);
   };
-
 
   useEffect(() => {
     geocodeByAddress(address)
@@ -86,7 +85,7 @@ function ModalSubmitEvent(props) {
     data.event_timezone = timeZone;
     data.event_country_code = countryCode;
     data.event_city = data.event_city;
-    data.event_meetupType = isOnline ? 'Online' : 'Meetup'
+    data.event_meetupType = isOnline ? "Online" : "Meetup";
 
     try {
       await airtablePostEvent(data);
@@ -210,7 +209,7 @@ function ModalSubmitEvent(props) {
                   class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                   type="checkbox"
                   value={isOnline}
-                  onChange={ ( ) => setIsOnline(!isOnline)}
+                  onChange={() => setIsOnline(!isOnline)}
                   id="flexCheckDefault"
                 />
                 <label
@@ -250,4 +249,4 @@ function ModalSubmitEvent(props) {
   );
 }
 
-export default ModalSubmitEvent;
+export default SubmitEvent;
