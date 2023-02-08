@@ -1,9 +1,17 @@
+import { useState } from "react";
+
 import AddToCalendarButton from "./AddToCalendarButton/AddToCalendarButton";
 import EmailandEventCalForm from "../../modal-and-forms/email-event-cal-form";
 import { MixpanelTracking } from "../../../services/mixpanel";
 
 function AllEventsSection(props) {
   const { upComingEvents, pastEvents } = props;
+
+  const [showAllPastEvents, setShowAllPastEvents] = useState(false);
+
+  const shownPastEvents = showAllPastEvents
+    ? pastEvents
+    : pastEvents.slice(0, 15);
 
   function trackEventLinkClicked(eventName) {
     MixpanelTracking.getInstance().eventLinkClicked(eventName);
@@ -60,6 +68,7 @@ function AllEventsSection(props) {
                       target={"_blank"}
                       href={event.event_link}
                       onClick={() => trackEventLinkClicked(event.event_title)}
+                      rel="noreferrer"
                     >
                       {event.event_title}
                     </a>
@@ -127,7 +136,7 @@ function AllEventsSection(props) {
           <ul>
             <div className="pt-4 pb-4 text-descigreyfont">
               <ul>
-                {pastEvents.map((event) => {
+                {shownPastEvents.map((event) => {
                   return (
                     <li key={event.id}>
                       <div className="h-10 w-full pr-4 pl-4 grid grid-cols-6 items-center">
@@ -136,6 +145,7 @@ function AllEventsSection(props) {
                             className="hover:underline "
                             target={"_blank"}
                             href={event.event_link}
+                            rel="noreferrer"
                           >
                             {event.event_title}
                           </a>
@@ -155,6 +165,34 @@ function AllEventsSection(props) {
                     </li>
                   );
                 })}
+                <button
+                  className="text-desciblue inline-flex items-center mt-3 ml-4 cursor-pointer"
+                  onClick={() => setShowAllPastEvents(!showAllPastEvents)}
+                >
+                  Show {showAllPastEvents ? "Less" : "More"}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6 ml-2"
+                  >
+                    {showAllPastEvents ? (
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                      />
+                    ) : (
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                      />
+                    )}
+                  </svg>
+                </button>
               </ul>
             </div>
           </ul>
