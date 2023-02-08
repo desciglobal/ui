@@ -1,26 +1,13 @@
-import ArrowDown from "../../icons/ArrowDown";
 import ArrowDownRight from "../../icons/ArrowUpRight";
 import Backdrop from "../../modal-and-forms/backdrop";
 import ModalSubmitMail from "../../modal-and-forms/modal-submit-mail";
-import ModalSubmitEvent from "../../modal-and-forms/modal-submit-event";
 import { MixpanelTracking } from "../../../services/mixpanel";
-
+import Link from "next/link";
 
 import { useState } from "react";
 
 function HeroSection() {
-  const [modalIsOpen, setModalisOpen] = useState(false);
   const [emailIsOpen, setEmailisOpen] = useState(false);
-
-  function openModalHandler() {
-    setModalisOpen(true);
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeModalHandler() {
-    setModalisOpen(false);
-    document.body.style.overflow = "scroll";
-  }
 
   function openEmailHandler() {
     setEmailisOpen(true);
@@ -31,7 +18,7 @@ function HeroSection() {
     document.body.style.overflow = "scroll";
   }
 
-  function trackCalendarSubscribed(){
+  function trackCalendarSubscribed() {
     MixpanelTracking.getInstance().calendarSubscribed("hero");
   }
 
@@ -39,8 +26,8 @@ function HeroSection() {
     <section>
       <div className=" lg:px-4 pl-2 pr-2 lg:h-screen">
         <div className="">
-          <div className=" lg:h-auto lg:min-w-[100%] "> 
-            <img src="/images/hero-bg.png" ></img>
+          <div className=" lg:h-auto lg:min-w-[100%] ">
+            <img src="/images/hero-bg.png"></img>
 
             {/* */}
           </div>
@@ -49,26 +36,29 @@ function HeroSection() {
           <div class="lg:grid grid-cols-3 gap-0 h-full">
             <div class="col-span-2 flex items-center pr-1.5 py-4">
               <p className="lg:text-2xl font-normal">
-                Desci.global provides you an calendar overview of upcoming and past descentralized science events. You can add events to your calendar and submit your own event.
-                Join this schelling point to help extend DeSci to the ends of
-                the globe.{" "}
+                Desci.global provides you an calendar overview of upcoming and
+                past descentralized science events. You can add events to your
+                calendar and submit your own event. Join this schelling point to
+                help extend DeSci to the ends of the globe.{" "}
               </p>
             </div>
             <div class="lg:bg-black lg:text-white lg:ml-2 flex items-center  pb-10">
               <ul className="w-full lg:mt-6 mt-2">
-              <li
-                  className="w-full flex flex-row group/edit  hover:bg-white hover:text-black ease-in duration-200 hover:cursor-pointer"
-                  onClick={openModalHandler}
-                >
-                  <div className="w-full lg:text-xl lg:font-normal font-semibold border-solid lg:border-white lg:p-2 py-2 border-t">
-                    <href>Submit an Event</href>
-                  </div>
-                  <div className="w-12 h-12 ml-2 bg-desciblue flex items-center justify-center">
-                    <div className="lg:group-hover/edit:rotate-45 duration-200">
-                      {" "}
-                      <ArrowDownRight color="white"/>{" "}
+                <li>
+                  <Link
+                    className="w-full flex flex-row group/edit  hover:bg-white hover:text-black ease-in duration-200 hover:cursor-pointer"
+                    href="/submit-event"
+                  >
+                    <div className="w-full lg:text-xl lg:font-normal font-semibold border-solid lg:border-white lg:p-2 py-2 border-t">
+                      <href>Submit an Event</href>
                     </div>
-                  </div>
+                    <div className="w-12 h-12 ml-2 bg-desciblue flex items-center justify-center">
+                      <div className="lg:group-hover/edit:rotate-45 duration-200">
+                        {" "}
+                        <ArrowDownRight color="white" />{" "}
+                      </div>
+                    </div>
+                  </Link>
                 </li>
                 <li
                   className="w-full flex flex-row group/edit hover:bg-white hover:text-black ease-in duration-200 hover:cursor-pointer"
@@ -80,7 +70,7 @@ function HeroSection() {
                   <div className="w-12 h-12 ml-2 bg-descired flex items-center justify-center">
                     <div className="lg:group-hover/edit:rotate-45 duration-200">
                       {" "}
-                      <ArrowDownRight color="white"/>{" "}
+                      <ArrowDownRight color="white" />{" "}
                     </div>
                   </div>
                 </li>
@@ -90,9 +80,10 @@ function HeroSection() {
                       href="https://calendar.google.com/calendar/u/0/r?cid=3lql6qf1smr21uaf4kb7hdfg8btdq6v2@import.calendar.google.com"
                       target="_blank"
                       onClick={trackCalendarSubscribed}
+                      rel="noreferrer"
                     >
                       Subscribe to event calendar
-                      </a>
+                    </a>
                   </div>
                   <div className="w-12 h-12 ml-2 bg-black flex items-center justify-center">
                     <div className="lg:group-hover/edit:rotate-45 duration-200">
@@ -108,8 +99,6 @@ function HeroSection() {
       </div>
       {emailIsOpen && <ModalSubmitMail onClick={closeEmailHandler} />}
       {emailIsOpen && <Backdrop onClick={closeEmailHandler} />}
-      {modalIsOpen && <ModalSubmitEvent onClick={closeModalHandler} />}
-      {modalIsOpen && <Backdrop onClick={closeModalHandler} />}
     </section>
   );
 }

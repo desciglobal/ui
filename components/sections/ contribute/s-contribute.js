@@ -1,22 +1,11 @@
 import ArrowUpRight from "../../icons/ArrowUpRight";
 import Backdrop from "../../modal-and-forms/backdrop";
-import ModalSubmitEvent from "../../modal-and-forms/modal-submit-event";
 import ModalSubmitMail from "../../modal-and-forms/modal-submit-mail";
 import { useState } from "react";
+import Link from "next/link";
 
 function ContributeSection() {
-  const [modalIsOpen, setModalisOpen] = useState(false);
   const [emailIsOpen, setEmailisOpen] = useState(false);
-
-  function openModalHandler() {
-    setModalisOpen(true);
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeModalHandler() {
-    setModalisOpen(false);
-    document.body.style.overflow = "scroll";
-  }
 
   function openEmailHandler() {
     setEmailisOpen(true);
@@ -43,12 +32,12 @@ function ContributeSection() {
             </p>
           </div>
           <div>
-            <div
-              onClick={openModalHandler}
+            <Link
+              href="/submit-event"
               className="w-full hover:cursor-pointer bg-black text-white h-10 flex items-center justify-center rounded-full lg:text-xl text-lg mb-6"
             >
-              <a>Submit an Event</a>
-            </div>
+              Submit an Event
+            </Link>
             <div className="pt-3">
               <ul>
                 <li>
@@ -57,6 +46,7 @@ function ContributeSection() {
                       href={"https://www.desci.berlin/"}
                       target={"_blank"}
                       className="h-10 border-solid border-t w-full border-black flex items-center justify-between"
+                      rel="noreferrer"
                     >
                       <p>Inspiration for a Conference</p>
 
@@ -73,6 +63,7 @@ function ContributeSection() {
                     href="https://twitter.com/Molecule_dao/status/1586003432909033472?s=20&t=b66BvJaQjIP5_bHK20ucAg"
                     target={"_blank"}
                     className="h-10 border-solid border-t w-full border-black flex items-center justify-between"
+                    rel="noreferrer"
                   >
                     <p>Inspiration for Workshops</p>
 
@@ -89,6 +80,7 @@ function ContributeSection() {
                       href="https://www.meetup.com/desci-london/"
                       target={"_blank"}
                       className="h-10 border-solid border-t border-b w-full border-black flex items-center justify-between"
+                      rel="noreferrer"
                     >
                       <p>Inspiration for Events</p>
 
@@ -128,9 +120,9 @@ function ContributeSection() {
             <div className="pt-3">
               <ul>
                 <li>
-                  <div
+                  <Link
+                    href="/submit-event"
                     className="flex w-full group/edit hover:cursor-pointer"
-                    onClick={openModalHandler}
                   >
                     <div className="h-10 border-solid border-t w-full border-black flex items-center justify-between">
                       <p>Create an Event</p>
@@ -140,16 +132,16 @@ function ContributeSection() {
                         <ArrowUpRight color="white" />
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 </li>
                 <div className="flex w-full group/edit hover:cursor-pointer">
                   <a
                     href="https://t.me/BlockchainForScience"
                     target={"_blank"}
                     className="h-10 border-solid border-t w-full border-black flex items-center justify-between"
+                    rel="noreferrer"
                   >
                     <div>Telegram Group link</div>
-
 
                     <div className="w-10 h-10 ml-2 bg-descired flex items-center justify-center">
                       <div className="group-hover/edit:rotate-45 duration-200">
@@ -181,8 +173,6 @@ function ContributeSection() {
 
       {emailIsOpen && <ModalSubmitMail />}
       {emailIsOpen && <Backdrop onClick={closeEmailHandler} />}
-      {modalIsOpen && <ModalSubmitEvent onClick={closeModalHandler} closeModal={closeModalHandler}/>}
-      {modalIsOpen && <Backdrop onClick={closeModalHandler} />}
     </section>
   );
 }
