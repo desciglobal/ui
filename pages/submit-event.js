@@ -126,14 +126,14 @@ function SubmitEvent(props) {
             />
             <Field
               id="contact_name"
-              label="Your full name"
+              label="Your Full Name"
               type="text"
               register={register}
               errorMessage={errors.contact_name?.message}
             />
             <Field
               id="contact_email"
-              label="Your email"
+              label="Your Email"
               type="email"
               register={register}
               errorMessage={errors.contact_email?.message}
@@ -204,7 +204,8 @@ function SubmitEvent(props) {
                 key={id}
               />
             ))}
-            <button type="submit" className="text-l mt-5">
+            <div className="divider my-8" />
+            <button type="submit" className="btn flex ml-auto mb-8">
               {isSubmitting ? "Submitting" : "Submit"}
             </button>
           </form>
