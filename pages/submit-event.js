@@ -40,10 +40,6 @@ function SubmitEvent(props) {
   const [errorToastMessage, setErrorToastMessage] = useState();
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const getAddress = (a) => {
-    setAddress(a.address);
-  };
-
   useEffect(() => {
     geocodeByAddress(address)
       .then((results) => {
@@ -200,7 +196,7 @@ function SubmitEvent(props) {
                 label={label}
                 type={type}
                 register={register}
-                errorMessage={errors.event_title?.message}
+                errorMessage={errors[id]?.message}
                 key={id}
               />
             ))}
