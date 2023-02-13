@@ -1,7 +1,7 @@
 import React from "react";
 import PlacesAutocomplete from "react-places-autocomplete";
 
-const LocationSearchInput = ({ value, onChange }) => {
+const LocationSearchInput = ({ label, value, onChange }) => {
   return (
     <PlacesAutocomplete
       value={value}
@@ -12,7 +12,7 @@ const LocationSearchInput = ({ value, onChange }) => {
       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
         <div className="form-control w-full mb-4 relative">
           <label className="label">
-            <span className="label-text">Search Event Address</span>
+            <span className="label-text">{label}</span>
           </label>
           <input
             {...getInputProps({
@@ -29,7 +29,7 @@ const LocationSearchInput = ({ value, onChange }) => {
               tabindex="-1"
             >
               <div class="py-1" role="none">
-                {loading && <div>Loading...</div>}
+                {loading ? <div>Loading...</div> : null}
                 {suggestions.map((suggestion) => (
                   <div
                     {...getSuggestionItemProps(suggestion, {

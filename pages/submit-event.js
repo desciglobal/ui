@@ -101,12 +101,12 @@ function SubmitEvent(props) {
     <div className="max-w-xl relative mt-10 mb-2 mx-2 sm:mx-auto">
       {isSubmitted ? (
         <>
-          <h1 className="text-4xl pt-10 pb-8">Your Event was submitted! 🎉</h1>
+          <h1 className="text-4xl pt-10 pb-8">Your event was submitted! 🎉</h1>
           <p>It will be posted after ~ 24 hours.</p>
         </>
       ) : (
         <>
-          <h1 className="text-3xl pt-10 pb-8">Submit an Event 📆 🔬</h1>
+          <h1 className="text-3xl pt-10 pb-8">Submit an event 📆 🔬</h1>
           <p className="text-md mb-12">
             Submit your event and contribute to the descentralized science
             ecosystem.
@@ -166,9 +166,29 @@ function SubmitEvent(props) {
                 Online event
               </button>
             </div>
-            {isOnline ? null : (
+            {isOnline ? (
               <>
                 <LocationSearchInput
+                  label="Search Time Zone"
+                  value={address}
+                  onChange={(val) => setAddress(val)}
+                />
+                <div className="form-control w-full mb-4">
+                  <label className="label">
+                    <span className="label-text">Selected Time Zone</span>
+                  </label>
+                  <input
+                    type="text"
+                    className="input input-bordered w-full"
+                    value={timeZone}
+                    disabled={true}
+                  />
+                </div>
+              </>
+            ) : (
+              <>
+                <LocationSearchInput
+                  label="Search Event Address"
                   value={address}
                   onChange={(val) => setAddress(val)}
                 />
