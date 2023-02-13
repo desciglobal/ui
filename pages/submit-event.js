@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 // import CountrySelector from "./CountrySelect";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import LocationSearchInput from "../components/modal-and-forms/EventLocationInput";
 import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 import { airtablePostEvent } from "../services/airtable";
 import { MixpanelTracking } from "../services/mixpanel";
+import Link from "next/link";
 
 function SubmitEvent(props) {
   const schema = yup
@@ -36,11 +37,8 @@ function SubmitEvent(props) {
   const [countryCode, setCountryCode] = useState("");
   const [isOnline, setIsOnline] = useState(false);
 
-  // here should be two more fields / states registered
-  // ISO code for country (ex. GB for England, PT for Portugal)
-  // Event City as String
-  // this informaation can be optained most likely with the latlng that we already get
-  // finally, we could make the form more bulletproof and userfriendly(only possible to submit when all information there, remove js alert or replace)
+  const [errorToastMessage, setErrorToastMessage] = useState();
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const getAddress = (a) => {
     setAddress(a.address);
@@ -90,163 +88,179 @@ function SubmitEvent(props) {
     try {
       await airtablePostEvent(data);
       MixpanelTracking.getInstance().eventSubmitted(data.event_title);
-      alert("Your Event was submitted, you can close the modal now!");
+
+      setErrorToastMessage(undefined);
+      setIsSubmitted(true);
     } catch (err) {
-      alert(`Error submitting event to Airtable: ${err.message}`);
+      setErrorToastMessage(
+        `Error submitting event to Airtable: ${err.message}`
+      );
+      setTimtout(() => {
+        setErrorToastMessage(undefined);
+      }, 10000);
     }
   };
 
   return (
-    <div
-      className="bg-white flex flex-col items-center z-40 fixed shadow-white-500/50 left-0 top-0 w-full h-full lg:w-1/2 lg:h-5/6 lg:left-[50%] lg:top-[50%] lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2"
-      id="modal"
-    >
-      <div className="h-full w-full relative">
-        <h2 className="text-2xl pt-10 pb-8 px-4">Submit an Event 📆 🔬</h2>
-        <div>
-          <p className="text-lg px-4 lg:w-2/3">
+    <div className="max-w-xl relative mt-10 mb-2 mx-2 sm:mx-auto">
+      {isSubmitted ? (
+        <>
+          <h1 className="text-4xl pt-10 pb-8">Your Event was submitted! 🎉</h1>
+          <p>It will be posted after ~ 24 hours.</p>
+        </>
+      ) : (
+        <>
+          <h1 className="text-3xl pt-10 pb-8">Submit an Event 📆 🔬</h1>
+          <p className="text-md mb-12">
             Submit your event and contribute to the descentralized science
-            ecosystem.{" "}
+            ecosystem.
           </p>
-          <p className="px-4 mt-2 text-[#B1B1B1]" htmlFor="email">
-            your Event will be posted after ~ 24 hours
-          </p>
-        </div>
-
-        <div className="my-14 bg-white w-full p-4">
           <form onSubmit={handleSubmit(onSubmit)}>
-            {console.log(errors)}
-            <div className="flex justify-between border-solid border-b border-black mr-[3%]">
-              <input
-                type="text"
-                className="w-[80%] h-10 placeholder:text-black placeholder:text-l focus:outline-none focus:placeholder:opacity-0"
-                placeholder="Event Name"
-                id="event_title"
-                name="event_title"
-                {...register("event_title")}
-              />
-              {errors.event_title?.message}
+            <h4 className="text-2xl mb-4">Basic details</h4>
+            <Field
+              id="event_title"
+              label="Event Name"
+              type="text"
+              register={register}
+              errorMessage={errors.event_title?.message}
+            />
+            <Field
+              id="contact_name"
+              label="Your full name"
+              type="text"
+              register={register}
+              errorMessage={errors.contact_name?.message}
+            />
+            <Field
+              id="contact_email"
+              label="Your email"
+              type="email"
+              register={register}
+              errorMessage={errors.contact_email?.message}
+            />
+            <Field
+              id="event_link"
+              label="Event Website / Meetup Link"
+              type="url"
+              register={register}
+              errorMessage={errors.event_link?.message}
+            />
+            <Field
+              id="event_description"
+              label="Short Event Description"
+              type="textarea"
+              register={register}
+              errorMessage={errors.event_description?.message}
+            />
+            <div className="divider my-8" />
+            <h4 className="text-2xl mb-4">Location</h4>
+            <div className="btn-group flex mb-4">
+              <button
+                type="button"
+                className={`btn${isOnline ? " btn-outline" : ""}`}
+                onClick={() => setIsOnline(false)}
+              >
+                Venue
+              </button>
+              <button
+                type="button"
+                className={`btn${isOnline ? "" : " btn-outline"}`}
+                onClick={() => setIsOnline(true)}
+              >
+                Online event
+              </button>
             </div>
-            <div className="flex justify-between border-solid border-b border-black mr-[3%]">
-              <input
-                type="text"
-                className="w-[80%] h-10 placeholder:text-black placeholder:text-l focus:outline-none focus:placeholder:opacity-0 "
-                placeholder="Your full name"
-                id="contact_name"
-                name="contact_name"
-                {...register("contact_name")}
-              />
-              {errors.contact_name && "Name is required."}
-            </div>
-            <div className="flex justify-between border-solid border-b border-black mr-[3%]">
-              <input
-                type="email"
-                className="w-[80%] h-10 placeholder:text-black placeholder:text-l focus:outline-none focus:placeholder:opacity-0"
-                placeholder="your@email.com"
-                id="contact_email"
-                name="contact_email"
-                {...register("contact_email")}
-              />
-              {errors.contact_email?.message}
-            </div>
-            <div className="flex justify-between border-solid border-b border-black mr-[3%]">
-              <input
-                type="url"
-                className="w-[80%] h-10 placeholder:text-black placeholder:text-l focus:outline-none focus:placeholder:opacity-0"
-                placeholder="Event Website / Meetup Link"
-                id="event_link"
-                name="event_link"
-                {...register("event_link")}
-              />
-              {errors.event_link?.message}
-            </div>
-            <div className="flex justify-between border-solid border-b border-black mr-[3%]">
-              <input
-                type="textarea"
-                className="w-[80%] h-10 placeholder:text-black placeholder:text-l focus:outline-none focus:placeholder:opacity-0"
-                placeholder="Short Event Description"
-                id="event_description"
-                name="event_description"
-                {...register("event_description")}
-              />
-              {errors.event_description?.message}
-            </div>
-            <div className="flex justify-between border-solid border-b border-black mr-[3%]">
-              <input
-                type="datetime-local"
-                className="w-[80%] grow h-10 placeholder:text-black placeholder:text-l focus:outline-none focus:placeholder:opacity-0"
-                id="event_date"
-                name="event_date"
-                {...register("event_date")}
-              />
-              {errors.event_date?.message}
-            </div>
-            <div className="flex justify-between border-solid border-b border-black mr-[3%]">
-              <input
-                type="datetime-local"
-                className="w-[80%] grow h-10 placeholder:text-black placeholder:text-l focus:outline-none focus:placeholder:opacity-0"
-                id="event_end_date"
-                name="event_end_date"
-                {...register("event_end_date")}
-              />
-              {errors.event_end_date?.message}
-            </div>
-            <LocationSearchInput setAddress={getAddress} />
-            <div className="flex justify-between border-solid border-b border-black mr-[3%]">
-              <input
-                type="text"
-                className="w-[80%] grow h-10 placeholder:text-black placeholder:text-l focus:outline-none focus:placeholder:opacity-0"
-                id="event_city"
-                name="event_city"
-                placeholder="Event City"
-                {...register("event_city")}
-              />
-              {errors.event_city?.message}
-            </div>
-            <div className="">
-              <div class="form-check">
-                <input
-                  class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                  type="checkbox"
-                  value={isOnline}
-                  onChange={() => setIsOnline(!isOnline)}
-                  id="flexCheckDefault"
+            {isOnline ? null : (
+              <>
+                <LocationSearchInput
+                  value={address}
+                  onChange={(val) => setAddress(val)}
                 />
-                <label
-                  class="form-check-label inline-block text-gray-800"
-                  for="flexCheckDefault"
-                >
-                  Online Event
-                </label>
-              </div>
-            </div>
+                <Field
+                  id="event_city"
+                  label="Event City"
+                  type="text"
+                  register={register}
+                  errorMessage={errors.event_city?.message}
+                />
+              </>
+            )}
+            <div className="divider my-8" />
+            <h4 className="text-2xl mb-4">Date and time</h4>
+            {[
+              { id: "event_date", label: "Start Date", type: "datetime-local" },
+              {
+                id: "event_end_date",
+                label: "End Date",
+                type: "datetime-local",
+              },
+            ].map(({ id, label, type }) => (
+              <Field
+                id={id}
+                label={label}
+                type={type}
+                register={register}
+                errorMessage={errors.event_title?.message}
+                key={id}
+              />
+            ))}
             <button type="submit" className="text-l mt-5">
               {isSubmitting ? "Submitting" : "Submit"}
             </button>
           </form>
-        </div>
-        <div
-          className="absolute top-0 right-0 p-4 cursor-pointer"
-          onClick={props.onClick}
+        </>
+      )}
+      <Link
+        className="absolute bottom-full sm:bottom-unset md:-left-20 text-desciblue inline-flex items-center mt-3 text-sm"
+        href="/"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="w-4 h-4 mr-1"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15.75 19.5L8.25 12l7.5-7.5"
+          />
+        </svg>
+        Home
+      </Link>
+      {errorToastMessage ? (
+        <div class="toast toast-end">
+          <div class="alert alert-error indicator">
+            <div>
+              <span>{errorToastMessage}</span>
+            </div>
+          </div>
         </div>
-      </div>
+      ) : null}
     </div>
   );
 }
 
 export default SubmitEvent;
+
+const Field = ({ id, label, type, register, errorMessage }) => (
+  <div className="form-control w-full mb-4" key={id}>
+    <label className="label">
+      <span className="label-text">{label}</span>
+    </label>
+    <input
+      type={type}
+      className="input input-bordered w-full"
+      id={id}
+      name={id}
+      {...register(id)}
+    />
+    {errorMessage && (
+      <label className="label">
+        <span className="label-text-alt text-error">{errorMessage}</span>
+      </label>
+    )}
+  </div>
+);
