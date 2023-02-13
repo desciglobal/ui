@@ -203,23 +203,20 @@ function SubmitEvent(props) {
             )}
             <div className="divider my-8" />
             <h4 className="text-2xl mb-4">Date and time</h4>
-            {[
-              { id: "event_date", label: "Start Date", type: "datetime-local" },
-              {
-                id: "event_end_date",
-                label: "End Date",
-                type: "datetime-local",
-              },
-            ].map(({ id, label, type }) => (
-              <Field
-                id={id}
-                label={label}
-                type={type}
-                register={register}
-                errorMessage={errors[id]?.message}
-                key={id}
-              />
-            ))}
+            <Field
+              id="event_date"
+              label="Start Date"
+              type="datetime-local"
+              register={register}
+              errorMessage={errors.event_date?.message}
+            />
+            <Field
+              id="event_end_date"
+              label="End Date"
+              type="datetime-local"
+              register={register}
+              errorMessage={errors.event_end_date?.message}
+            />
             <div className="divider my-8" />
             <button type="submit" className="btn flex ml-auto mb-8">
               {isSubmitting ? "Submitting" : "Submit"}
