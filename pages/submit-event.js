@@ -37,9 +37,7 @@ function SubmitEvent(props) {
   const [countryCode, setCountryCode] = useState("");
   const [isOnline, setIsOnline] = useState(false);
 
-  const [errorToastMessage, setErrorToastMessage] = useState(
-    "error! omg so bad! please try again! this is a long message to describe the error! we are being more specific now! even more specific! and even more specific!!!!"
-  );
+  const [errorToastMessage, setErrorToastMessage] = useState();
   const onHideToast = () =>
     setTimeout(() => {
       setErrorToastMessage(undefined);
