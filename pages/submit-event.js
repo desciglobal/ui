@@ -258,7 +258,7 @@ function SubmitEvent(props) {
             onTouchEnd={onHideToast}
           >
             <div>
-              <span>{errorToastMessage.slice(0, 50)}</span>
+              <span>{errorToastMessage.slice(0, 100)}...</span>
             </div>
           </div>
         </div>
