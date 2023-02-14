@@ -3,6 +3,7 @@ import { useState } from "react";
 import AddToCalendarButton from "./AddToCalendarButton/AddToCalendarButton";
 import EmailandEventCalForm from "../../modal-and-forms/email-event-cal-form";
 import { MixpanelTracking } from "../../../services/mixpanel";
+import Link from "next/link";
 
 function AllEventsSection(props) {
   const { upComingEvents, pastEvents } = props;
@@ -19,7 +20,7 @@ function AllEventsSection(props) {
 
   return (
     <section id="events">
-      <div className="lg:px-4 px-2 lg:pt-40 py-20 flex items-end">
+      <div className="lg:px-4 px-2 lg:pt-40 py-10 flex justify-between items-start flex-col sm:flex-row sm:items-end">
         <div className="lg:w-2/4 h-[70%] flex flex-col justify-between">
           <h2 className="lg:text-4xl text-xl py-10">
             All Events in your local time{" "}
@@ -31,6 +32,26 @@ function AllEventsSection(props) {
             new ones coming up.
           </p>
         </div>
+        <Link
+          href="/submit-event"
+          className="text-desciblue inline-flex items-center mt-3 sm:ml-3 whitespace-nowrap"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6 mr-2"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M12 4.5v15m7.5-7.5h-15"
+            />
+          </svg>
+          Add New Event
+        </Link>
       </div>
       <div
         id="upcoming"
