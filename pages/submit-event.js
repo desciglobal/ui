@@ -37,7 +37,14 @@ function SubmitEvent(props) {
   const [countryCode, setCountryCode] = useState("");
   const [isOnline, setIsOnline] = useState(false);
 
-  const [errorToastMessage, setErrorToastMessage] = useState();
+  const [errorToastMessage, setErrorToastMessage] = useState(
+    "error! omg so bad! please try again! this is a long message to describe the error! we are being more specific now! even more specific! and even more specific!!!!"
+  );
+  const onHideToast = () =>
+    setTimeout(() => {
+      setErrorToastMessage(undefined);
+    }, 5000);
+
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
@@ -91,9 +98,6 @@ function SubmitEvent(props) {
       setErrorToastMessage(
         `Error submitting event to Airtable: ${err.message}`
       );
-      setTimtout(() => {
-        setErrorToastMessage(undefined);
-      }, 10000);
     }
   };
 
@@ -101,7 +105,9 @@ function SubmitEvent(props) {
     <div className="max-w-xl relative mt-10 mb-2 mx-2 sm:mx-auto">
       {isSubmitted ? (
         <>
-          <h1 className="text-4xl pt-10 pb-8">Your event was submitted! 🎉</h1>
+          <h1 className="text-4xl pt-10 pb-8">
+            Event successfully submitted 🎉
+          </h1>
           <p>It will be posted after ~ 24 hours.</p>
         </>
       ) : (
@@ -188,7 +194,7 @@ function SubmitEvent(props) {
             ) : (
               <>
                 <LocationSearchInput
-                  label="Search Event Address"
+                  label="Search Venue Address"
                   value={address}
                   onChange={(val) => setAddress(val)}
                 />
@@ -246,9 +252,13 @@ function SubmitEvent(props) {
       </Link>
       {errorToastMessage ? (
         <div class="toast toast-end">
-          <div class="alert alert-error indicator">
+          <div
+            class="alert alert-error indicator max-w-[80vw]"
+            onMouseLeave={onHideToast}
+            onTouchEnd={onHideToast}
+          >
             <div>
-              <span>{errorToastMessage}</span>
+              <span>{errorToastMessage.slice(0, 50)}</span>
             </div>
           </div>
         </div>
