@@ -8,6 +8,7 @@ import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 import { airtablePostEvent } from "../services/airtable";
 import { MixpanelTracking } from "../services/mixpanel";
 import Link from "next/link";
+import Image from "next/image";
 
 function SubmitEvent(props) {
   const schema = yup
@@ -101,6 +102,13 @@ function SubmitEvent(props) {
 
   return (
     <div className="max-w-xl relative mt-10 mb-2 mx-2 sm:mx-auto">
+      <Image
+        src="/images/desci-global-white-logo.png"
+        alt="Desci Global Logo"
+        width={200}
+        height={200}
+        className="mx-auto py-4"
+      />
       {isSubmitted ? (
         <>
           <h1 className="text-4xl pt-10 pb-8">
