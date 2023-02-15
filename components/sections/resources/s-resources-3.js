@@ -125,6 +125,36 @@ function ResourcesSectionThree() {
               </svg>
             </a>
           </div>
+
+         <div className="p-4 md:w-1/3 sm:mb-0 mb-6">
+            <div className="h-64 overflow-hidden">
+              <img
+                alt="content"
+                className="object-cover object-center h-full w-full"
+                src="images/descipod.png"
+              />
+            </div>
+            <h2 className="text-xl font-medium title-font text-gray-900 mt-5">
+            DeSci Podcast
+            </h2>
+            <p className="text-base leading-relaxed mt-2">
+            Rethinking Science - Let's talk to the leaders of this industry about the future of biotech.
+            </p>
+            <a className="text-desciblue inline-flex items-center mt-3" href="https://www.youtube.com/playlist?list=PLYCWARA8YNdoZkSSdlJV0cdlMtP3rJcwu" target="_blank">
+              Learn More
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                className="w-4 h-4 ml-2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div> 
         </div>
       </div>
     </section>
