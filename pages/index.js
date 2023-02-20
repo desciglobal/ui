@@ -2,6 +2,8 @@ import { getAllEvents } from "../services/sort-event-data";
 import { getContributors } from "../services/sort-contributor-data";
 import { useEffect } from "react";
 
+import Navigation from "../components/sections/hero/navigation";
+import Banner from "../components/Banner";
 import HeroSection from "../components/sections/hero/s-hero";
 import AllEventsSection from "../components/sections/allevents/s-allevents";
 import ResourcesSectionThree from "../components/sections/resources/s-resources-3";
@@ -13,7 +15,7 @@ import Footer from "../components/sections/footer/footer";
 import FeaturedSection from "../components/sections/featured/s-featured";
 import FeaturedSectionMobile from "../components/sections/featured/s-featured-mobile";
 import { MixpanelTracking } from "../services/mixpanel";
-import Navigation from "../components/sections/hero/navigation";
+
 
 export default function Home(props) {
   const { upcomingEventsAsc, pastEventsDesc, featuredEvents, contributors } =
@@ -26,6 +28,7 @@ export default function Home(props) {
   return (
     <>
       <Navigation />
+      <Banner />
       <HeroSection />
       <FeaturedSection featuredEvents={featuredEvents} />
       <FeaturedSectionMobile featuredEvents={featuredEvents} />

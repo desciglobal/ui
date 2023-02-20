@@ -119,7 +119,7 @@ function AllEventsSection(props) {
                     {event.meetup_type}
                   </p>
                   {event.meetup_type == "To be Finalized" ? (
-                    <p className="lg:block hidden">
+                    <p className="lg:block hidden text-base">
                       {month} {year}
                     </p>
                   ) : (
