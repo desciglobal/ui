@@ -22,12 +22,15 @@ module.exports = {
       },
     },
   },
+  corePlugins: {
+    aspectRatio: false,
+  },
   plugins: [
     require("@tailwindcss/forms")({
       strategy: "class", // only generate classes
     }),
     require("daisyui"),
-    // ...
+    require("@tailwindcss/aspect-ratio"),
   ],
   daisyui: {
     themes: ["light"],

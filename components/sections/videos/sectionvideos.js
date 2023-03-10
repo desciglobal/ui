@@ -5,115 +5,67 @@ import { getVideos } from "../../../DATA-video";
 function VideoSection() {
   const videos = getVideos();
 
-
-
   return (
-    <section className="my-40" id="videos">
-      <div className="h-[100vh] mb-16 flex items-center justify-center">
-        <div className="h-[100%] lg:w-[74%] p-2 ">
-          <h2 className="lg:text-4xl text-2xl text-black pt-5 min-h-[15%]">Videos</h2>
-          <div className="grid grid-rows-2 grid-cols-2 lg:gap-10 gap-2 h-[85%] border border-white">
-            <div>
-              <a href={videos[0].link} target={"_blank"}>
-                <div className=" lg:h-[80%] h-32  relative group/video">
-                  <Image
-                    src={videos[0].image}
-                    layout="fill"
-                    objectFit="cover"
-                  />
-                  <div className="lg:w-12 lg:h-12  w-8 h-8 lg:right-4 lg:bottom-4 bottom-2 right-2 flex items-center justify-center absolute group-hover/video:scale-105 transition">
-                    <VideoIcon />
-                  </div>
-                </div>
-
-                <div className="pt-2">
-                  <div className="w-full">
-                    <h3 className="lg:text-xl leading-5">{videos[0].title}</h3>
-                  </div>
-                  <div className="lg:block  pt-1 lg:text-base text-xs w-full">
-                    <p className="text">
-                      {videos[0].description.substring(0, 100) + "..."}
-                    </p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div>
-              <a href={videos[1].link} target={"_blank"}>
-                <div className=" lg:h-[80%] h-32 relative group/video">
-                  <Image
-                    src={videos[1].image}
-                    layout="fill"
-                    objectFit="cover"
-                  />
-                  <div className="lg:w-12 lg:h-12  w-8 h-8 lg:right-4 lg:bottom-4 bottom-2 right-2 flex items-center justify-center absolute group-hover/video:scale-105 transition">
-                    <VideoIcon />
-                  </div>
-                </div>
-
-                <div className="pt-2">
-                  <div className="w-full">
-                    <h3 className="lg:text-xl leading-5">{videos[1].title}</h3>
-                  </div>
-                  <div className="lg:block  pt-1 lg:text-base text-xs w-full">
-                    <p className="text">
-                      {videos[1].description.substring(0, 100) + "..."}
-                    </p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div>
-              <a href={videos[2].link} target={"_blank"}>
-                <div className=" lg:h-[80%] h-32 relative group/video">
-                  <Image
-                    src={videos[2].image}
-                    layout="fill"
-                    objectFit="cover"
-                  />
-                  <div className="lg:w-12 lg:h-12  w-8 h-8 lg:right-4 lg:bottom-4 bottom-2 right-2 flex items-center justify-center absolute group-hover/video:scale-105 transition">
-                    <VideoIcon />
-                  </div>
-                </div>
-
-                <div className="pt-2">
-                  <div className="w-full">
-                    <h3 className="lg:text-xl leading-5">{videos[2].title}</h3>
-                  </div>
-                  <div className="lg:block  pt-1 lg:text-base text-xs w-full">
-                    <p className="text">
-                      {videos[2].description.substring(0, 100) + "..."}
-                    </p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div>
-            <a href={videos[3].link} target={"_blank"}>
-                <div className=" lg:h-[80%] h-32 relative group/video">
-                  <Image
-                    src={videos[3].image}
-                    layout="fill"
-                    objectFit="cover"
-                  />
-                  <div className="lg:w-12 lg:h-12  w-8 h-8 lg:right-4 lg:bottom-4 bottom-2 right-2 flex items-center justify-center absolute group-hover/video:scale-105 transition">
-                    <VideoIcon />
-                  </div>
-                </div>
-
-                <div className="pt-2">
-                  <div className="w-full">
-                    <h3 className="lg:text-xl leading-5">{videos[3].title}</h3>
-                  </div>
-                  <div className="lg:block  pt-1 lg:text-base text-xs w-full ">
-                    <p className="text">
-                      {videos[3].description.substring(0, 100) + "..."}
-                    </p>
-                  </div>
-                </div>
-              </a>
-            </div>
+    <section className="my-40 px-4" id="videos">
+      <h2 className="lg:text-4xl text-2xl mb-4 lg:mb-10">Videos</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 container mx-auto">
+        <div className="aspect-w-16 aspect-h-9">
+          <iframe
+            src="https://www.youtube.com/embed/qtBsL90-J_4"
+            title="Vitalik Buterin on Decentralized Science, Aging, AI and Scientific Progress"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          />
+        </div>
+        <div className="aspect-w-16 aspect-h-9">
+          <iframe
+            src="https://www.youtube.com/embed/5ORvbCIW39o"
+            title="FSS #5 The DeSci Movement with Juan Benet"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          />
+        </div>
+        <div className="aspect-w-16 aspect-h-9 relative">
+          <Image
+            src="/images/videos/desciboston.png"
+            alt="DeSci Boston"
+            width={756}
+            height={425}
+          />
+          <div className="w-full h-min text-lg leading-5 bg-gradient-to-b from-black/75 to-transparent p-5 text-white whitespace-nowrap">
+            <span className="mr-2">DeSci Boston @ MIT</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6 inline-block align-text-bottom"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+              />
+            </svg>
           </div>
+          <a
+            href="https://web.mit.edu/webcast/bitcoin-22/1/"
+            target="_blank"
+            className="absolute w-full h-full"
+            rel="noreferrer"
+          />
+        </div>
+        <div className="aspect-w-16 aspect-h-9">
+          <iframe
+            src="https://www.youtube.com/embed/videoseries?list=PLYCWARA8YNdpVj31TutmnxptlK8Wy7O6D"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          />
         </div>
       </div>
     </section>
