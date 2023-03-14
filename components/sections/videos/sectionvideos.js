@@ -1,10 +1,6 @@
 import Image from "next/image";
-import VideoIcon from "../../icons/VideoIcon";
-import { getVideos } from "../../../DATA-video";
 
 function VideoSection() {
-  const videos = getVideos();
-
   return (
     <section className="my-40 px-4" id="videos">
       <h2 className="lg:text-4xl text-2xl mb-4 lg:mb-10">Videos</h2>
