@@ -28,7 +28,6 @@ export default function Home(props) {
   return (
     <>
       <Navigation />
-      <Banner />
       <HeroSection />
       <FeaturedSection featuredEvents={featuredEvents} />
       <FeaturedSectionMobile featuredEvents={featuredEvents} />
