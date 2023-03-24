@@ -13,7 +13,7 @@ function FeaturedSectionMobile(props) {
             </p>
           </div>
           <div
-            className="bg-no-repeat h-[20rem] bg-cover bg-center flex justify-end"
+            className="bg-no-repeat h-[20rem] bg-contain bg-center flex justify-end"
             style={{
               backgroundImage: `url(${
                 (featuredEvents[0].event_image_file &&

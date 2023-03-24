@@ -133,7 +133,7 @@ export default class withCustomStatusArrowsAndIndicators extends Component<
                 </div>
               </div>
               <div
-                className="w-2/4 bg-no-repeat bg-cover bg-center flex justify-end"
+                className="w-2/4 bg-no-repeat bg-contain bg-center flex justify-end"
                 style={{
                   backgroundImage: `url(${
                     (event.event_image_file && event.event_image_file[0].url) ||
