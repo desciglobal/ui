@@ -18,6 +18,9 @@ function initMap() {
   const map = new google.maps.Map(document.getElementById("local-groups-map"), {
     zoom: 1,
     center: myLatLng,
+    streetViewControl: false,
+    fullscreenControl: false,
+    mapTypeControl: false,
   });
 
   const infoWindow = new google.maps.InfoWindow();
