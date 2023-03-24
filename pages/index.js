@@ -13,6 +13,7 @@ import PartnerLogoSection from "../components/sections/partners/s-partners";
 import Footer from "../components/sections/footer/footer";
 import FeaturedSection from "../components/sections/featured/s-featured";
 import FeaturedSectionMobile from "../components/sections/featured/s-featured-mobile";
+import LocalGroupsSection from "../components/sections/local-groups";
 import { MixpanelTracking } from "../services/mixpanel";
 
 export default function Home(props) {
@@ -33,6 +34,7 @@ export default function Home(props) {
         upComingEvents={upcomingEventsAsc}
         pastEvents={pastEventsDesc}
       />
+      <LocalGroupsSection />
       <ResourcesSectionThree />
       <ContributeSection />
       <VideoSection />

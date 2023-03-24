@@ -1,10 +1,11 @@
-import '../styles/globals.css'
-import Head from 'next/head'
+import "../styles/globals.css";
+import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
-  return <>
-  <Head>
-      <title>Desci events around the globe</title>
+  return (
+    <>
+      <Head>
+        <title>Desci events around the globe</title>
         <meta
           name="description"
           content="A list of descentralized science events around the globe. Contribute and share Events"
@@ -34,10 +35,15 @@ function MyApp({ Component, pageProps }) {
           name="twitter:image"
           content="https://www.desci.global/api/og-image"
         />
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4IefstneiNw1cA3bTrhIXFti9IYfVP8A&libraries=places"></script>
+        <script
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4IefstneiNw1cA3bTrhIXFti9IYfVP8A&libraries=places&callback=initMap&v=weekly"
+          defer
+          async
+        ></script>
       </Head>
-  <Component {...pageProps} />
-  </>
+      <Component {...pageProps} />
+    </>
+  );
 }
 
-export default MyApp
+export default MyApp;
