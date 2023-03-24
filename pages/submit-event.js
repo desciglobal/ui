@@ -29,6 +29,37 @@ const client = new S3Client({
 const MAX_IMAGE_FILE_SIZE = 2147483648;
 const SUPPORTED_IMAGE_FILE_FORMATS = ["image/jpg", "image/jpeg", "image/png"];
 
+const uploadEventImage = async (file) => {
+  const fileType = file.type.split("/")[1];
+  const fileName = `${uuid()}.${fileType}`;
+
+  try {
+    const putObjectCommand = new PutObjectCommand({
+      Bucket: process.env.NEXT_PUBLIC_BUCKET_NAME,
+      Key: fileName,
+      expiresIn: 60,
+      ContentType: `image/${fileType}`,
+    });
+    const putObjectUrl = await getSignedUrl(client, putObjectCommand);
+    await fetch(putObjectUrl, {
+      method: "PUT",
+      body: file,
+    });
+
+    const getObjectCommand = new GetObjectCommand({
+      Bucket: process.env.NEXT_PUBLIC_BUCKET_NAME,
+      Key: fileName,
+      expiresIn: 300,
+      ContentType: `image/${fileType}`,
+    });
+    const getObjectUrl = await getSignedUrl(client, getObjectCommand);
+
+    return getObjectUrl;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 function SubmitEvent(props) {
   const schema = yup
     .object({
@@ -125,8 +156,7 @@ function SubmitEvent(props) {
     data.event_meetupType = isOnline ? "Online" : "Meetup";
 
     try {
-      const url = await uploadEventImage();
-      data.event_image = url;
+      data.event_image = await uploadEventImage(eventImageFile);
 
       await airtablePostEvent(data);
       MixpanelTracking.getInstance().eventSubmitted(data.event_title);
@@ -137,37 +167,6 @@ function SubmitEvent(props) {
       setErrorToastMessage(
         `Error submitting event to Airtable: ${err.message}`
       );
-    }
-  };
-
-  const uploadEventImage = async () => {
-    const fileType = eventImageFile.type.split("/")[1];
-    const fileName = `${uuid()}.${fileType}`;
-
-    try {
-      const putObjectCommand = new PutObjectCommand({
-        Bucket: process.env.NEXT_PUBLIC_BUCKET_NAME,
-        Key: fileName,
-        expiresIn: 60,
-        ContentType: `image/${fileType}`,
-      });
-      const putObjectUrl = await getSignedUrl(client, putObjectCommand);
-      await fetch(putObjectUrl, {
-        method: "PUT",
-        body: eventImageFile,
-      });
-
-      const getObjectCommand = new GetObjectCommand({
-        Bucket: process.env.NEXT_PUBLIC_BUCKET_NAME,
-        Key: fileName,
-        expiresIn: 300,
-        ContentType: `image/${fileType}`,
-      });
-      const getObjectUrl = await getSignedUrl(client, getObjectCommand);
-
-      return getObjectUrl;
-    } catch (err) {
-      console.error(err);
     }
   };
 
