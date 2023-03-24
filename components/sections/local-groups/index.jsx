@@ -34,16 +34,16 @@ function initMap() {
       const nameElement = document.createElement("a");
 
       nameElement.textContent = name;
-      nameElement
-        .setAttribute("href", link)
-        .setAttribute("target", "_blank")
-        .setAttribute(
-          "style",
-          "color:blue; font-weight:bold; text-decoration:underline"
-        );
+      nameElement.setAttribute("href", link);
+      nameElement.setAttribute("target", "_blank");
+      nameElement.setAttribute(
+        "style",
+        "color:blue; font-weight:bold; text-decoration:underline"
+      );
       content.appendChild(nameElement);
 
-      infoWindow.setContent(content).open(map, marker);
+      infoWindow.setContent(content);
+      infoWindow.open(map, marker);
     });
   });
 }
@@ -51,6 +51,7 @@ function initMap() {
 const LocalGroups = () => {
   useEffect(() => {
     window.initMap = initMap;
+    window.initMap();
   }, []);
 
   return (
@@ -58,7 +59,7 @@ const LocalGroups = () => {
       <h2 className="ml-2 lg:ml-4 text-2xl lg:text-4xl mb-2 lg:mb-4">
         Local groups
       </h2>
-      <div id="local-groups-map" className="h-80 lg:mx-4" />
+      <div id="local-groups-map" className="h-96 lg:mx-4" />
     </div>
   );
 };
