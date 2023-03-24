@@ -16,7 +16,7 @@ const localGroups = [
 function initMap() {
   const myLatLng = { lat: 30, lng: 0 };
   const map = new google.maps.Map(document.getElementById("local-groups-map"), {
-    zoom: 1,
+    zoom: 2,
     center: myLatLng,
     streetViewControl: false,
     fullscreenControl: false,
