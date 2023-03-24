@@ -1,30 +1,43 @@
-
+import defaultEventImage from "./../../../public/images/featured-bg.png";
 
 function FeaturedSectionMobile(props) {
   const { featuredEvents } = props;
-
-
 
   return (
     <section className="lg:hidden">
       <div className="px-2">
         <div className="">
           <div className="h-20 flex items-center">
-            <p id="highlights" className="text-xl text-black">Highlighted this week</p>
+            <p id="highlights" className="text-xl text-black">
+              Highlighted this week
+            </p>
           </div>
-          <div className=" bg-featured bg-no-repeat h-[20rem] bg-cover flex justify-end">
-          </div>
+          <div
+            className="bg-no-repeat h-[20rem] bg-cover bg-center flex justify-end"
+            style={{
+              backgroundImage: `url(${
+                (featuredEvents[0].event_image_file &&
+                  featuredEvents[0].event_image_file[0].url) ||
+                featuredEvents[0].event_image ||
+                defaultEventImage.src
+              })`,
+            }}
+          ></div>
           <div className="flex w-full space-x-4 text-2xl my-5 items-center">
             <p>{featuredEvents[0].event_title}</p>
           </div>
           <div className="pt-2 pb-2">
-            <p className="lg:text-lg">
-              {featuredEvents[0].event_description}
-            </p>
+            <p className="lg:text-lg">{featuredEvents[0].event_description}</p>
           </div>
           <div>
             <div className="lg:w-full w-[] bg-black text-white lg:h-10 h-8 flex items-center my-8 justify-center rounded-full text-xl">
-              <a href={featuredEvents[0].event_link} target={"_blank"}>Event Website</a>
+              <a
+                href={featuredEvents[0].event_link}
+                target={"_blank"}
+                rel="noreferrer"
+              >
+                Event Website
+              </a>
             </div>
             <div className="">
               <ul>

@@ -5,19 +5,18 @@ import RoundArrowLeft from "../../icons/RoundArrowLeft";
 import RoundArrowRight from "../../icons/RoundArrowRight";
 // import { getFeaturedEvents } from "../../../dummy-data";
 import { MixpanelTracking } from "../../../services/mixpanel";
-
+import defaultEventImage from "./../../../public/images/featured-bg.png";
 
 function trackEventLinkClicked(eventName) {
   MixpanelTracking.getInstance().eventLinkClicked(eventName);
 }
 
-
-export default class withCustomStatusArrowsAndIndicators extends Component <any, any>{
-  
+export default class withCustomStatusArrowsAndIndicators extends Component<
+  any,
+  any
+> {
   render() {
-    const {featuredEvents} = this.props;
-
-    
+    const { featuredEvents } = this.props;
 
     const carouselProp = {
       showStatus: true,
@@ -38,7 +37,9 @@ export default class withCustomStatusArrowsAndIndicators extends Component <any,
                 className="space-x-4 text-2xl h-10 flex items-center cursor-pointer text-[#0A22F5] leading-6	text-left"
                 onClick={clickHandler}
               >
-                <p className="break-words">{featuredEvents[index].event_title}</p>
+                <p className="break-words">
+                  {featuredEvents[index].event_title}
+                </p>
               </div>
             </div>
           );
@@ -79,7 +80,10 @@ export default class withCustomStatusArrowsAndIndicators extends Component <any,
       <div>
         <Carousel {...carouselProp}>
           {featuredEvents.map((event) => (
-            <div className="pl-4 min-h-[38rem] w-full lg:flex hidden" key={event.id}>
+            <div
+              className="pl-4 min-h-[38rem] w-full lg:flex hidden"
+              key={event.id}
+            >
               <div className="w-2/4 pr-4 flex flex-col justify-between">
                 <div className="h-20 flex items-center">
                   <p className="text-4xl text-black">Featured Events</p>
@@ -95,7 +99,12 @@ export default class withCustomStatusArrowsAndIndicators extends Component <any,
                 </div>
                 <div>
                   <div className="w-full bg-black text-white h-10 flex items-center justify-center rounded-full text-xl mb-6 hover:bg-descigreyfont hover:text-white cursor-pointer ">
-                    <a href={event.event_link} target={"_blank"} onClick={() => trackEventLinkClicked(event.event_title )}>
+                    <a
+                      href={event.event_link}
+                      target={"_blank"}
+                      onClick={() => trackEventLinkClicked(event.event_title)}
+                      rel="noreferrer"
+                    >
                       Event Website
                     </a>
                   </div>
@@ -123,20 +132,16 @@ export default class withCustomStatusArrowsAndIndicators extends Component <any,
                   </div>
                 </div>
               </div>
-              <div className="w-2/4  bg-featured bg-no-repeat bg-cover flex justify-end">
-                <div className="w-[33%] ">
-                  <div className="ml-4 mt-2 h-16 flex items-center">
-                    <a
-                      href={event.event_link}
-                      target={"_blank"}
-                      className="text-xl text-white border-solid border-b-2 cursor-pointer"
-                    >
-                      {event.event_title}
-                    </a>
-                  </div>
-                </div>
-                <div className="w-[65%] mr-4 h-full bg-desciblue opacity-30"></div>
-              </div>
+              <div
+                className="w-2/4 bg-no-repeat bg-cover bg-center flex justify-end"
+                style={{
+                  backgroundImage: `url(${
+                    (event.event_image_file && event.event_image_file[0].url) ||
+                    event.event_image ||
+                    defaultEventImage.src
+                  })`,
+                }}
+              ></div>
             </div>
           ))}
         </Carousel>
