@@ -369,6 +369,7 @@ const Field = ({ id, label, type, register, errorMessage }) => (
       className="input input-bordered w-full"
       id={id}
       name={id}
+      maxLength={id === "event_title" ? 80 : undefined}
       {...register(id)}
     />
     {errorMessage && (
