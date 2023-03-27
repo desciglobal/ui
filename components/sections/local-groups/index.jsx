@@ -6,24 +6,13 @@ import {
   MarkerF as Marker,
 } from "@react-google-maps/api";
 
-const localGroups = [
-  {
-    name: "DeSci London",
-    position: { lat: 51.5048913, lng: -0.1294337 },
-    link: "https://www.meetup.com/en-AU/desci-london/",
-  },
-  {
-    name: "DeSci Berlin",
-    position: { lat: 52.5226342, lng: 13.4035831 },
-    link: "https://www.desci.berlin/",
-  },
-];
-
-const LocalGroups = () => {
+const LocalGroups = ({ localGroups }) => {
   const { isLoaded } = useJsApiLoader({
     id: "local-groups-map",
     googleMapsApiKey: "AIzaSyB4IefstneiNw1cA3bTrhIXFti9IYfVP8A",
   });
+
+  console.log(localGroups);
 
   const [map, setMap] = useState(null);
   const [activeMarker, setActiveMarker] = useState(null);
@@ -36,7 +25,7 @@ const LocalGroups = () => {
     setMap(null);
   }, []);
 
-  return isLoaded ? (
+  return isLoaded && localGroups && localGroups.length ? (
     <div className="mt-40">
       <h2 className="ml-2 lg:ml-4 text-2xl lg:text-4xl mb-2 lg:mb-4">
         Local groups
@@ -53,14 +42,14 @@ const LocalGroups = () => {
         onLoad={onLoad}
         onUnmount={onUnmount}
       >
-        {localGroups.map(({ name, link, position }) => (
+        {localGroups.map(({ name, link, position, recordId }) => (
           <Marker
             position={position}
             title={name}
-            key={link}
-            onClick={() => link !== activeMarker && setActiveMarker(link)}
+            key={recordId}
+            onClick={() => link !== activeMarker && setActiveMarker(recordId)}
           >
-            {activeMarker === link ? (
+            {activeMarker === recordId ? (
               <InfoWindow onCloseClick={() => setActiveMarker(null)}>
                 <a
                   href={link}

@@ -1,5 +1,6 @@
 import { getAllEvents } from "../services/sort-event-data";
 import { getContributors } from "../services/sort-contributor-data";
+import { getAirtableLocalGroups } from "../services/airtable";
 import { useEffect } from "react";
 
 import Navigation from "../components/sections/hero/navigation";
@@ -17,8 +18,13 @@ import LocalGroupsSection from "../components/sections/local-groups";
 import { MixpanelTracking } from "../services/mixpanel";
 
 export default function Home(props) {
-  const { upcomingEventsAsc, pastEventsDesc, featuredEvents, contributors } =
-    props;
+  const {
+    upcomingEventsAsc,
+    pastEventsDesc,
+    featuredEvents,
+    contributors,
+    localGroups,
+  } = props;
 
   useEffect(() => {
     MixpanelTracking.getInstance().pageView();
@@ -34,7 +40,7 @@ export default function Home(props) {
         upComingEvents={upcomingEventsAsc}
         pastEvents={pastEventsDesc}
       />
-      <LocalGroupsSection />
+      <LocalGroupsSection localGroups={localGroups} />
       <ResourcesSectionThree />
       <ContributeSection />
       <VideoSection />
@@ -49,6 +55,7 @@ export async function getStaticProps() {
   const { upcomingEventsAsc, pastEventsDesc, featuredEvents } =
     await getAllEvents();
   const contributors = await getContributors();
+  const localGroups = await getAirtableLocalGroups();
 
   upcomingEventsAsc.forEach((event) => {
     event.event_date = event.event_date.toISOString().substring(0, 10);
@@ -99,6 +106,7 @@ export async function getStaticProps() {
       pastEventsDesc,
       featuredEvents,
       contributors,
+      localGroups,
     },
     revalidate: 10,
   };
