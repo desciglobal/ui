@@ -12,8 +12,6 @@ const LocalGroups = ({ localGroups }) => {
     googleMapsApiKey: "AIzaSyB4IefstneiNw1cA3bTrhIXFti9IYfVP8A",
   });
 
-  console.log(localGroups);
-
   const [map, setMap] = useState(null);
   const [activeMarker, setActiveMarker] = useState(null);
 
