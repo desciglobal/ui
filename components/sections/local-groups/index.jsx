@@ -13,9 +13,7 @@ const localGroups = [
   },
 ];
 
-function initMap(google) {
-  if (!google) return;
-
+function initMap() {
   const myLatLng = { lat: 30, lng: 0 };
   const map = new google.maps.Map(document.getElementById("local-groups-map"), {
     zoom: 2,
@@ -55,7 +53,8 @@ function initMap(google) {
 
 const LocalGroups = () => {
   useEffect(() => {
-    initMap(window.google);
+    window.initMap = initMap;
+    window.initMap();
   }, []);
 
   return (
