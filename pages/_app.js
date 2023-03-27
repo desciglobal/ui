@@ -35,11 +35,7 @@ function MyApp({ Component, pageProps }) {
           name="twitter:image"
           content="https://www.desci.global/api/og-image"
         />
-        <script
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4IefstneiNw1cA3bTrhIXFti9IYfVP8A&libraries=places&callback=initMap&v=weekly"
-          defer
-          async
-        ></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4IefstneiNw1cA3bTrhIXFti9IYfVP8A&libraries=places"></script>
       </Head>
       <Component {...pageProps} />
     </>

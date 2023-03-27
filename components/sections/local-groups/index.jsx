@@ -1,4 +1,10 @@
-import { useEffect } from "react";
+import { useState, useCallback } from "react";
+import {
+  GoogleMap,
+  useJsApiLoader,
+  InfoWindowF as InfoWindow,
+  MarkerF as Marker,
+} from "@react-google-maps/api";
 
 const localGroups = [
   {
@@ -13,58 +19,64 @@ const localGroups = [
   },
 ];
 
-function initMap() {
-  const myLatLng = { lat: 30, lng: 0 };
-  const map = new google.maps.Map(document.getElementById("local-groups-map"), {
-    zoom: 2,
-    center: myLatLng,
-    streetViewControl: false,
-    fullscreenControl: false,
-    mapTypeControl: false,
-  });
-
-  const infoWindow = new google.maps.InfoWindow();
-
-  localGroups.forEach(({ name, link, position }) => {
-    const marker = new google.maps.Marker({
-      position,
-      map,
-      title: name,
-    });
-
-    google.maps.event.addListener(marker, "click", () => {
-      const content = document.createElement("div");
-      const nameElement = document.createElement("a");
-
-      nameElement.textContent = name;
-      nameElement.setAttribute("href", link);
-      nameElement.setAttribute("target", "_blank");
-      nameElement.setAttribute(
-        "style",
-        "color:blue; font-weight:bold; text-decoration:underline"
-      );
-      content.appendChild(nameElement);
-
-      infoWindow.setContent(content);
-      infoWindow.open(map, marker);
-    });
-  });
-}
-
 const LocalGroups = () => {
-  useEffect(() => {
-    window.initMap = initMap;
-    window.initMap();
+  const { isLoaded } = useJsApiLoader({
+    id: "local-groups-map",
+    googleMapsApiKey: "AIzaSyB4IefstneiNw1cA3bTrhIXFti9IYfVP8A",
+  });
+
+  const [map, setMap] = useState(null);
+  const [activeMarker, setActiveMarker] = useState(null);
+
+  const onLoad = useCallback(function callback(map) {
+    setMap(map);
   }, []);
 
-  return (
+  const onUnmount = useCallback(function callback() {
+    setMap(null);
+  }, []);
+
+  return isLoaded ? (
     <div className="mt-40">
       <h2 className="ml-2 lg:ml-4 text-2xl lg:text-4xl mb-2 lg:mb-4">
         Local groups
       </h2>
-      <div id="local-groups-map" className="h-96 lg:mx-4" />
+      <GoogleMap
+        mapContainerClassName="h-96 lg:mx-4"
+        center={{ lat: 30, lng: 0 }}
+        zoom={2}
+        options={{
+          streetViewControl: false,
+          fullscreenControl: false,
+          mapTypeControl: false,
+        }}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
+      >
+        {localGroups.map(({ name, link, position }) => (
+          <Marker
+            position={position}
+            title={name}
+            key={link}
+            onClick={() => link !== activeMarker && setActiveMarker(link)}
+          >
+            {activeMarker === link ? (
+              <InfoWindow onCloseClick={() => setActiveMarker(null)}>
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-desciblue font-bold underline"
+                >
+                  {name}
+                </a>
+              </InfoWindow>
+            ) : null}
+          </Marker>
+        ))}
+      </GoogleMap>
     </div>
-  );
+  ) : null;
 };
 
 export default LocalGroups;
