@@ -73,22 +73,6 @@ function SubmitEvent(props) {
       event_end_date: yup.date().required(),
       event_city: yup.string().required(),
       event_image: yup.string(),
-      event_image_file: yup
-        .mixed()
-        .nullable()
-        .notRequired()
-        .test(
-          "FILE_SIZE",
-          "Uploaded file is too big. Max size: 2MB.",
-          (value) => !value || (value && value.size <= MAX_IMAGE_FILE_SIZE)
-        )
-        .test(
-          "FILE_FORMAT",
-          "Uploaded file has unsupported format.",
-          (value) =>
-            !value ||
-            (value && SUPPORTED_IMAGE_FILE_FORMATS.includes(value.type))
-        ),
     })
     .required();
 
@@ -105,6 +89,21 @@ function SubmitEvent(props) {
   const [countryCode, setCountryCode] = useState("");
   const [isOnline, setIsOnline] = useState(false);
   const [eventImageFile, setEventImageFile] = useState();
+  const [fileError, setFileError] = useState();
+
+  const onEventImageFileChange = (e) => {
+    const file = e.target.files[0];
+
+    const isFileTooBig = file.size > 2 * 1024 ** 2; // 2MB
+
+    if (isFileTooBig) {
+      setEventImageFile(undefined);
+      setFileError(true);
+    } else {
+      setEventImageFile(file);
+      setFileError(false);
+    }
+  };
 
   const [errorToastMessage, setErrorToastMessage] = useState();
   const onHideToast = () =>
@@ -310,8 +309,13 @@ function SubmitEvent(props) {
                 type="file"
                 accept="image/png, image/jpeg"
                 className="file-input file-input-bordered w-full max-w-xs"
-                onChange={(e) => setEventImageFile(e.target.files[0])}
+                onChange={onEventImageFileChange}
               />
+              {fileError ? (
+                <div className="text-sm">
+                  Uploaded file is too big. Max size: 2MB.
+                </div>
+              ) : null}
               <div className="divider my-8" />
               <button type="submit" className="btn flex ml-auto mb-8">
                 {isSubmitting ? "Submitting" : "Submit"}
