@@ -94,7 +94,7 @@ function SubmitEvent(props) {
   const onEventImageFileChange = (e) => {
     const file = e.target.files[0];
 
-    const isFileTooBig = file.size > 2 * 1024 ** 2; // 2MB
+    const isFileTooBig = file.size > 500 * 1024 ** 2; // 500KB
 
     if (isFileTooBig) {
       setEventImageFile(undefined);
@@ -313,7 +313,7 @@ function SubmitEvent(props) {
               />
               {fileError ? (
                 <div className="text-sm">
-                  Uploaded file is too big. Max size: 2MB.
+                  Uploaded file is too big. Max size: 500KB.
                 </div>
               ) : null}
               <div className="divider my-8" />
