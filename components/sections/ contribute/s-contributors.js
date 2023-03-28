@@ -1,10 +1,8 @@
 import Image from "next/image";
 
-import { getAllContributors } from "../../../DATA-contributor.js";
-
 function ContributorsSection(props) {
   // const contributors = getAllContributors();
-  const {contributors} = props;
+  const { contributors } = props;
 
   return (
     <section id="contributors" className="pb-20 lg:mt-0 mt-20">
@@ -33,7 +31,11 @@ function ContributorsSection(props) {
                   <div className=" h-[100%] relative grayscale">
                     <Image
                       alt={contributor.name}
-                      src={contributor.image}
+                      src={
+                        (contributor.image_file &&
+                          contributor.image_file[0].url) ||
+                        contributor.image
+                      }
                       layout="fill"
                       objectFit="cover"
                     />
@@ -41,9 +43,10 @@ function ContributorsSection(props) {
                   <div className="bg-black hidden absolute h-40 w-40 z-1 opacity-0 text-white items-center lg:flex justify-center lg:hover:opacity-80 ease-in duration-100">
                     {contributor.twitter}
                   </div>
-                  
                 </div>
-                <div className="flex items-center justify-center">{contributor.name}</div>
+                <div className="flex items-center justify-center">
+                  {contributor.name}
+                </div>
               </a>
             </li>
           ))}
