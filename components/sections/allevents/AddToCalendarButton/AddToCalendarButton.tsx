@@ -5,24 +5,28 @@ import Backdrop from "../../../modal-and-forms/backdrop";
 
 interface AddToCalendarButtonProps {
   calendarEvent: CalendarEvent;
-  buttonText: String;
+  buttonText: JSX.Element;
 }
 
 export default function AddToCalendarButton({
   calendarEvent,
-  buttonText
+  buttonText,
 }: AddToCalendarButtonProps) {
   const [isTooltipVisible, setIsTooltipVisible] = React.useState(false);
 
   return (
     <React.Fragment>
-      <div className="add-to-calendar-wrapper">
-        <button className="add-to-calendar-button text-sm" onClick={handleClick}>
-         {buttonText}
+      <div className="add-to-calendar-wrapper lg:flex lg:items-center">
+        <button
+          className="add-to-calendar-button text-sm"
+          onClick={handleClick}
+        >
+          {buttonText}
         </button>
-        {isTooltipVisible && (<>
-          <Backdrop onClick={handleClick}/>
-          <AddToCalendarButtonTooltip calendarEvent={calendarEvent} />
+        {isTooltipVisible && (
+          <>
+            <Backdrop onClick={handleClick} />
+            <AddToCalendarButtonTooltip calendarEvent={calendarEvent} />
           </>
         )}
       </div>
@@ -34,4 +38,3 @@ export default function AddToCalendarButton({
     setIsTooltipVisible(!isTooltipVisible);
   }
 }
-

@@ -53,6 +53,32 @@ export async function getAirtableContributors() {
   return contributors;
 }
 
+export async function getAirtableLocalGroups() {
+  let recordsArray = [];
+
+  await base("local groups")
+    .select({
+      view: "Grid view",
+    })
+    .eachPage((records, fetchNextPage) => {
+      recordsArray = [...recordsArray, ...records];
+      fetchNextPage();
+    })
+    .catch((error) => {
+      console.error(error);
+      return false;
+    });
+  const localGroups = recordsArray.map(function ({ fields, id }) {
+    return {
+      name: fields.name,
+      position: { lat: fields.lat, lng: fields.lng },
+      link: fields.link,
+      recordId: id,
+    };
+  });
+  return localGroups;
+}
+
 export async function airtablePostEvent(data) {
   const {
     event_title,
@@ -70,7 +96,6 @@ export async function airtablePostEvent(data) {
     event_end_time,
     event_end_date,
     event_meetupType,
-
   } = data;
 
   // if (!event_title || !event_date || !event_link || !event_image) {

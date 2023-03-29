@@ -1,9 +1,10 @@
 import { useState } from "react";
+import Link from "next/link";
 
 import AddToCalendarButton from "./AddToCalendarButton/AddToCalendarButton";
 import EmailandEventCalForm from "../../modal-and-forms/email-event-cal-form";
 import { MixpanelTracking } from "../../../services/mixpanel";
-import Link from "next/link";
+import CalendarIcon from "../../icons/CalendarIcon";
 
 function AllEventsSection(props) {
   const { upComingEvents, pastEvents } = props;
@@ -55,12 +56,14 @@ function AllEventsSection(props) {
       </div>
       <div
         id="upcoming"
-        className="lg:bg-desciblue bg-descigrey w-full lg:px-4 px-2 h-10 grid lg:grid-cols-6 grid-cols-2 items-center lg:text-white text-lg"
+        className="lg:bg-desciblue bg-descigrey w-full lg:px-4 px-2 h-10 grid grid-cols-12 items-center lg:text-white text-lg"
       >
-        <div className="lg:col-span-3 ">UPCOMING</div>
-        <div className="lg:block hidden">LOCATION</div>
-        <div className="lg:block hidden">TYPE</div>
-        <div className="lg:block flex justify-end">DATE</div>
+        <div className="col-span-8 lg:col-span-6 xl:col-span-7">UPCOMING</div>
+        <div className="lg:block lg:col-span-2 hidden">LOCATION</div>
+        <div className="lg:block lg:col-span-2 hidden">TYPE</div>
+        <div className="col-span-4 lg:block lg:col-span-2 xl:col-span-1 flex justify-end">
+          DATE
+        </div>
       </div>
       <div className="pt-4 pb-4">
         <ul>
@@ -82,31 +85,31 @@ function AllEventsSection(props) {
 
             return (
               <li key={event.id}>
-                <div className="lg:h-10 h-20 w-full lg:px-4 px-2 grid lg:grid-cols-6 grid-cols-4 lg:items-center lg:text-xl text-l leading-5  mb-2">
-                  <div className="col-span-2">
+                <div className="w-full lg:px-4 px-2 grid grid-cols-12 lg:items-center lg:text-xl text-l leading-5 mb-6">
+                  <div className="col-span-8 sm:col-span-8 lg:col-span-5 xl:col-span-6">
                     <a
-                      className="lg:hover:underline lg:font-normal font-medium md:text-base"
+                      className="lg:hover:underline lg:font-normal md:text-base"
                       target={"_blank"}
                       href={event.event_link}
                       onClick={() => trackEventLinkClicked(event.event_title)}
                       rel="noreferrer"
                     >
-                      {event.event_title}
+                      {event.event_title.slice(0, 80)}
                     </a>
                   </div>
-                  <div className="lg:block hidden">
+                  <div className="lg:flex justify-center items-center hidden">
                     {event.meetup_type == "To be Finalized" ? (
                       ""
                     ) : (
                       <AddToCalendarButton
                         calendarEvent={CALENDAR_EVENT}
-                        buttonText={"Add to Calendar"}
+                        buttonText={<CalendarIcon />}
                       />
                     )}
                   </div>
                   {/* https://codesandbox.io/s/8g6dl?file=/src/AddToCalendarButton/AddToCalendarButton.tsx:0-911 */}
 
-                  <div className="items-center lg:flex hidden text-base">
+                  <div className="items-center lg:flex hidden text-base lg:col-span-2">
                     <img
                       className="h-4 w-4 mr-2 rounded-full"
                       src={`/images/flags/${event.event_country.toLowerCase()}.svg`}
@@ -115,27 +118,27 @@ function AllEventsSection(props) {
                     ></img>
                     <p className="lg:block hidden">{event.event_city}</p>
                   </div>
-                  <p className="lg:block hidden text-base">
+                  <p className="lg:block hidden text-base lg:col-span-2">
                     {event.meetup_type}
                   </p>
                   {event.meetup_type == "To be Finalized" ? (
-                    <p className="lg:block hidden text-base">
+                    <p className="lg:block hidden text-base lg:col-span-2 xl:col-span-1">
                       {month} {year}
                     </p>
                   ) : (
-                    <p className="lg:block hidden text-base">
+                    <p className="lg:block hidden text-base lg:col-span-2 xl:col-span-1">
                       {event.event_date}
                     </p>
                   )}
 
-                  <div className="lg:hidden text-l  flex justify-end col-span-2">
+                  <div className="lg:hidden text-l flex justify-end col-span-4 lg:col-span-2">
                     {" "}
                     {event.meetup_type == "To be Finalized" ? (
                       <p className="block lg:hidden text-s">To be Finalized</p>
                     ) : (
                       <AddToCalendarButton
                         calendarEvent={CALENDAR_EVENT}
-                        buttonText={event.event_local_date}
+                        buttonText={event.event_date}
                       />
                     )}
                   </div>
@@ -147,11 +150,11 @@ function AllEventsSection(props) {
       </div>
       {/*  . here invisible on mobile */}
       <div className="hidden lg:block">
-        <div className="bg-descigrey w-full mt-5 pr-4 pl-4 h-10 grid grid-cols-6 items-center text-lg">
-          <div className="col-span-3">PREVIOUS</div>
-          <div>LOCATION</div>
-          <div>TYPE</div>
-          <div className="">DATE</div>
+        <div className="bg-descigrey w-full mt-5 pr-4 pl-4 h-10 grid grid-cols-12 items-center text-lg">
+          <div className="col-span-6 xl:col-span-7">PREVIOUS</div>
+          <div className="col-span-2">LOCATION</div>
+          <div className="col-span-2">TYPE</div>
+          <div className="col-span-2 xl:col-span-1">DATE</div>
         </div>
         <div className="pt-4 pb-4">
           <ul>
@@ -160,18 +163,18 @@ function AllEventsSection(props) {
                 {shownPastEvents.map((event) => {
                   return (
                     <li key={event.id}>
-                      <div className="h-10 w-full pr-4 pl-4 grid grid-cols-6 items-center">
-                        <div className="col-span-3">
+                      <div className="w-full pr-4 pl-4 grid grid-cols-12 items-center mb-6">
+                        <div className="col-span-2 lg:col-span-6 xl:col-span-7">
                           <a
-                            className="hover:underline "
+                            className="hover:underline"
                             target={"_blank"}
                             href={event.event_link}
                             rel="noreferrer"
                           >
-                            {event.event_title}
+                            {event.event_title.slice(0, 80)}
                           </a>
                         </div>
-                        <div className="flex items-center grayscale">
+                        <div className="flex items-center grayscale lg:col-span-2">
                           <img
                             className="h-4 w-4 mr-2 rounded-full"
                             src={`/images/flags/${event.event_country.toLowerCase()}.svg`}
@@ -180,8 +183,12 @@ function AllEventsSection(props) {
                           ></img>
                           <p>{event.event_city}</p>
                         </div>
-                        <p className="text-base">{event.meetup_type}</p>
-                        <p className="text-base">{event.event_date}</p>
+                        <p className="text-base lg:col-span-2">
+                          {event.meetup_type}
+                        </p>
+                        <p className="text-base lg:col-span-2 xl:col-span-1">
+                          {event.event_date}
+                        </p>
                       </div>
                     </li>
                   );

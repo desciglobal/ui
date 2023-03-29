@@ -1,9 +1,9 @@
 import { getAllEvents } from "../services/sort-event-data";
 import { getContributors } from "../services/sort-contributor-data";
+import { getAirtableLocalGroups } from "../services/airtable";
 import { useEffect } from "react";
 
 import Navigation from "../components/sections/hero/navigation";
-import Banner from "../components/Banner";
 import HeroSection from "../components/sections/hero/s-hero";
 import AllEventsSection from "../components/sections/allevents/s-allevents";
 import ResourcesSectionThree from "../components/sections/resources/s-resources-3";
@@ -14,12 +14,17 @@ import PartnerLogoSection from "../components/sections/partners/s-partners";
 import Footer from "../components/sections/footer/footer";
 import FeaturedSection from "../components/sections/featured/s-featured";
 import FeaturedSectionMobile from "../components/sections/featured/s-featured-mobile";
+import LocalGroupsSection from "../components/sections/local-groups";
 import { MixpanelTracking } from "../services/mixpanel";
 
-
 export default function Home(props) {
-  const { upcomingEventsAsc, pastEventsDesc, featuredEvents, contributors } =
-    props;
+  const {
+    upcomingEventsAsc,
+    pastEventsDesc,
+    featuredEvents,
+    contributors,
+    localGroups,
+  } = props;
 
   useEffect(() => {
     MixpanelTracking.getInstance().pageView();
@@ -35,6 +40,7 @@ export default function Home(props) {
         upComingEvents={upcomingEventsAsc}
         pastEvents={pastEventsDesc}
       />
+      <LocalGroupsSection localGroups={localGroups} />
       <ResourcesSectionThree />
       <ContributeSection />
       <VideoSection />
@@ -49,6 +55,7 @@ export async function getStaticProps() {
   const { upcomingEventsAsc, pastEventsDesc, featuredEvents } =
     await getAllEvents();
   const contributors = await getContributors();
+  const localGroups = await getAirtableLocalGroups();
 
   upcomingEventsAsc.forEach((event) => {
     event.event_date = event.event_date.toISOString().substring(0, 10);
@@ -99,6 +106,7 @@ export async function getStaticProps() {
       pastEventsDesc,
       featuredEvents,
       contributors,
+      localGroups,
     },
     revalidate: 10,
   };

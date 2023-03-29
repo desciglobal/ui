@@ -10,6 +10,55 @@ import { MixpanelTracking } from "../services/mixpanel";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
+import {
+  PutObjectCommand,
+  GetObjectCommand,
+  S3Client,
+} from "@aws-sdk/client-s3";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+import { v4 as uuid } from "uuid";
+
+const client = new S3Client({
+  region: process.env.NEXT_PUBLIC_REGION,
+  credentials: {
+    accessKeyId: process.env.NEXT_PUBLIC_ACCESS_KEY,
+    secretAccessKey: process.env.NEXT_PUBLIC_SECRETS_KEY,
+  },
+});
+
+const MAX_IMAGE_FILE_SIZE = 2147483648;
+const SUPPORTED_IMAGE_FILE_FORMATS = ["image/jpg", "image/jpeg", "image/png"];
+
+const uploadEventImage = async (file) => {
+  const fileType = file.type.split("/")[1];
+  const fileName = `${uuid()}.${fileType}`;
+
+  try {
+    const putObjectCommand = new PutObjectCommand({
+      Bucket: process.env.NEXT_PUBLIC_BUCKET_NAME,
+      Key: fileName,
+      expiresIn: 60,
+      ContentType: `image/${fileType}`,
+    });
+    const putObjectUrl = await getSignedUrl(client, putObjectCommand);
+    await fetch(putObjectUrl, {
+      method: "PUT",
+      body: file,
+    });
+
+    const getObjectCommand = new GetObjectCommand({
+      Bucket: process.env.NEXT_PUBLIC_BUCKET_NAME,
+      Key: fileName,
+      expiresIn: 300,
+      ContentType: `image/${fileType}`,
+    });
+    const getObjectUrl = await getSignedUrl(client, getObjectCommand);
+
+    return getObjectUrl;
+  } catch (err) {
+    console.error(err);
+  }
+};
 
 function SubmitEvent(props) {
   const schema = yup
@@ -23,6 +72,7 @@ function SubmitEvent(props) {
       event_date: yup.date().required(),
       event_end_date: yup.date().required(),
       event_city: yup.string().required(),
+      event_image: yup.string(),
     })
     .required();
 
@@ -38,6 +88,22 @@ function SubmitEvent(props) {
   const [address, setAddress] = useState("");
   const [countryCode, setCountryCode] = useState("");
   const [isOnline, setIsOnline] = useState(false);
+  const [eventImageFile, setEventImageFile] = useState();
+  const [fileError, setFileError] = useState();
+
+  const onEventImageFileChange = (e) => {
+    const file = e.target.files[0];
+
+    const isFileTooBig = file.size > 500 * 1024 ** 2; // 500KB
+
+    if (isFileTooBig) {
+      setEventImageFile(undefined);
+      setFileError(true);
+    } else {
+      setEventImageFile(file);
+      setFileError(false);
+    }
+  };
 
   const [errorToastMessage, setErrorToastMessage] = useState();
   const onHideToast = () =>
@@ -89,6 +155,8 @@ function SubmitEvent(props) {
     data.event_meetupType = isOnline ? "Online" : "Meetup";
 
     try {
+      data.event_image = await uploadEventImage(eventImageFile);
+
       await airtablePostEvent(data);
       MixpanelTracking.getInstance().eventSubmitted(data.event_title);
 
@@ -235,6 +303,20 @@ function SubmitEvent(props) {
                 errorMessage={errors.event_end_date?.message}
               />
               <div className="divider my-8" />
+              <h4 className="text-2xl mb-4">Image</h4>
+              <input
+                id="event_image_file"
+                type="file"
+                accept="image/png, image/jpeg"
+                className="file-input file-input-bordered w-full max-w-xs"
+                onChange={onEventImageFileChange}
+              />
+              {fileError ? (
+                <div className="text-sm">
+                  Uploaded file is too big. Max size: 500KB.
+                </div>
+              ) : null}
+              <div className="divider my-8" />
               <button type="submit" className="btn flex ml-auto mb-8">
                 {isSubmitting ? "Submitting" : "Submit"}
               </button>
@@ -291,6 +373,7 @@ const Field = ({ id, label, type, register, errorMessage }) => (
       className="input input-bordered w-full"
       id={id}
       name={id}
+      maxLength={id === "event_title" ? 80 : undefined}
       {...register(id)}
     />
     {errorMessage && (
