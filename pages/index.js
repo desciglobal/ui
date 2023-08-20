@@ -40,7 +40,7 @@ export default function Home(props) {
         upComingEvents={upcomingEventsAsc}
         pastEvents={pastEventsDesc}
       />
-      <LocalGroupsSection localGroups={localGroups} />
+      {/* <LocalGroupsSection localGroups={localGroups} /> */}
       <ResourcesSectionThree />
       <ContributeSection />
       <VideoSection />
