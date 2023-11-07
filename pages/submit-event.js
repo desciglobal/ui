@@ -5,8 +5,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import LocationSearchInput from "../components/modal-and-forms/EventLocationInput";
 import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
-import { airtablePostEvent } from "../services/airtable";
-import { MixpanelTracking } from "../services/mixpanel";
+import { airtablePostEvent } from "../lib/airtable/airtablePostEvent";
+import { MixpanelTracking } from "../lib/mixpanel";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
@@ -63,9 +63,6 @@ const uploadEventImage = async (file) => {
 function SubmitEvent(props) {
   const schema = yup
     .object({
-      event_title: yup.string().required().max(80),
-      contact_email: yup.string().required().email(),
-      contact_name: yup.string().required().max(80),
       event_title: yup.string().required().max(80),
       event_link: yup.string().required(),
       event_description: yup.string().required(),
@@ -137,7 +134,7 @@ function SubmitEvent(props) {
 
   useEffect(() => {
     fetch(
-      `https://maps.googleapis.com/maps/api/timezone/json?location=${latLng.lat}%2C${latLng.lng}&timestamp=1331161200&key=AIzaSyB4IefstneiNw1cA3bTrhIXFti9IYfVP8A`
+      `https://maps.googleapis.com/maps/api/timezone/json?location=${latLng.lat}%2C${latLng.lng}&timestamp=1331161200&key=3`
     )
       .then((response) => response.json())
       .then((r) => setTimeZone(r.timeZoneId));
@@ -204,20 +201,6 @@ function SubmitEvent(props) {
                 type="text"
                 register={register}
                 errorMessage={errors.event_title?.message}
-              />
-              <Field
-                id="contact_name"
-                label="Your Full Name"
-                type="text"
-                register={register}
-                errorMessage={errors.contact_name?.message}
-              />
-              <Field
-                id="contact_email"
-                label="Your Email"
-                type="email"
-                register={register}
-                errorMessage={errors.contact_email?.message}
               />
               <Field
                 id="event_link"

@@ -4,6 +4,7 @@ function ContributorsSection(props) {
   // const contributors = getAllContributors();
   const { contributors } = props;
 
+
   return (
     <section id="contributors" className="pb-20 lg:mt-0 mt-20">
       <div className="lg:p-4 p-2 flex">
@@ -23,7 +24,7 @@ function ContributorsSection(props) {
           {contributors.map((contributor) => (
             <li className="mr-4 mb-4" key={contributor.id}>
               <a
-                href={contributor.twitterLink}
+                href={contributor.twitterProfileLink}
                 target="_blank"
                 rel={"noreferrer"}
               >
@@ -32,16 +33,16 @@ function ContributorsSection(props) {
                     <Image
                       alt={contributor.name}
                       src={
-                        (contributor.image_file &&
-                          contributor.image_file[0].url) ||
+                        (contributor.profilePic.url) ||
                         contributor.image
                       }
-                      layout="fill"
-                      objectFit="cover"
+                      width={500}
+                      height={500}
+                      style={{objectFit: "cover", layout: "fill"}}
                     />
                   </div>
                   <div className="bg-black hidden absolute h-40 w-40 z-1 opacity-0 text-white items-center lg:flex justify-center lg:hover:opacity-80 ease-in duration-100">
-                    {contributor.twitter}
+                    {contributor.twitterHandle}
                   </div>
                 </div>
                 <div className="flex items-center justify-center">

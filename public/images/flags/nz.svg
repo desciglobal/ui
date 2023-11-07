@@ -17,7 +17,7 @@
       <use xlink:href="#a" id="use479" transform="scale(-1 1) rotate(72)"/>
     </g>
   </defs>
-  <path id="path484" fill="#00247d" fill-rule="evenodd" d="M0 0h512v512H0z"/>
+  <path id="path484" fill="#00247d" fillRule="evenodd" d="M0 0h512v512H0z"/>
   <g id="g490" transform="translate(-148.7 90.5) scale(.60566)">
     <use xlink:href="#b" id="use486" width="100%" height="100%" x="0" y="0" fill="#fff" transform="matrix(45.4 0 0 45.4 900 120)"/>
     <use xlink:href="#b" id="use488" width="100%" height="100%" x="0" y="0" fill="#cc142b" transform="matrix(30 0 0 30 900 120)"/>

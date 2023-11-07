@@ -18,6 +18,7 @@ const nextConfig = {
       "s3.amazonaws.com",
       "img.youtube.com",
       "v5.airtableusercontent.com",
+      "media.graphassets.com"
     ],
   },
 };

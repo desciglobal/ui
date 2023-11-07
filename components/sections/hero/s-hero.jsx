@@ -1,8 +1,9 @@
 import ArrowDownRight from "../../icons/ArrowUpRight";
 import Backdrop from "../../modal-and-forms/backdrop";
 import ModalSubmitMail from "../../modal-and-forms/modal-submit-mail";
-import { MixpanelTracking } from "../../../services/mixpanel";
+import { MixpanelTracking } from "../../../lib/mixpanel";
 import Link from "next/link";
+import Image from "next/image";
 
 import { useState } from "react";
 
@@ -27,7 +28,7 @@ function HeroSection() {
       <div className=" lg:px-4 pl-2 pr-2 lg:h-screen">
         <div className="">
           <div className=" lg:h-auto lg:min-w-[100%] ">
-            <img src="/images/hero-bg.png"></img>
+            <Image src="/images/hero-bg.png" alt="" width={1600} height={140}></Image>
 
             {/* */}
           </div>

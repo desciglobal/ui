@@ -3,20 +3,27 @@ import Link from "next/link";
 
 import AddToCalendarButton from "./AddToCalendarButton/AddToCalendarButton";
 import EmailandEventCalForm from "../../modal-and-forms/email-event-cal-form";
-import { MixpanelTracking } from "../../../services/mixpanel";
+import { MixpanelTracking } from "../../../lib/mixpanel";
 import CalendarIcon from "../../icons/CalendarIcon";
+import Image from "next/image";
+import { IMAGES_MANIFEST } from "next/dist/shared/lib/constants";
 
 function AllEventsSection(props) {
-  const { upComingEvents, pastEvents } = props;
+  const { futureEvents, pastEvents } = props;
 
   const [showAllPastEvents, setShowAllPastEvents] = useState(false);
 
   const shownPastEvents = showAllPastEvents
     ? pastEvents
-    : pastEvents.slice(0, 15);
+    : pastEvents.slice(0, 10);
 
   function trackEventLinkClicked(eventName) {
     MixpanelTracking.getInstance().eventLinkClicked(eventName);
+  }
+
+  function formatDate(dateString) {
+    const options = { day: "2-digit", month: "2-digit", year: "numeric" };
+    return new Date(dateString).toLocaleDateString(undefined, options);
   }
 
   return (
@@ -67,14 +74,14 @@ function AllEventsSection(props) {
       </div>
       <div className="pt-4 pb-4">
         <ul>
-          {upComingEvents.map((event) => {
+          {futureEvents.map((e) => {
             const CALENDAR_EVENT = {
-              title: event.event_title,
-              description: event.event_description,
-              startDate: new Date(event.event_gmt_date),
-              endDate: new Date(event.event_gmt_end_date),
+              title: e.eventTitle,
+              description: e.eventDescription,
+              startDate: new Date(e.eventDate),
+              endDate: new Date(e.eventDate),
               durationInMinutes: 120,
-              address: event.full_address,
+              address: e.fullAddress,
             };
 
             const month = CALENDAR_EVENT.startDate.toLocaleString("default", {
@@ -84,21 +91,21 @@ function AllEventsSection(props) {
             const year = CALENDAR_EVENT.startDate.getFullYear();
 
             return (
-              <li key={event.id}>
+              <li key={e.id}>
                 <div className="w-full lg:px-4 px-2 grid grid-cols-12 lg:items-center lg:text-xl text-l leading-5 mb-6">
                   <div className="col-span-8 sm:col-span-8 lg:col-span-5 xl:col-span-6">
                     <a
                       className="lg:hover:underline lg:font-normal md:text-base"
                       target={"_blank"}
-                      href={event.event_link}
-                      onClick={() => trackEventLinkClicked(event.event_title)}
+                      href={e.eventLink}
+                      onClick={() => trackEventLinkClicked(e.eventTitle)}
                       rel="noreferrer"
                     >
-                      {event.event_title.slice(0, 80)}
+                      {e.eventTitle.slice(0, 80)}
                     </a>
                   </div>
                   <div className="lg:flex justify-center items-center hidden">
-                    {event.meetup_type == "To be Finalized" ? (
+                    {e.meetupType == "to_be_finalized" ? (
                       ""
                     ) : (
                       <AddToCalendarButton
@@ -110,36 +117,35 @@ function AllEventsSection(props) {
                   {/* https://codesandbox.io/s/8g6dl?file=/src/AddToCalendarButton/AddToCalendarButton.tsx:0-911 */}
 
                   <div className="items-center lg:flex hidden text-base lg:col-span-2">
-                    <img
+                    <Image
                       className="h-4 w-4 mr-2 rounded-full"
-                      src={`/images/flags/${event.event_country.toLowerCase()}.svg`}
+                      src={`/images/flags/${e.eventCountry.toLowerCase()}.svg`}
                       alt=""
+                      width={10}
+                      height={10}
                       variant="flag"
-                    ></img>
-                    <p className="lg:block hidden">{event.event_city}</p>
+                    ></Image>
+                    <p className="lg:block hidden">{e.eventCity}</p>
                   </div>
                   <p className="lg:block hidden text-base lg:col-span-2">
-                    {event.meetup_type}
+                    {e.meetupType}
                   </p>
-                  {event.meetup_type == "To be Finalized" ? (
+                  {e.meetupType == "to_be_finalized" ? (
                     <p className="lg:block hidden text-base lg:col-span-2 xl:col-span-1">
                       {month} {year}
                     </p>
                   ) : (
                     <p className="lg:block hidden text-base lg:col-span-2 xl:col-span-1">
-                      {event.event_date}
+                      {e.eventDateConverted}
                     </p>
                   )}
 
                   <div className="lg:hidden text-l flex justify-end col-span-4 lg:col-span-2">
                     {" "}
-                    {event.meetup_type == "To be Finalized" ? (
+                    {e.meetupType == "to_be_finalized" ? (
                       <p className="block lg:hidden text-s">To be Finalized</p>
                     ) : (
-                      <AddToCalendarButton
-                        calendarEvent={CALENDAR_EVENT}
-                        buttonText={event.event_date}
-                      />
+                      <AddToCalendarButton calendarEvent={CALENDAR_EVENT} buttonText={e.eventDateConverted} />
                     )}
                   </div>
                 </div>
@@ -160,34 +166,36 @@ function AllEventsSection(props) {
           <ul>
             <div className="pt-4 pb-4 text-descigreyfont">
               <ul>
-                {shownPastEvents.map((event) => {
+                {shownPastEvents.map((e) => {
                   return (
-                    <li key={event.id}>
+                    <li key={e.id}>
                       <div className="w-full pr-4 pl-4 grid grid-cols-12 items-center mb-6">
                         <div className="col-span-2 lg:col-span-6 xl:col-span-7">
                           <a
                             className="hover:underline"
                             target={"_blank"}
-                            href={event.event_link}
+                            href={e.eventLink}
                             rel="noreferrer"
                           >
-                            {event.event_title.slice(0, 80)}
+                            {e.eventTitle.slice(0, 80)}
                           </a>
                         </div>
                         <div className="flex items-center grayscale lg:col-span-2">
-                          <img
+                          <Image
                             className="h-4 w-4 mr-2 rounded-full"
-                            src={`/images/flags/${event.event_country.toLowerCase()}.svg`}
+                            src={`/images/flags/${e.eventCountry.toLowerCase()}.svg`}
                             alt=""
+                            width={10}
+                            height={10}
                             variant="flag"
-                          ></img>
-                          <p>{event.event_city}</p>
+                          ></Image>
+                          <p>{e.eventCity}</p>
                         </div>
                         <p className="text-base lg:col-span-2">
-                          {event.meetup_type}
+                          {e.meetupType}
                         </p>
                         <p className="text-base lg:col-span-2 xl:col-span-1">
-                          {event.event_date}
+                          {e.eventDateConverted}
                         </p>
                       </div>
                     </li>

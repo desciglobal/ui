@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { MixpanelTracking } from "../../services/mixpanel";
-import {airtablePostEmail} from "../../services/airtable";
+import { MixpanelTracking } from "../../lib/mixpanel";
+import {airtablePostEmail} from "../../lib/airtable/airtablePostEmail";
 
 
 
@@ -80,7 +80,8 @@ function EmailandEventCalForm() {
             />
             <a
               href="https://calendar.google.com/calendar/u/0/r?cid=3lql6qf1smr21uaf4kb7hdfg8btdq6v2@import.calendar.google.com"
-              target="_blank"
+              target={"_blank"}
+              rel="noreferrer"
               type="submit"
               className="lg:text-2xl bg-white"
               onClick={trackCalendarSubscribed}

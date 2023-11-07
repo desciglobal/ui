@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="flag-icons-pt" viewBox="0 0 512 512">
   <path fill="red" d="M204.8 0H512v512H204.7z"/>
   <path fill="#060" d="M0 0h204.8v512H-.1z"/>
-  <g fill="#ff0" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".6">
+  <g fill="#ff0" fillRule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".6">
     <path stroke-width=".7" d="M293.8 326.6c-34.4-1-192-99.4-193-115.1l8.6-14.5C125 219.7 286.2 315.4 302 312l-8.2 14.6"/>
     <path stroke-width=".7" d="M107.6 195c-3.1 8.3 41.1 35.6 94.3 68 53.2 32.3 99 52.3 102.5 49.5l1.5-2.9c-.6 1-2.2 1.3-4.6.6-14.4-4.2-51.9-21.4-98.3-49.5s-86.8-54.1-93-65.1a6.7 6.7 0 0 1-.7-3.3h-.2l-1.3 2.3-.2.4zm187 132c-.6 1.1-1.7 1.1-3.7 1-12.9-1.5-52-20.5-98-48.1-53.8-32.2-98.2-61.5-93.3-69.1l1.3-2.4.2.1c-4.3 13 87.6 65.5 93 68.9 53.1 33 98 52.2 102 47.2l-1.5 2.4z"/>
     <path stroke-width=".7" d="M205 221c34.3-.3 76.8-4.7 101.2-14.4L301 198c-14.5 8-57.1 13.3-96.3 14-46.4-.4-79.1-4.7-95.5-15.7l-5 9.1c30.2 12.7 61 15.5 100.8 15.6"/>

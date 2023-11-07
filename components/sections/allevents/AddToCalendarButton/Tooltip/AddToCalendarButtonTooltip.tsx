@@ -7,7 +7,6 @@ interface AddToCalendarButtonTooltipProps {
 }
 
 export default function AddToCalendarButtonTooltip({ calendarEvent }: AddToCalendarButtonTooltipProps) {
-  console.log({ calendarEvent })
   return (
     <div className="add-to-calendar-button-tooltip">
       <a

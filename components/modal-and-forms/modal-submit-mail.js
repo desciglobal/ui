@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import {airtablePostEmail} from "../../services/airtable";
+import {airtablePostEmail} from "../../lib/airtable/airtablePostEmail";
 
 function ModalSubmitMail(props) {
   const schema = yup

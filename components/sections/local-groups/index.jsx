@@ -9,8 +9,14 @@ import {
 const LocalGroups = ({ localGroups }) => {
   const { isLoaded } = useJsApiLoader({
     id: "local-groups-map",
-    googleMapsApiKey: "AIzaSyB4IefstneiNw1cA3bTrhIXFti9IYfVP8A",
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
   });
+
+  localGroups.forEach(group => {
+    group.location.lat = group.location.latitude,
+    group.location.lng = group.location.longitude
+  });
+
 
   const [map, setMap] = useState(null);
   const [activeMarker, setActiveMarker] = useState(null);
@@ -22,6 +28,9 @@ const LocalGroups = ({ localGroups }) => {
   const onUnmount = useCallback(function callback() {
     setMap(null);
   }, []);
+
+  console.log(localGroups[0].location)
+  
 
   return isLoaded && localGroups && localGroups.length ? (
     <div className="mt-40">
@@ -40,14 +49,18 @@ const LocalGroups = ({ localGroups }) => {
         onLoad={onLoad}
         onUnmount={onUnmount}
       >
-        {localGroups.map(({ name, link, position, recordId }) => (
+        {localGroups.map(({ name, link, location, id }) => (
+
+        
+
+
           <Marker
-            position={position}
+            position={location}
             title={name}
-            key={recordId}
-            onClick={() => link !== activeMarker && setActiveMarker(recordId)}
+            key={id}
+            onClick={() => link !== activeMarker && setActiveMarker(id)}
           >
-            {activeMarker === recordId ? (
+            {activeMarker === id ? (
               <InfoWindow onCloseClick={() => setActiveMarker(null)}>
                 <a
                   href={link}

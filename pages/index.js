@@ -1,6 +1,3 @@
-import { getAllEvents } from "../services/sort-event-data";
-import { getContributors } from "../services/sort-contributor-data";
-import { getAirtableLocalGroups } from "../services/airtable";
 import { useEffect } from "react";
 
 import Navigation from "../components/sections/hero/navigation";
@@ -15,12 +12,25 @@ import Footer from "../components/sections/footer/footer";
 import FeaturedSection from "../components/sections/featured/s-featured";
 import FeaturedSectionMobile from "../components/sections/featured/s-featured-mobile";
 import LocalGroupsSection from "../components/sections/local-groups";
-import { MixpanelTracking } from "../services/mixpanel";
+import { MixpanelTracking } from "../lib/mixpanel";
+
+import getFutureEvents from "../lib/hygraph/getFutureEvents"
+import getPastEvents from "../lib/hygraph/getPastEvents"
+import getFeaturedEvents from "../lib/hygraph/getFeaturedEvents";
+import getContributors  from "../lib/hygraph/getContributors";
+import getLocalGroups from "../lib/hygraph/getLocalGroups"
+
+
+function formatDate(dateString) {
+  const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+  return new Date(dateString).toLocaleDateString(undefined, options);
+}
 
 export default function Home(props) {
+
   const {
-    upcomingEventsAsc,
-    pastEventsDesc,
+    futureEvents,
+    pastEvents,
     featuredEvents,
     contributors,
     localGroups,
@@ -35,12 +45,13 @@ export default function Home(props) {
       <Navigation />
       <HeroSection />
       <FeaturedSection featuredEvents={featuredEvents} />
+      
       <FeaturedSectionMobile featuredEvents={featuredEvents} />
       <AllEventsSection
-        upComingEvents={upcomingEventsAsc}
-        pastEvents={pastEventsDesc}
+        futureEvents={futureEvents}
+        pastEvents={pastEvents}
       />
-      {/* <LocalGroupsSection localGroups={localGroups} /> */}
+      <LocalGroupsSection localGroups={localGroups} />
       <ResourcesSectionThree />
       <ContributeSection />
       <VideoSection />
@@ -52,47 +63,30 @@ export default function Home(props) {
 }
 
 export async function getStaticProps() {
-  const { upcomingEventsAsc, pastEventsDesc, featuredEvents } =
-    await getAllEvents();
+  const futureEvents = await getFutureEvents()
+  const pastEvents = await getPastEvents()
+  const featuredEvents = await getFeaturedEvents()
   const contributors = await getContributors();
-  const localGroups = await getAirtableLocalGroups();
+  const localGroups = await getLocalGroups();
 
-  upcomingEventsAsc.forEach((event) => {
-    event.event_date = event.event_date.toISOString().substring(0, 10);
-    event.event_local_date = new Date(
-      event.event_local_date
-    ).toLocaleDateString(undefined, {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-      hour: "numeric",
-      minute: "numeric",
-    });
+
+  console.log("localGropus from index", localGroups)
+
+  futureEvents.forEach((event) => {
+    event.eventDateConverted = formatDate(event.eventDate)
   });
 
-  pastEventsDesc.forEach((event) => {
-    event.event_date = event.event_date.toISOString().substring(0, 10);
-    event.event_local_date = new Date(
-      event.event_local_date
-    ).toLocaleDateString(undefined, {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
+  pastEvents.forEach((event) => {
+    event.eventDateConverted = formatDate(event.eventDate)
   });
 
-  featuredEvents.forEach((event) => {
-    event.event_date = new Date(event.event_date).toLocaleDateString(
-      undefined,
-      {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      }
-    );
-  });
+  featuredEvents.forEach((event)=> {
+    event.eventDateConverted = formatDate(event.eventDate)
+  })
 
-  if (!pastEventsDesc) {
+
+
+  if (!pastEvents) {
     return {
       redirect: {
         destination: "/no-data",
@@ -102,8 +96,8 @@ export async function getStaticProps() {
 
   return {
     props: {
-      upcomingEventsAsc,
-      pastEventsDesc,
+      futureEvents,
+      pastEvents,
       featuredEvents,
       contributors,
       localGroups,

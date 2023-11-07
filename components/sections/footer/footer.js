@@ -10,8 +10,8 @@ function Footer() {
               <Image
                 src="/images/desci-global-logo.svg"
                 alt="desci global logo"
-                width="140"
-                height="140"
+                width={140}
+                height={140}
               />
             </div>
             <div className="bg-white h-[60%] w-[20%]"></div>

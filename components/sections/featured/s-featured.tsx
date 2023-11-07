@@ -4,8 +4,9 @@ import { Carousel } from "react-responsive-carousel";
 import RoundArrowLeft from "../../icons/RoundArrowLeft";
 import RoundArrowRight from "../../icons/RoundArrowRight";
 // import { getFeaturedEvents } from "../../../dummy-data";
-import { MixpanelTracking } from "../../../services/mixpanel";
+import { MixpanelTracking } from "../../../lib/mixpanel";
 import defaultEventImage from "./../../../public/images/featured-bg.png";
+import Image from "next/image";
 
 function trackEventLinkClicked(eventName) {
   MixpanelTracking.getInstance().eventLinkClicked(eventName);
@@ -38,7 +39,7 @@ export default class withCustomStatusArrowsAndIndicators extends Component<
                 onClick={clickHandler}
               >
                 <p className="break-words">
-                  {featuredEvents[index].event_title}
+                  {featuredEvents[index].eventTitle}
                 </p>
               </div>
             </div>
@@ -52,7 +53,7 @@ export default class withCustomStatusArrowsAndIndicators extends Component<
                 onClick={clickHandler}
               >
                 <div className="h-6 w-6 hover:scale-110 duration-100 ">
-                  <img src="/images/global.svg" className="rounded-full"></img>
+                  <Image src="/images/global.svg" className="rounded-full" alt="" width={10} height={10}></Image>
                 </div>
               </div>
             </div>
@@ -79,10 +80,10 @@ export default class withCustomStatusArrowsAndIndicators extends Component<
     return (
       <div>
         <Carousel {...carouselProp}>
-          {featuredEvents.map((event) => (
+          {featuredEvents.map((e) => (
             <div
               className="pl-4 min-h-[38rem] w-full lg:flex hidden"
-              key={event.id}
+              key={e.id}
             >
               <div className="w-2/4 pr-4 flex flex-col justify-between">
                 <div className="h-20 flex items-center">
@@ -90,19 +91,19 @@ export default class withCustomStatusArrowsAndIndicators extends Component<
                 </div>
                 <div className="pt-2 pb-2 text-left text-descigreyfont absolute w-[45vw] top-[34%]">
                   <p className="text-l ">
-                    {event.event_description.length > 600 ? (
-                      <>{event.event_description.substring(0, 600) + "..."}</>
+                    {e.eventDescription.length > 600 ? (
+                      <>{e.eventDescription.substring(0, 600) + "..."}</>
                     ) : (
-                      <>{event.event_description}</>
+                      <>{e.eventDescription}</>
                     )}
                   </p>
                 </div>
                 <div>
                   <div className="w-full bg-black text-white h-10 flex items-center justify-center rounded-full text-xl mb-6 hover:bg-descigreyfont hover:text-white cursor-pointer ">
                     <a
-                      href={event.event_link}
+                      href={e.eventLink}
                       target={"_blank"}
-                      onClick={() => trackEventLinkClicked(event.event_title)}
+                      onClick={() => trackEventLinkClicked(e.eventTitle)}
                       rel="noreferrer"
                     >
                       Event Website
@@ -113,19 +114,19 @@ export default class withCustomStatusArrowsAndIndicators extends Component<
                       <li>
                         <div className="h-10 border-solid border-t border-black flex items-center justify-between">
                           <p>Location</p>
-                          <p>{event.full_address}</p>
+                          <p>{e.fullAddress}</p>
                         </div>
                       </li>
                       <li>
                         <div className="h-10 border-solid border-t border-black flex items-center justify-between">
                           <p>Date</p>
-                          <div>{event.event_date}</div>
+                          <div>{e.eventDateConverted}</div>
                         </div>
                       </li>
                       <li>
                         <div className="h-10 border-solid border-t border-b border-black flex items-center justify-between">
                           <p>Type</p>
-                          <p>{event.meetup_type}</p>
+                          <p>{e.meetupType}</p>
                         </div>
                       </li>
                     </ul>
@@ -133,12 +134,12 @@ export default class withCustomStatusArrowsAndIndicators extends Component<
                 </div>
               </div>
               <div
-                className="w-2/4 bg-no-repeat bg-contain bg-center flex justify-end"
+                className="w-2/4 bg-no-repeat bg-cover bg-center flex justify-end bg-red-200"
                 style={{
                   backgroundImage: `url(${
-                    (event.event_image_file && event.event_image_file[0].url) ||
-                    event.event_image ||
-                    defaultEventImage.src
+                    (e.eventImageFile && e.eventImageFile.url) ||
+                    e.eventImageFile ||
+                    "/images/featured-bg.png"
                   })`,
                 }}
               ></div>
