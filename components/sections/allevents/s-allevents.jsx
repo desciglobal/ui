@@ -6,7 +6,6 @@ import EmailandEventCalForm from "../../modal-and-forms/email-event-cal-form";
 import { MixpanelTracking } from "../../../lib/mixpanel";
 import CalendarIcon from "../../icons/CalendarIcon";
 import Image from "next/image";
-import { IMAGES_MANIFEST } from "next/dist/shared/lib/constants";
 
 function AllEventsSection(props) {
   const { futureEvents, pastEvents } = props;
@@ -19,11 +18,6 @@ function AllEventsSection(props) {
 
   function trackEventLinkClicked(eventName) {
     MixpanelTracking.getInstance().eventLinkClicked(eventName);
-  }
-
-  function formatDate(dateString) {
-    const options = { day: "2-digit", month: "2-digit", year: "numeric" };
-    return new Date(dateString).toLocaleDateString(undefined, options);
   }
 
   return (
@@ -145,7 +139,10 @@ function AllEventsSection(props) {
                     {e.meetupType == "to_be_finalized" ? (
                       <p className="block lg:hidden text-s">To be Finalized</p>
                     ) : (
-                      <AddToCalendarButton calendarEvent={CALENDAR_EVENT} buttonText={e.eventDateConverted} />
+                      <AddToCalendarButton
+                        calendarEvent={CALENDAR_EVENT}
+                        buttonText={e.eventDateConverted}
+                      />
                     )}
                   </div>
                 </div>
@@ -168,7 +165,7 @@ function AllEventsSection(props) {
               <ul>
                 {shownPastEvents.map((e) => {
                   return (
-                    <li key={e.id}>
+                    <li key={e.id + Math.random()}>
                       <div className="w-full pr-4 pl-4 grid grid-cols-12 items-center mb-6">
                         <div className="col-span-2 lg:col-span-6 xl:col-span-7">
                           <a

@@ -1,11 +1,11 @@
-const DUMMY_PARTNERS = [
+const PARTNERS = [
   {
     id: "7",
     name: "Molecule",
     twitter: "@Molecule_dao",
     Link: "https://www.molecule.to/",
     image:
-      "/images/molecule-logo.svg",
+      "/images/partner/molecule-logo.svg",
   },
   {
     id: "5",
@@ -13,7 +13,7 @@ const DUMMY_PARTNERS = [
     twitter: "@bio_xyz",
     Link: "https://www.bio.xyz/",
     image:
-      "/images/bioxyzlogo.png",
+      "/images/partner/bioxyzlogo.png",
   },
   {
     id: "1",
@@ -21,7 +21,7 @@ const DUMMY_PARTNERS = [
     twitter: "@VitaDAO",
     Link: "https://www.vitadao.com/",
     image:
-      "https://uploads-ssl.webflow.com/600ff0f8154936050d98ec01/6179a1b748955b071c6eeca6_vitadao-logo-dark.svg",
+      "/images/partner/vitadao.svg",
   },
   {
     id: "2",
@@ -29,7 +29,7 @@ const DUMMY_PARTNERS = [
     twitter: "@ValleyDAO",
     Link: "https://www.valleydao.bio/",
     image:
-      "https://uploads-ssl.webflow.com/630dbea24a4625cd2f1e793f/6315f76f93b5737098b53f90_logo.svg",
+      "/images/partner/valleydao.svg",
   },
   {
     id: "13",
@@ -37,7 +37,7 @@ const DUMMY_PARTNERS = [
     twitter: "@athena_DAO_",
     Link: "https://www.athenadao.co/",
     image:
-      "/images/athenadao.png",
+      "/images/partner/athenadao.png",
   },
   {
     id: "3",
@@ -45,7 +45,7 @@ const DUMMY_PARTNERS = [
     twitter: "@LabDAO",
     Link: "https://www.labdao.xyz/",
     image:
-      "/images/labdao.png",
+      "/images/partner/labdao.png",
   },
   {
     id: "4",
@@ -53,7 +53,7 @@ const DUMMY_PARTNERS = [
     twitter: "@ValleyDAO",
     Link: "https://psydao.io/",
     image:
-      "/images/psydao-logo.png",
+      "/images/partner/psydao-logo.png",
   },
   {
     id: "6",
@@ -61,7 +61,7 @@ const DUMMY_PARTNERS = [
     twitter: "@science_b0",
     Link: "https://www.blockchainforscience.com/",
     image:
-      "https://uploads-ssl.webflow.com/61e91d0563b3f4255e8d141f/61e9895704289eaac032e65f_WPHeader-p-500.png",
+      "/images/partner/blockchain-for-science.png",
   },
    {
     id: "8",
@@ -69,7 +69,7 @@ const DUMMY_PARTNERS = [
     twitter: "@beakerdao",
     Link: "https://beakerdao.xyz/",
     image:
-      "/images/beakerdao-logo.png",
+      "/images/partner/beakerdao-logo.png",
   },
     {
     id: "9",
@@ -77,7 +77,7 @@ const DUMMY_PARTNERS = [
     twitter: "@DesciFoundation",
     Link: "https://descifoundation.org/",
     image:
-      "/images/DeSci_Foundation_BW_Horizontal.svg",
+      "/images/partner/DeSci_Foundation_BW_Horizontal.svg",
   },
     {
     id: "10",
@@ -85,7 +85,7 @@ const DUMMY_PARTNERS = [
     twitter: "@descilabs",
     Link: "https://desci.com/",
     image:
-      "/images/DeSci-Labs_BW_withText.svg",
+      "/images/partner/desci-labs.svg",
   },
 
     {
@@ -94,7 +94,7 @@ const DUMMY_PARTNERS = [
     twitter: "@TheSCInitiative",
     Link: "https://thesciencecommons.org/",
     image:
-      "/images/Sci_vector.svg",
+      "/images/partner/sci-comms-initiative.svg",
   },
   {
     id: "7",
@@ -102,7 +102,7 @@ const DUMMY_PARTNERS = [
     twitter: "@foresightinst",
     Link: "https://foresight.org/",
     image:
-      "/images/foresight-logo.png",
+      "/images/partner/foresight-logo.png",
   },
    {
     id: "5",
@@ -110,7 +110,7 @@ const DUMMY_PARTNERS = [
     twitter: "@ResearchHub",
     Link: "https://www.researchhub.com/",
     image:
-      "/images/ResearchHubLogo.png",
+      "/images/partner/ResearchHubLogo.png",
   },
      {
     id: "4",
@@ -118,7 +118,7 @@ const DUMMY_PARTNERS = [
     twitter: "@ProtocolLabs",
     Link: "https://protocol.ai/",
     image:
-      "/images/protocollabs.svg",
+      "/images/partner/protocollabs.svg",
   },
      {
     id: "4",
@@ -126,7 +126,7 @@ const DUMMY_PARTNERS = [
     twitter: "@FundingCommons",
     Link: "https://fundingthecommons.io/",
     image:
-      "/images/fundingthecommons.png",
+      "/images/partner/fundingthecommons.png",
   },
      {
     id: "12",
@@ -134,10 +134,10 @@ const DUMMY_PARTNERS = [
     twitter: "@DeSciWorld",
     Link: "https://desci.world/",
     image:
-      "/images/desciworld.png",
+      "/images/partner/desciworld.png",
   }
 ];
 
 export function getAllPartners() {
-  return DUMMY_PARTNERS;
+  return PARTNERS;
 }

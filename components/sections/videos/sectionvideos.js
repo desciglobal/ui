@@ -9,18 +9,18 @@ function VideoSection() {
           <iframe
             src="https://www.youtube.com/embed/qtBsL90-J_4"
             title="Vitalik Buterin on Decentralized Science, Aging, AI and Scientific Progress"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
+            allowFullScreen
           />
         </div>
         <div className="aspect-w-16 aspect-h-9">
           <iframe
             src="https://www.youtube.com/embed/5ORvbCIW39o"
             title="FSS #5 The DeSci Movement with Juan Benet"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
+            allowFullScreen
           />
         </div>
         <div className="aspect-w-16 aspect-h-9 relative">
@@ -58,9 +58,9 @@ function VideoSection() {
           <iframe
             src="https://www.youtube.com/embed/videoseries?list=PLYCWARA8YNdpVj31TutmnxptlK8Wy7O6D"
             title="YouTube video player"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
+            allowFullScreen
           />
         </div>
       </div>

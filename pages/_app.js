@@ -1,6 +1,8 @@
 import "../styles/globals.css";
 import Head from "next/head";
 import Script from "next/script";
+import { Toaster } from "react-hot-toast";
+
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -37,7 +39,13 @@ function MyApp({ Component, pageProps }) {
           content="https://www.desci.global/api/og-image"
         />
       </Head>
-      <Script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6e4M2nVnkLKfm1tjJrvs4WYm9NAm8V9A&libraries=places"></Script>
+      <Script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6e4M2nVnkLKfm1tjJrvs4WYm9NAm8V9A&libraries=places"
+        strategy="beforeInteractive"
+      ></Script>
+            <div>
+        <Toaster />
+      </div>
 
       <Component {...pageProps} />
     </>

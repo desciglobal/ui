@@ -4,7 +4,7 @@
       <path id="path84" fill-opacity=".7" d="M-95.8-.4h682.7v512H-95.8Z"/>
     </clipPath>
   </defs>
-  <path id="path526" fill="#fff" d="M0 0h512v512H0Z" style="fillRule:evenodd;stroke-width:8.7099"/>
+  <path id="path526" fill="#fff" d="M0 0h512v512H0Z" style="fillRule:evenodd;strokeWidth:8.7099"/>
   <g id="g540" style="fillRule:evenodd" transform="rotate(-56.3 367.2 -111.2) scale(9.375)">
     <g id="b2">
       <path id="b" d="M-6-26H6v2H-6Zm0 3H6v2H-6Zm0 3H6v2H-6Z"/>

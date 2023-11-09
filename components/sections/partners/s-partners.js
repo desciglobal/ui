@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { getAllPartners } from "../../../DATA-partners";
+import { getAllPartners } from "data/partners-data";
 
 function PartnerLogoSection() {
   const partners = getAllPartners();
@@ -17,7 +17,7 @@ function PartnerLogoSection() {
           {partners.map((partner) => (
             <li
               className="lg:mr-20 mx-8 lg:hover:scale-105 duration-100 lg:my-20 my-10"
-              key={partner.id}
+              key={partner.id +2}
             >
               <a href={partner.Link} target="_blank" rel={"noreferrer"}>
                 <div className=" lg:w-36 w-28 flex items-center justify-center">

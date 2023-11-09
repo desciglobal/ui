@@ -22,13 +22,13 @@ const LocationSearchInput = ({ label, value, onChange }) => {
           />
           {!!suggestions.length && (
             <div
-              class="absolute left-0 bottom-14 z-10 mt-2 w-full origin-bottom-right rounded-md bg-white shadow-lg shadow-zinc-400 ring-1 ring-black ring-opacity-5 focus:outline-none"
+              className="absolute left-0 bottom-14 z-10 mt-2 w-full origin-bottom-right rounded-md bg-white shadow-lg shadow-zinc-400 ring-1 ring-black ring-opacity-5 focus:outline-none"
               role="menu"
               aria-orientation="vertical"
               aria-labelledby="location-input"
               tabindex="-1"
             >
-              <div class="py-1" role="none">
+              <div className="py-1" role="none">
                 {loading ? <div>Loading...</div> : null}
                 {suggestions.map((suggestion) => (
                   <div

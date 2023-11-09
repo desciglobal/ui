@@ -29,7 +29,6 @@ const LocalGroups = ({ localGroups }) => {
     setMap(null);
   }, []);
 
-  console.log(localGroups[0].location)
   
 
   return isLoaded && localGroups && localGroups.length ? (

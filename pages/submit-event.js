@@ -1,30 +1,29 @@
 import React, { useState, useEffect } from "react";
-// import CountrySelector from "./CountrySelect";
 import { set, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import LocationSearchInput from "../components/modal-and-forms/EventLocationInput";
-import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
-import { airtablePostEvent } from "../lib/airtable/airtablePostEvent";
 import { MixpanelTracking } from "../lib/mixpanel";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
-import {
-  PutObjectCommand,
-  GetObjectCommand,
-  S3Client,
-} from "@aws-sdk/client-s3";
-import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { v4 as uuid } from "uuid";
+import { useEventLocation } from "hooks/useEventLocation";
+import toast from "react-hot-toast";
 
-const client = new S3Client({
-  region: process.env.NEXT_PUBLIC_REGION,
-  credentials: {
-    accessKeyId: process.env.NEXT_PUBLIC_ACCESS_KEY,
-    secretAccessKey: process.env.NEXT_PUBLIC_SECRETS_KEY,
-  },
-});
+const timezoneKey = process.env.NEXT_PUBLIC_GOOGLE_TIMEZONE_API_KEY;
+
+const schema = yup
+  .object({
+    eventTitle: yup.string().required().max(80),
+    eventLink: yup.string().required(),
+    eventDescription: yup.string().required(),
+    eventDate: yup.date().required(),
+    eventEndDate: yup.date().required(),
+    eventCity: yup.string().required(),
+    eventImage: yup.string(),
+  })
+  .required();
 
 const MAX_IMAGE_FILE_SIZE = 2147483648;
 const SUPPORTED_IMAGE_FILE_FORMATS = ["image/jpg", "image/jpeg", "image/png"];
@@ -34,44 +33,17 @@ const uploadEventImage = async (file) => {
   const fileName = `${uuid()}.${fileType}`;
 
   try {
-    const putObjectCommand = new PutObjectCommand({
-      Bucket: process.env.NEXT_PUBLIC_BUCKET_NAME,
-      Key: fileName,
-      expiresIn: 60,
-      ContentType: `image/${fileType}`,
-    });
-    const putObjectUrl = await getSignedUrl(client, putObjectCommand);
-    await fetch(putObjectUrl, {
-      method: "PUT",
-      body: file,
-    });
-
-    const getObjectCommand = new GetObjectCommand({
-      Bucket: process.env.NEXT_PUBLIC_BUCKET_NAME,
-      Key: fileName,
-      expiresIn: 300,
-      ContentType: `image/${fileType}`,
-    });
-    const getObjectUrl = await getSignedUrl(client, getObjectCommand);
-
-    return getObjectUrl;
+    console.log(fileType);
+    console.log(fileName);
   } catch (err) {
     console.error(err);
   }
 };
 
 function SubmitEvent(props) {
-  const schema = yup
-    .object({
-      event_title: yup.string().required().max(80),
-      event_link: yup.string().required(),
-      event_description: yup.string().required(),
-      event_date: yup.date().required(),
-      event_end_date: yup.date().required(),
-      event_city: yup.string().required(),
-      event_image: yup.string(),
-    })
-    .required();
+  const [isOnline, setIsOnline] = useState(false);
+  const [eventImageFile, setEventImageFile] = useState();
+  const [fileError, setFileError] = useState();
 
   const {
     register,
@@ -80,89 +52,46 @@ function SubmitEvent(props) {
     formState: { errors, isSubmitting },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const [latLng, setlatLng] = useState("");
-  const [timeZone, setTimeZone] = useState("");
-  const [address, setAddress] = useState("");
-  const [countryCode, setCountryCode] = useState("");
-  const [isOnline, setIsOnline] = useState(false);
-  const [eventImageFile, setEventImageFile] = useState();
-  const [fileError, setFileError] = useState();
+  console.log(errors);
+
+  const { latLng, timeZone, address, setAddress, countryCode } =
+    useEventLocation(timezoneKey);
 
   const onEventImageFileChange = (e) => {
     const file = e.target.files[0];
-
-    const isFileTooBig = file.size > 500 * 1024 ** 2; // 500KB
-
-    if (isFileTooBig) {
-      setEventImageFile(undefined);
-      setFileError(true);
-    } else {
-      setEventImageFile(file);
-      setFileError(false);
-    }
   };
-
-  const [errorToastMessage, setErrorToastMessage] = useState();
-  const onHideToast = () =>
-    setTimeout(() => {
-      setErrorToastMessage(undefined);
-    }, 5000);
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  useEffect(() => {
-    geocodeByAddress(address)
-      .then((results) => {
-        const cityNameObj = results[0].address_components.find(
-          (address_component) =>
-            ["locality", "sublocality", "colloquial_area"].some(
-              (word) => ~address_component.types.indexOf(word)
-            )
-        );
-        cityNameObj && setValue("event_city", cityNameObj.long_name);
-
-        const countyObj = results[0].address_components.find(
-          (address_component) =>
-            address_component.types.find((type) => type === "country")
-        );
-        countyObj && setCountryCode(countyObj.short_name);
-
-        return getLatLng(results[0]);
-      })
-      .then((latLng) => setlatLng(latLng));
-  }, [address]);
-
-  useEffect(() => {
-    fetch(
-      `https://maps.googleapis.com/maps/api/timezone/json?location=${latLng.lat}%2C${latLng.lng}&timestamp=1331161200&key=3`
-    )
-      .then((response) => response.json())
-      .then((r) => setTimeZone(r.timeZoneId));
-    // .catch((error) => console.error("Error", error));
-  }, [latLng]);
-
-  // posting data to Airtable and catching errors
+  // posting data to Hygraph
   const onSubmit = async (data) => {
-    data.event_address = address;
-    const date = new Date(data.event_date);
-    data.event_date = date.toISOString();
-    data.event_timezone = timeZone;
-    data.event_country_code = countryCode;
-    data.event_city = data.event_city;
-    data.event_meetupType = isOnline ? "Online" : "Meetup";
+    console.log(data);
+
+    data.fullAddress = address;
+    const date = new Date(data.eventDate);
+    data.eventDate = date.toISOString();
+    data.eventTimezone = timeZone;
+    data.eventCountry = countryCode;
+    data.eventCity = data.eventCity;
+    data.meetupType = isOnline ? "Online" : "Meetup";
 
     try {
-      data.event_image = await uploadEventImage(eventImageFile);
+      // data.event_image = await uploadEventImage(eventImageFile);
 
-      await airtablePostEvent(data);
-      MixpanelTracking.getInstance().eventSubmitted(data.event_title);
+      const response = await fetch("api/hygraph/formSubmission", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ data }),
+      });
 
-      setErrorToastMessage(undefined);
-      setIsSubmitted(true);
+      const hygraphResponseData = await response.json();
+
+      if (hygraphResponseData.createEvent.id) {
+        setIsSubmitted(true);
+      }
     } catch (err) {
-      setErrorToastMessage(
-        `Error submitting event to Airtable: ${err.message}`
-      );
+      console.error("Error posting Event to Hygraph", err);
+      toast.error("Error submitting your Event", err);
     }
   };
 
@@ -171,6 +100,7 @@ function SubmitEvent(props) {
       <Head>
         <title>Submit an event | Desci Global</title>
       </Head>
+
       <div className="max-w-xl relative mt-10 mb-2 mx-2 sm:mx-auto">
         <Image
           src="/images/desci-global-white-logo.png"
@@ -196,25 +126,25 @@ function SubmitEvent(props) {
             <form onSubmit={handleSubmit(onSubmit)}>
               <h4 className="text-2xl mb-4">Basic details</h4>
               <Field
-                id="event_title"
+                id="eventTitle"
                 label="Event Name"
                 type="text"
                 register={register}
-                errorMessage={errors.event_title?.message}
+                errorMessage={errors.eventTitle?.message}
               />
               <Field
-                id="event_link"
+                id="eventLink"
                 label="Event Website / Meetup Link"
                 type="url"
                 register={register}
-                errorMessage={errors.event_link?.message}
+                errorMessage={errors.eventLink?.message}
               />
               <Field
-                id="event_description"
+                id="eventDescription"
                 label="Short Event Description"
                 type="textarea"
                 register={register}
-                errorMessage={errors.event_description?.message}
+                errorMessage={errors.eventDescription?.message}
               />
               <div className="divider my-8" />
               <h4 className="text-2xl mb-4">Location</h4>
@@ -261,29 +191,29 @@ function SubmitEvent(props) {
                     onChange={(val) => setAddress(val)}
                   />
                   <Field
-                    id="event_city"
+                    id="eventCity"
                     label="Event City"
                     type="text"
                     register={register}
-                    errorMessage={errors.event_city?.message}
+                    errorMessage={errors.eventCity?.message}
                   />
                 </>
               )}
               <div className="divider my-8" />
               <h4 className="text-2xl mb-4">Date and time</h4>
               <Field
-                id="event_date"
+                id="eventDate"
                 label="Start Date"
                 type="datetime-local"
                 register={register}
-                errorMessage={errors.event_date?.message}
+                errorMessage={errors.eventDate?.message}
               />
               <Field
-                id="event_end_date"
+                id="eventEndDate"
                 label="End Date"
                 type="datetime-local"
                 register={register}
-                errorMessage={errors.event_end_date?.message}
+                errorMessage={errors.eventEndDate?.message}
               />
               <div className="divider my-8" />
               <h4 className="text-2xl mb-4">Image</h4>
@@ -294,11 +224,6 @@ function SubmitEvent(props) {
                 className="file-input file-input-bordered w-full max-w-xs"
                 onChange={onEventImageFileChange}
               />
-              {fileError ? (
-                <div className="text-sm">
-                  Uploaded file is too big. Max size: 500KB.
-                </div>
-              ) : null}
               <div className="divider my-8" />
               <button type="submit" className="btn flex ml-auto mb-8">
                 {isSubmitting ? "Submitting" : "Submit"}
@@ -326,19 +251,6 @@ function SubmitEvent(props) {
           </svg>
           Home
         </Link>
-        {errorToastMessage ? (
-          <div class="toast toast-end">
-            <div
-              class="alert alert-error indicator max-w-[80vw]"
-              onMouseLeave={onHideToast}
-              onTouchEnd={onHideToast}
-            >
-              <div>
-                <span>{errorToastMessage.slice(0, 100)}...</span>
-              </div>
-            </div>
-          </div>
-        ) : null}
       </div>
     </>
   );

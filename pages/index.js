@@ -14,20 +14,18 @@ import FeaturedSectionMobile from "../components/sections/featured/s-featured-mo
 import LocalGroupsSection from "../components/sections/local-groups";
 import { MixpanelTracking } from "../lib/mixpanel";
 
-import getFutureEvents from "../lib/hygraph/getFutureEvents"
-import getPastEvents from "../lib/hygraph/getPastEvents"
+import getFutureEvents from "../lib/hygraph/getFutureEvents";
+import getPastEvents from "../lib/hygraph/getPastEvents";
 import getFeaturedEvents from "../lib/hygraph/getFeaturedEvents";
-import getContributors  from "../lib/hygraph/getContributors";
-import getLocalGroups from "../lib/hygraph/getLocalGroups"
-
+import getContributors from "../lib/hygraph/getContributors";
+import getLocalGroups from "../lib/hygraph/getLocalGroups";
 
 function formatDate(dateString) {
-  const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+  const options = { day: "2-digit", month: "2-digit", year: "numeric" };
   return new Date(dateString).toLocaleDateString(undefined, options);
 }
 
 export default function Home(props) {
-
   const {
     futureEvents,
     pastEvents,
@@ -45,12 +43,9 @@ export default function Home(props) {
       <Navigation />
       <HeroSection />
       <FeaturedSection featuredEvents={featuredEvents} />
-      
+
       <FeaturedSectionMobile featuredEvents={featuredEvents} />
-      <AllEventsSection
-        futureEvents={futureEvents}
-        pastEvents={pastEvents}
-      />
+      <AllEventsSection futureEvents={futureEvents} pastEvents={pastEvents} />
       <LocalGroupsSection localGroups={localGroups} />
       <ResourcesSectionThree />
       <ContributeSection />
@@ -63,28 +58,23 @@ export default function Home(props) {
 }
 
 export async function getStaticProps() {
-  const futureEvents = await getFutureEvents()
-  const pastEvents = await getPastEvents()
-  const featuredEvents = await getFeaturedEvents()
+  const futureEvents = await getFutureEvents();
+  const pastEvents = await getPastEvents();
+  const featuredEvents = await getFeaturedEvents();
   const contributors = await getContributors();
   const localGroups = await getLocalGroups();
 
-
-  console.log("localGropus from index", localGroups)
-
   futureEvents.forEach((event) => {
-    event.eventDateConverted = formatDate(event.eventDate)
+    event.eventDateConverted = formatDate(event.eventDate);
   });
 
   pastEvents.forEach((event) => {
-    event.eventDateConverted = formatDate(event.eventDate)
+    event.eventDateConverted = formatDate(event.eventDate);
   });
 
-  featuredEvents.forEach((event)=> {
-    event.eventDateConverted = formatDate(event.eventDate)
-  })
-
-
+  featuredEvents.forEach((event) => {
+    event.eventDateConverted = formatDate(event.eventDate);
+  });
 
   if (!pastEvents) {
     return {

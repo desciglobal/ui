@@ -4,7 +4,7 @@
       <path id="path1834" fill-opacity=".7" d="M0 0h640v480H0z"/>
     </clipPath>
   </defs>
-  <path id="rect4120" fill="#012169" fill-opacity="1" stroke-width="4.1" d="M0 0h512v512H0z"/>
+  <path id="rect4120" fill="#012169" fill-opacity="1" strokeWidth="4.1" d="M0 0h512v512H0z"/>
   <path id="path1855" fill="#49497d" d="m384 212.7 2 2z"/>
   <path id="path1857" fill="#0e0e6e" d="m386 212.7 2 2z"/>
   <path id="path1859" fill="#262678" d="m379.9 214.7 2 2z"/>
@@ -755,9 +755,9 @@
   <path id="path3349" fill="#fff" fillRule="evenodd" d="M359.8 274.9c.8-.4 1.8-.1 2.2.7a1.6 1.6 0 1 1-2.2-.7z"/>
   <path id="path3351" fill="#f90" d="M404 303c-8-1-20.1 3.4-25 3.8-1.5-5.1-.8-5.5-7.4-9 2.3 8.6 2.8 9 0 12-11.8 2.9-24-12.7-23.8-20.8 0-8.3 3.2-5 4-17-6 2-4.8 9.5-8.3 12.8-4 .6-6.6-5.3-12-6.3-1.8 3.7 5.5 7.5 7.6 9.9 7.9 8.2 5.2 27.5 13.3 33.5-.4 4.2-3.4 6.8-8 9.4 9.3 2.9 13-3.7 16.7-4 8.8-.2 18.3.4 25.5-7.3 5.4-6 3.3-6.5 8.8-9 3.7-1.4 12.6-7.2 8.6-8z"/>
   <path id="path3353" fill="#fff" fillRule="evenodd" d="M385.2 318.2a1.6 1.6 0 1 1 1.7-2.8 1.6 1.6 0 0 1-1.7 2.8z"/>
-  <path id="path6674" fill="#012169" stroke-width=".5" d="M0 0h256v256H0z"/>
-  <path id="path6676" fill="#fff" stroke-width=".5" d="M256 0v32l-95 96 95 93.5V256h-33.5L127 162l-93 94H0v-34l93-93.5L0 37V0h31l96 94 93-94z"/>
-  <path id="path6678" fill="#c8102e" stroke-width=".5" d="m92 162 5.5 17L21 256H0v-1.5zm62-6 27 4 75 73.5V256zM256 0l-96 98-2-22 75-76zM0 .5 96.5 95 67 91 0 24.5z"/>
-  <path id="path6680" fill="#fff" stroke-width=".5" d="M88 0v256h80V0zM0 88v80h256V88z"/>
-  <path id="path6682" fill="#c8102e" stroke-width=".5" d="M0 104v48h256v-48zM104 0v256h48V0z"/>
+  <path id="path6674" fill="#012169" strokeWidth=".5" d="M0 0h256v256H0z"/>
+  <path id="path6676" fill="#fff" strokeWidth=".5" d="M256 0v32l-95 96 95 93.5V256h-33.5L127 162l-93 94H0v-34l93-93.5L0 37V0h31l96 94 93-94z"/>
+  <path id="path6678" fill="#c8102e" strokeWidth=".5" d="m92 162 5.5 17L21 256H0v-1.5zm62-6 27 4 75 73.5V256zM256 0l-96 98-2-22 75-76zM0 .5 96.5 95 67 91 0 24.5z"/>
+  <path id="path6680" fill="#fff" strokeWidth=".5" d="M88 0v256h80V0zM0 88v80h256V88z"/>
+  <path id="path6682" fill="#c8102e" strokeWidth=".5" d="M0 104v48h256v-48zM104 0v256h48V0z"/>
 </svg>
