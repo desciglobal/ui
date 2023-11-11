@@ -8,6 +8,8 @@ const LocationSearchInput = ({ label, value, onChange }) => {
       onChange={onChange}
       // passing in the state to function from parent component and updating state there
       onSelect={onChange}
+      
+    
     >
       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
         <div className="form-control w-full mb-4 relative">
