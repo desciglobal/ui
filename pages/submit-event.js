@@ -44,6 +44,7 @@ function SubmitEvent(props) {
   const [isOnline, setIsOnline] = useState(false);
   const [eventImageFile, setEventImageFile] = useState();
   const [fileError, setFileError] = useState();
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const {
     methods,
@@ -60,9 +61,26 @@ function SubmitEvent(props) {
 
   const onEventImageFileChange = (e) => {
     const file = e.target.files[0];
+    setEventImageFile(file);
+    console.log(file);
   };
 
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  async function fileUpload() {
+    const formData = new FormData();
+    formData.append("file", eventImageFile);
+
+    try {
+      const response = await fetch(`/api/hygraph/fileUpload`, {
+        method: "POST",
+        body: formData,
+      });
+      const data = await response.json();
+      console.log(data);
+    } catch (err) {
+      console.error("Error uploading file: ", err);
+      toast.error("Error Uploading the file", err);
+    }
+  }
 
   // posting data to Hygraph
   const onSubmit = async (data) => {
@@ -231,6 +249,7 @@ function SubmitEvent(props) {
                     className="file-input file-input-bordered w-full max-w-xs"
                     onChange={onEventImageFileChange}
                   />
+                  <button onClick={fileUpload}>UPLOAD</button>
                   <div className="divider my-8" />
                   <button type="submit" className="btn flex ml-auto mb-8">
                     {isSubmitting ? "Submitting" : "Submit"}
