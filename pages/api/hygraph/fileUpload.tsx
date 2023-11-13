@@ -1,5 +1,7 @@
 import { IncomingForm } from "formidable";
-import FormData from "form-data"
+import FormData from "form-data";
+import fs from "fs";
+import fetch from "node-fetch";
 
 const HYGRAPH_ENDPOINT = process.env.NEXT_PUBLIC_HYGRAPH_UPLOAD;
 const HYGRAPH_TOKEN = process.env.HYGRAPH_ASSET_TOKEN;
@@ -15,19 +17,20 @@ export default async function handler(req, res) {
     const form = new IncomingForm();
     form.parse(req, async (err, fields, files) => {
       if (err) {
-        // Handle error
         return res.status(500).json({ error: "Internal server error" });
       }
 
-      // Process the file and upload to Hygraph
-      const file = files.file[0]; 
-      console.log("FILE", file)
+      const file = files.file[0];
       const hygraphForm = new FormData();
-      hygraphForm.append("fileUpload", file);
+
+      const fileStream = fs.createReadStream(file.filepath);
+      hygraphForm.append("fileUpload", fileStream, file.originalFilename);
+
       try {
         const hygraphResponse = await uploadToHygraph(hygraphForm);
         const data = await hygraphResponse.json();
         if (hygraphResponse.ok) {
+          console.log(data);
           res.status(200).json(data);
         } else {
           res
@@ -43,18 +46,15 @@ export default async function handler(req, res) {
   }
 }
 
-async function uploadToHygraph(hygraphFormData) {
+async function uploadToHygraph(hygraphForm) {
   const result = await fetch(HYGRAPH_ENDPOINT, {
     method: "POST",
     headers: {
-      content: "multipart/form-data",
       Authorization: `Bearer ${HYGRAPH_TOKEN}`,
-      ...hygraphFormData.getHeaders(),
+      ...hygraphForm.getHeaders(),
     },
-    body: hygraphFormData,
+    body: hygraphForm,
   });
-
-  console.log("HYGRAPH RESULT", result);
 
   return result;
 }

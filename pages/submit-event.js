@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import LocationSearchInput from "../components/modal-and-forms/EventLocationInput";
+import LocationSearchInput from "../components/Form/EventLocationInput";
 import { MixpanelTracking } from "../lib/mixpanel";
 import Head from "next/head";
-import { v4 as uuid } from "uuid";
 import { useEventLocation } from "hooks/useEventLocation";
+import { useFileUpload } from "hooks/useFileUpload";
 import toast from "react-hot-toast";
-import HeaderForm from "components/HeaderForm";
+import HeaderForm from "components/Form/HeaderForm";
+import FileUpload from "../components/Form/FileUpload";
+import Footer from "../components/Footer/footer";
+import { Field } from "../components/Form/Field";
 
 const timezoneKey = process.env.NEXT_PUBLIC_GOOGLE_TIMEZONE_API_KEY;
 
@@ -25,26 +28,22 @@ const schema = yup
   })
   .required();
 
-const MAX_IMAGE_FILE_SIZE = 2147483648;
-const SUPPORTED_IMAGE_FILE_FORMATS = ["image/jpg", "image/jpeg", "image/png"];
-
-const uploadEventImage = async (file) => {
-  const fileType = file.type.split("/")[1];
-  const fileName = `${uuid()}.${fileType}`;
-
-  try {
-    console.log(fileType);
-    console.log(fileName);
-  } catch (err) {
-    console.error(err);
-  }
-};
-
 function SubmitEvent(props) {
   const [isOnline, setIsOnline] = useState(false);
-  const [eventImageFile, setEventImageFile] = useState();
-  const [fileError, setFileError] = useState();
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const { latLng, timeZone, address, setAddress, countryCode } =
+    useEventLocation(timezoneKey);
+
+  const {
+    uploadedFile,
+    isUploading,
+    fileUpload,
+    onEventImageFileChange,
+    fileDelete,
+    isDeleting,
+    eventImageFile,
+  } = useFileUpload();
 
   const {
     methods,
@@ -56,36 +55,8 @@ function SubmitEvent(props) {
 
   console.log(errors);
 
-  const { latLng, timeZone, address, setAddress, countryCode } =
-    useEventLocation(timezoneKey);
-
-  const onEventImageFileChange = (e) => {
-    const file = e.target.files[0];
-    setEventImageFile(file);
-    console.log(file);
-  };
-
-  async function fileUpload() {
-    const formData = new FormData();
-    formData.append("file", eventImageFile);
-
-    try {
-      const response = await fetch(`/api/hygraph/fileUpload`, {
-        method: "POST",
-        body: formData,
-      });
-      const data = await response.json();
-      console.log(data);
-    } catch (err) {
-      console.error("Error uploading file: ", err);
-      toast.error("Error Uploading the file", err);
-    }
-  }
-
   // posting data to Hygraph
   const onSubmit = async (data) => {
-    console.log(data);
-
     data.fullAddress = address;
     const date = new Date(data.eventDate);
     data.eventDate = date.toISOString();
@@ -100,8 +71,6 @@ function SubmitEvent(props) {
     }
 
     try {
-      // data.event_image = await uploadEventImage(eventImageFile);
-
       const response = await fetch("api/hygraph/formSubmission", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -124,7 +93,7 @@ function SubmitEvent(props) {
       <Head>
         <title>Submit an event | Desci Global</title>
       </Head>
-      <div className="bg-[#f8f8f8] min-w-screen pb-20">
+      <div className="bg-[#f8f8f8] min-w-screen pb-40">
         <HeaderForm />
         <div className="max-w-xl relative mt-[4rem]  mx-2 sm:mx-auto bg-white p-8 rounded-xl">
           {isSubmitted ? (
@@ -242,14 +211,15 @@ function SubmitEvent(props) {
                   </div>
                   <div className="divider my-8" />
                   <h4 className="text-2xl mb-4">Image</h4>
-                  <input
-                    id="event_image_file"
-                    type="file"
-                    accept="image/png, image/jpeg"
-                    className="file-input file-input-bordered w-full max-w-xs"
-                    onChange={onEventImageFileChange}
+                  <FileUpload
+                    isUploading={isUploading}
+                    uploadedFile={uploadedFile}
+                    fileUpload={fileUpload}
+                    onEventImageFileChange={onEventImageFileChange}
+                    fileDelete={fileDelete}
+                    isDeleting={isDeleting}
+                    eventImageFile={eventImageFile}
                   />
-                  <button onClick={fileUpload}>UPLOAD</button>
                   <div className="divider my-8" />
                   <button type="submit" className="btn flex ml-auto mb-8">
                     {isSubmitting ? "Submitting" : "Submit"}
@@ -260,31 +230,9 @@ function SubmitEvent(props) {
           )}
         </div>
       </div>
+      <Footer />
     </>
   );
 }
 
 export default SubmitEvent;
-
-const Field = ({ id, label, type, register, errorMessage }) => (
-  <div className="form-control w-full mb-4" key={id}>
-    <label className="label">
-      <span className="label-text">{label}</span>
-    </label>
-    <input
-      type={type}
-      className={`input-bordered input w-full rounded-4xl bg-base-200 p-[10px] text-[14px] tracking-wide h-[40px]  ${
-        errorMessage ? "input-error" : ""
-      }`}
-      id={id}
-      name={id}
-      maxLength={id === "event_title" ? 80 : undefined}
-      {...register(id)}
-    />
-    {errorMessage && (
-      <label className="label">
-        <span className="label-text-alt text-error">{errorMessage}</span>
-      </label>
-    )}
-  </div>
-);

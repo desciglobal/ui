@@ -1,11 +1,8 @@
-// pages/api/comments.js
-
 import { GraphQLClient, gql } from "graphql-request";
 
 const graphqlAPI = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT;
 
-// export a default function for API route to work
-export default async function comments(req, res) {
+export default async function submitEvent(req, res) {
   if (req.method == "POST") {
     const { data } = req.body;
 

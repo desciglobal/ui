@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import RoundArrowLeft from "../../icons/RoundArrowLeft";
-import RoundArrowRight from "../../icons/RoundArrowRight";
+import RoundArrowLeft from "../../Icons/RoundArrowLeft";
+import RoundArrowRight from "../../Icons/RoundArrowRight";
 // import { getFeaturedEvents } from "../../../dummy-data";
 import { MixpanelTracking } from "../../../lib/mixpanel";
 import defaultEventImage from "./../../../public/images/featured-bg.png";

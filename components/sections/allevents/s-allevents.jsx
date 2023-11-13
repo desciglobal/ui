@@ -2,9 +2,9 @@ import { useState } from "react";
 import Link from "next/link";
 
 import AddToCalendarButton from "./AddToCalendarButton/AddToCalendarButton";
-import EmailandEventCalForm from "../../modal-and-forms/email-event-cal-form";
+import EmailandEventCalForm from "../../Form/EmailSubmitForm";
 import { MixpanelTracking } from "../../../lib/mixpanel";
-import CalendarIcon from "../../icons/CalendarIcon";
+import CalendarIcon from "../../Icons/CalendarIcon";
 import Image from "next/image";
 
 function AllEventsSection(props) {
