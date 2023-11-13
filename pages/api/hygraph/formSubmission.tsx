@@ -21,7 +21,9 @@ export default async function submitEvent(req, res) {
         $fullAddress: String!
         $meetupType: MeetupTypeOptions!
         $eventDate: DateTime!
+        $eventEndDate: DateTime!
         $eventTimezone: String
+        $eventImageFileId: ID 
       ) {
         createEvent(
           data: {
@@ -33,7 +35,13 @@ export default async function submitEvent(req, res) {
             fullAddress: $fullAddress
             meetupType: $meetupType
             eventDate: $eventDate
+            eventEndDate: $eventEndDate
             eventTimezone: $eventTimezone
+            eventImageFile: {
+              connect: {
+                id: $eventImageFileId
+              }
+            }
           }
         ) {
           id
@@ -54,7 +62,9 @@ export default async function submitEvent(req, res) {
         fullAddress: data.fullAddress,
         meetupType: data.meetupType,
         eventDate: data.eventDate,
+        eventEndDate: data.eventEndDate,
         eventTimezone: data.eventTimezone,
+        eventImageFileId: data.eventImageId,
       });
       return res.status(200).send(result);
     } catch (err) {

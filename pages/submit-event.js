@@ -10,8 +10,8 @@ import { useFileUpload } from "hooks/useFileUpload";
 import toast from "react-hot-toast";
 import HeaderForm from "components/Form/HeaderForm";
 import FileUpload from "../components/Form/FileUpload";
-import Footer from "../components/Footer/footer";
 import { Field } from "../components/Form/Field";
+import SuccessScreen from "../components/Form/SuccessScreen";
 
 const timezoneKey = process.env.NEXT_PUBLIC_GOOGLE_TIMEZONE_API_KEY;
 
@@ -31,6 +31,7 @@ const schema = yup
 function SubmitEvent(props) {
   const [isOnline, setIsOnline] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submittedEvent, setSubmittedEvent] = useState();
 
   const { latLng, timeZone, address, setAddress, countryCode } =
     useEventLocation(timezoneKey);
@@ -43,6 +44,7 @@ function SubmitEvent(props) {
     fileDelete,
     isDeleting,
     eventImageFile,
+    filePublish,
   } = useFileUpload();
 
   const {
@@ -55,11 +57,21 @@ function SubmitEvent(props) {
 
   console.log(errors);
 
+  console.log(submittedEvent);
+
   // posting data to Hygraph
   const onSubmit = async (data) => {
+    data.eventImageId = "cloxd32994lce0auq8ydmv7sz"; // using the standard image stored in hygraph and overwriting it below if the user uploaded an image
+    if (uploadedFile) {
+      filePublish(uploadedFile.id);
+      data.eventImageId = uploadedFile.id;
+    }
+
     data.fullAddress = address;
     const date = new Date(data.eventDate);
+    const endDate = new Date(data.eventEndDate);
     data.eventDate = date.toISOString();
+    data.eventEndDate = endDate.toISOString();
     data.eventTimezone = timeZone;
     data.eventCountry = countryCode;
     data.eventCity = data.eventCity;
@@ -81,6 +93,7 @@ function SubmitEvent(props) {
 
       if (hygraphResponseData.createEvent.id) {
         setIsSubmitted(true);
+        setSubmittedEvent(data);
       }
     } catch (err) {
       console.error("Error posting Event to Hygraph", err);
@@ -93,15 +106,12 @@ function SubmitEvent(props) {
       <Head>
         <title>Submit an event | Desci Global</title>
       </Head>
-      <div className="bg-[#f8f8f8] min-w-screen pb-40">
+      <div className="bg-[#f8f8f8] min-w-screen min-h-screen pb-40">
         <HeaderForm />
         <div className="max-w-xl relative mt-[4rem]  mx-2 sm:mx-auto bg-white p-8 rounded-xl">
           {isSubmitted ? (
             <>
-              <h1 className="text-4xl pt-10 pb-8">
-                Event successfully submitted 🎉
-              </h1>
-              <p>It will be posted after ~ 24 hours.</p>
+              <SuccessScreen submittedEvent={submittedEvent} />
             </>
           ) : (
             <>
@@ -136,24 +146,31 @@ function SubmitEvent(props) {
                   />
                   <div className="divider my-8" />
                   <h4 className="text-2xl mb-4">Location</h4>
-                  <div className="btn-group flex mb-4 ">
-                    <button
-                      type="button"
-                      className={`w-1/2 max-h-[40px] btn${
-                        isOnline ? " btn-outline" : ""
-                      }`}
-                      onClick={() => setIsOnline(false)}
-                    >
-                      Venue
-                    </button>
-                    <button
-                      type="button"
-                      className={`w-1/2 btn${isOnline ? "" : " btn-outline"}`}
-                      onClick={() => setIsOnline(true)}
-                    >
-                      Online event
-                    </button>
+                  <div className="mb-4">
+                    <label className="inline-flex items-center">
+                      <input
+                        type="radio"
+                        name="location"
+                        value="venue"
+                        checked={!isOnline}
+                        onChange={() => setIsOnline(false)}
+                        className="form-radio"
+                      />
+                      <span className="ml-2">Venue</span>
+                    </label>
+                    <label className="inline-flex items-center ml-6">
+                      <input
+                        type="radio"
+                        name="location"
+                        value="online"
+                        checked={isOnline}
+                        onChange={() => setIsOnline(true)}
+                        className="form-radio"
+                      />
+                      <span className="ml-2">Online event</span>
+                    </label>
                   </div>
+
                   {isOnline ? (
                     <>
                       <LocationSearchInput
@@ -212,13 +229,13 @@ function SubmitEvent(props) {
                   <div className="divider my-8" />
                   <h4 className="text-2xl mb-4">Image</h4>
                   <FileUpload
+                    onEventImageFileChange={onEventImageFileChange}
+                    eventImageFile={eventImageFile}
+                    fileUpload={fileUpload}
+                    fileDelete={fileDelete}
                     isUploading={isUploading}
                     uploadedFile={uploadedFile}
-                    fileUpload={fileUpload}
-                    onEventImageFileChange={onEventImageFileChange}
-                    fileDelete={fileDelete}
                     isDeleting={isDeleting}
-                    eventImageFile={eventImageFile}
                   />
                   <div className="divider my-8" />
                   <button type="submit" className="btn flex ml-auto mb-8">
@@ -230,7 +247,6 @@ function SubmitEvent(props) {
           )}
         </div>
       </div>
-      <Footer />
     </>
   );
 }

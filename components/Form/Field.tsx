@@ -5,7 +5,7 @@ export const Field = ({ id, label, type, register, errorMessage }) => (
     </label>
     <input
       type={type}
-      className={`input-bordered input w-full rounded-4xl bg-base-200 p-[10px] text-[14px] tracking-wide h-[40px]  ${
+      className={`input-bordered input w-full rounded-4xl bg-base-200 p-[10px] text-[14px] tracking-wide  ${
         errorMessage ? "input-error" : ""
       }`}
       id={id}

@@ -10,7 +10,6 @@ export function useFileUpload() {
   const onEventImageFileChange = (e) => {
     const file = e.target.files[0];
     setEventImageFile(file);
-    console.log(file);
   };
 
   async function fileUpload() {
@@ -28,8 +27,7 @@ export function useFileUpload() {
         const uploadedFile = await response.json();
         setIsUploading(false);
         setUploadedFile(uploadedFile);
-        setEventImageFile(undefined)
-        console.log("UPLOADED FILE", uploadedFile);
+        setEventImageFile(undefined);
         toast.success("File Uploaded");
       }
     } catch (err) {
@@ -39,8 +37,6 @@ export function useFileUpload() {
   }
 
   async function fileDelete() {
-    //@ts-ignore
-    console.log("UPLOADED FIIIELLLE ", uploadedFile?.id);
     //@ts-ignore
     if (!uploadedFile || !uploadedFile.id) {
       toast.error("No file selected for deletion");
@@ -63,12 +59,39 @@ export function useFileUpload() {
         const deletedFile = await response.json();
         setIsDeleting(false);
         setUploadedFile(undefined);
-        console.log("DELETED FILE", deletedFile);
         toast.success("File Deleted");
       }
     } catch (err) {
       console.error("Error deleting file: ", err);
       toast.error("Error deleting file", err);
+    }
+  }
+
+  async function filePublish() {
+    //@ts-ignore
+    if (!uploadedFile || !uploadedFile.id) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`/api/hygraph/filePublish`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        //@ts-ignore
+
+        body: JSON.stringify({ fileId: uploadedFile.id }),
+      });
+
+      if (response.ok) {
+        const publishedFile = await response.json();
+        toast.success("File published");
+        console.log("Publishes from Hook", publishedFile);
+      }
+    } catch (err) {
+      console.error("Error publishing file: ", err);
+      toast.error("Error publishing file", err);
     }
   }
 
@@ -78,9 +101,11 @@ export function useFileUpload() {
     uploadedFile,
     setUploadedFile,
     isUploading,
+    isDeleting,
     setIsUploading,
     fileUpload,
     onEventImageFileChange,
     fileDelete,
+    filePublish,
   };
 }
