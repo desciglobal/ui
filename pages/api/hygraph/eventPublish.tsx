@@ -1,13 +1,18 @@
 import { graphApiClient, gql } from "./createApiClient";
 
 
-export default async function comments(req, res) {
+export default async function publishFile(req, res) {
   if (req.method === "POST") {
-    const { fileId } = req.body;
+    const { eventId } = req.body;
+
+    console.log(req.body);
+
+    console.log("PUBLISH REQUEST", req.body);
+
 
     const mutation = gql`
-      mutation DeleteAsset($id: ID!) {
-        deleteAsset(where: { id: $id }) {
+      mutation PublishEvent($id: ID!) {
+        publishEvent(where: { id: $id }) {
           id
         }
       }
@@ -15,12 +20,12 @@ export default async function comments(req, res) {
 
     try {
       const result = await graphApiClient.request(mutation, {
-        id: fileId,
+        id: eventId,
       });
       return res.status(200).json(result);
     } catch (error) {
       console.error(error);
-      return res.status(500).json({ error: "Error deleting asset" });
+      return res.status(500).json({ error: "Error publishing asset" });
     }
   } else {
     return res.status(405).json({ message: "Method not allowed" });

@@ -3,6 +3,7 @@ import FormData from "form-data";
 import fs from "fs";
 import fetch from "node-fetch";
 
+
 const HYGRAPH_ENDPOINT = process.env.NEXT_PUBLIC_HYGRAPH_UPLOAD;
 const HYGRAPH_TOKEN = process.env.HYGRAPH_ASSET_TOKEN;
 

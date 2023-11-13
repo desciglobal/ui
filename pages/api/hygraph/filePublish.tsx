@@ -1,7 +1,4 @@
-import { GraphQLClient, gql } from "graphql-request";
-
-const graphqlAPI = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT;
-const HYGRAPH_TOKEN = process.env.HYGRAPH_ASSET_TOKEN;
+import { graphApiClient, gql } from "./createApiClient";
 
 export default async function publishFile(req, res) {
   if (req.method === "POST") {
@@ -10,12 +7,6 @@ export default async function publishFile(req, res) {
     console.log(req.body);
 
     console.log("PUBLISH REQUEST", req.body);
-
-    const graphQLClient = new GraphQLClient(graphqlAPI, {
-      headers: {
-        authorization: `Bearer ${HYGRAPH_TOKEN}`,
-      },
-    });
 
     const mutation = gql`
       mutation PublishAsset($id: ID!) {
@@ -26,7 +17,7 @@ export default async function publishFile(req, res) {
     `;
 
     try {
-      const result = await graphQLClient.request(mutation, {
+      const result = await graphApiClient.request(mutation, {
         id: fileId,
       });
       return res.status(200).json(result);

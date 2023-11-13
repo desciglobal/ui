@@ -1,16 +1,10 @@
-import { GraphQLClient, gql } from "graphql-request";
+import { graphApiClient, gql } from "./createApiClient";
 
-const graphqlAPI = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT;
 
 export default async function submitEvent(req, res) {
   if (req.method == "POST") {
     const { data } = req.body;
 
-    const graphQLClient = new GraphQLClient(graphqlAPI, {
-      headers: {
-        authorization: `Bearer ${process.env.HYGRAPH_TOKEN}`,
-      },
-    });
     const query = gql`
       mutation CreateEvent(
         $eventTitle: String!
@@ -53,7 +47,7 @@ export default async function submitEvent(req, res) {
     let result;
 
     try {
-      const result = await graphQLClient.request(query, {
+      const result = await graphApiClient.request(query, {
         eventTitle: data.eventTitle,
         eventDescription: data.eventDescription,
         eventLink: data.eventLink,

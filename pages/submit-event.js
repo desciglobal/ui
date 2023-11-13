@@ -12,6 +12,7 @@ import HeaderForm from "components/Form/HeaderForm";
 import FileUpload from "../components/Form/FileUpload";
 import { Field } from "../components/Form/Field";
 import SuccessScreen from "../components/Form/SuccessScreen";
+import publishEvent from "../lib/hygraph/publishEvent";
 
 const timezoneKey = process.env.NEXT_PUBLIC_GOOGLE_TIMEZONE_API_KEY;
 
@@ -90,10 +91,12 @@ function SubmitEvent(props) {
       });
 
       const hygraphResponseData = await response.json();
+      console.log(hygraphResponseData);
 
       if (hygraphResponseData.createEvent.id) {
         setIsSubmitted(true);
         setSubmittedEvent(data);
+        await publishEvent(hygraphResponseData.createEvent.id);
       }
     } catch (err) {
       console.error("Error posting Event to Hygraph", err);
