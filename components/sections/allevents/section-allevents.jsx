@@ -73,7 +73,7 @@ function AllEventsSection(props) {
               title: e.eventTitle,
               description: e.eventDescription,
               startDate: new Date(e.eventDate),
-              endDate: new Date(e.eventDate),
+              endDate: new Date(e.eventEndDate),
               durationInMinutes: 120,
               address: e.fullAddress,
             };

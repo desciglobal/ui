@@ -1,16 +1,16 @@
 import { useEffect } from "react";
 
 import Navigation from "../components/Sections/hero/navigation";
-import HeroSection from "../components/Sections/hero/s-hero";
-import AllEventsSection from "../components/Sections/allevents/s-allevents";
-import ResourcesSectionThree from "../components/Sections/resources/s-resources-3";
-import VideoSection from "../components/Sections/videos/sectionvideos";
+import HeroSection from "../components/Sections/hero/section-hero";
+import AllEventsSection from "../components/Sections/AllEvents/section-allevents";
+import ResourcesSectionThree from "../components/Sections/resources/section-resources-3";
+import VideoSection from "../components/Sections/videos/section-videos";
 import ContributeSection from "../components/Sections/ contribute/s-contribute";
 import ContributorsSection from "../components/Sections/ contribute/s-contributors";
-import PartnerLogoSection from "../components/Sections/partners/s-partners";
+import PartnerLogoSection from "../components/Sections/partners/section-partners";
 import Footer from "../components/Footer/footer";
-import FeaturedSection from "../components/Sections/featured/s-featured";
-import FeaturedSectionMobile from "../components/Sections/featured/s-featured-mobile";
+import FeaturedSection from "../components/Sections/featured/section-featured";
+import FeaturedSectionMobile from "../components/Sections/featured/section-featured-mobile";
 import LocalGroupsSection from "../components/Sections/local-groups";
 import { MixpanelTracking } from "../lib/mixpanel";
 

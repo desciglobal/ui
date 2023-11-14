@@ -19,6 +19,7 @@ const query = gql`query GetFutureEvents {
   fullAddress
   meetupType
   eventDate
+  eventEndDate
   eventTimezone
   }
 }`;

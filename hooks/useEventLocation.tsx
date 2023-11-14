@@ -10,6 +10,7 @@ export function useEventLocation(mapsApiKey) {
 
   useEffect(() => {
     if (address) {
+      console.log("Address", address)
       geocodeByAddress(address)
         .then((results) => {
           const countryComponent = results[0].address_components.find(

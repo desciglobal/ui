@@ -19,7 +19,6 @@ export default async function publishEvent(eventId: string) {
     if (response.ok) {
       const publishedEvent = await response.json();
       toast.success("Event published");
-      console.log("Publishes Event from Hook", publishedEvent);
       return publishedEvent;
     }
   } catch (err) {

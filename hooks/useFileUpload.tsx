@@ -87,7 +87,6 @@ export function useFileUpload() {
       if (response.ok) {
         const publishedFile = await response.json();
         toast.success("File published");
-        console.log("Publishes from Hook", publishedFile);
       }
     } catch (err) {
       console.error("Error publishing file: ", err);

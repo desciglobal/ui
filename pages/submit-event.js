@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FormProvider, useForm } from "react-hook-form";
+import { FormProvider, useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import LocationSearchInput from "../components/Form/EventLocationInput";
@@ -13,6 +13,7 @@ import FileUpload from "../components/Form/FileUpload";
 import { Field } from "../components/Form/Field";
 import SuccessScreen from "../components/Form/SuccessScreen";
 import publishEvent from "../lib/hygraph/publishEvent";
+import { DateTimeField } from "../components/Form/DateTime";
 
 const timezoneKey = process.env.NEXT_PUBLIC_GOOGLE_TIMEZONE_API_KEY;
 
@@ -56,12 +57,9 @@ function SubmitEvent(props) {
     formState: { errors, isSubmitting },
   } = useForm({ resolver: yupResolver(schema) });
 
-  console.log(errors);
-
-  console.log(submittedEvent);
-
   // posting data to Hygraph
   const onSubmit = async (data) => {
+    console.log(data);
     data.eventImageId = "cloxd32994lce0auq8ydmv7sz"; // using the standard image stored in hygraph and overwriting it below if the user uploaded an image
     if (uploadedFile) {
       filePublish(uploadedFile.id);
@@ -104,150 +102,156 @@ function SubmitEvent(props) {
     }
   };
 
+  if (isSubmitted) {
+    return (
+      <>
+        <SuccessScreen submittedEvent={submittedEvent} />
+      </>
+    );
+  }
+
   return (
     <>
       <Head>
         <title>Submit an event | Desci Global</title>
       </Head>
-      <div className="bg-[#f8f8f8] min-w-screen min-h-screen pb-40">
+      <div className="bg-[#f8f8f8] min-w-screen min-h-screen pb-20" style={{}}>
+        {" "}
         <HeaderForm />
         <div className="max-w-xl relative mt-[4rem]  mx-2 sm:mx-auto bg-white p-8 rounded-xl">
-          {isSubmitted ? (
-            <>
-              <SuccessScreen submittedEvent={submittedEvent} />
-            </>
-          ) : (
-            <>
-              <h1 className="text-3xl pt-4 pb-4">Submit an event 📆 🔬</h1>
-              <p className="text-md mb-12">
-                Submit your event and contribute to the descentralized science
-                ecosystem.
-              </p>
-              <FormProvider {...methods}>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                  <h4 className="text-2xl mb-4">Basic Details</h4>
-                  <Field
-                    id="eventTitle"
-                    label="Event Name"
-                    type="text"
-                    register={register}
-                    errorMessage={errors.eventTitle?.message}
-                  />
-                  <Field
-                    id="eventLink"
-                    label="Event Website / Meetup Link"
-                    type="url"
-                    register={register}
-                    errorMessage={errors.eventLink?.message}
-                  />
-                  <Field
-                    id="eventDescription"
-                    label="Short Event Description"
-                    type="textarea"
-                    register={register}
-                    errorMessage={errors.eventDescription?.message}
-                  />
-                  <div className="divider my-8" />
-                  <h4 className="text-2xl mb-4">Location</h4>
-                  <div className="mb-4">
-                    <label className="inline-flex items-center">
-                      <input
-                        type="radio"
-                        name="location"
-                        value="venue"
-                        checked={!isOnline}
-                        onChange={() => setIsOnline(false)}
-                        className="form-radio"
-                      />
-                      <span className="ml-2">Venue</span>
-                    </label>
-                    <label className="inline-flex items-center ml-6">
-                      <input
-                        type="radio"
-                        name="location"
-                        value="online"
-                        checked={isOnline}
-                        onChange={() => setIsOnline(true)}
-                        className="form-radio"
-                      />
-                      <span className="ml-2">Online event</span>
-                    </label>
-                  </div>
+          <>
+            <h1 className="text-3xl pt-4 pb-4">Submit an event 📆 🔬</h1>
+            <p className="text-md mb-12">
+              Submit your event and contribute to the descentralized science
+              ecosystem.
+            </p>
+            <FormProvider {...methods}>
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                <h4 className="text-2xl mb-4">Basic Details</h4>
+                <Field
+                  id="eventTitle"
+                  label="Event Name"
+                  type="text"
+                  register={register}
+                  errorMessage={errors.eventTitle?.message}
+                />
+                <Field
+                  id="eventLink"
+                  label="Event Website / Meetup Link"
+                  type="url"
+                  register={register}
+                  errorMessage={errors.eventLink?.message}
+                />
+                <Field
+                  id="eventDescription"
+                  label="Short Event Description"
+                  type="textarea"
+                  register={register}
+                  errorMessage={errors.eventDescription?.message}
+                />
+                <div className="divider" />
+                <h4 className="text-2xl">Location</h4>
+                <div className="">
+                  <label className="inline-flex items-center">
+                    <input
+                      type="radio"
+                      name="location"
+                      value="venue"
+                      checked={!isOnline}
+                      onChange={() => setIsOnline(false)}
+                      className="form-radio"
+                    />
+                    <span className="ml-2">Venue</span>
+                  </label>
+                  <label className="inline-flex items-center ml-6">
+                    <input
+                      type="radio"
+                      name="location"
+                      value="online"
+                      checked={isOnline}
+                      onChange={() => setIsOnline(true)}
+                      className="form-radio"
+                    />
+                    <span className="ml-2">Online event</span>
+                  </label>
+                </div>
 
-                  {isOnline ? (
-                    <>
-                      <LocationSearchInput
-                        label="Search Time Zone"
-                        value={address}
-                        onChange={(val) => setAddress(val)}
-                        register={register}
-                      />
-                      <div className="form-control w-full mb-4">
-                        <label className="label">
-                          <span className="label-text">Selected Time Zone</span>
-                        </label>
-                        <input
-                          type="text"
-                          className="input input-bordered w-full"
-                          value={timeZone}
-                          disabled={true}
-                        />
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <LocationSearchInput
-                        label="Search Venue Address"
-                        value={address}
-                        onChange={(val) => setAddress(val)}
-                        className={"h-[40px]"}
-                      />
-                      <Field
-                        id="eventCity"
-                        label="Event City"
-                        type="text"
-                        register={register}
-                        errorMessage={errors.eventCity?.message}
-                      />
-                    </>
-                  )}
-                  <div className="divider my-8" />
-                  <h4 className="text-2xl mb-4">Date and time</h4>
-                  <div className="flex  space-x-4">
-                    <Field
-                      id="eventDate"
-                      label="Start Date"
-                      type="datetime-local"
-                      register={register}
-                      errorMessage={errors.eventDate?.message}
+                {isOnline ? (
+                  <>
+                    <LocationSearchInput
+                      label="Search Time Zone"
+                      value={address}
+                      onChange={(val) => setAddress(val)}
+                    />
+                    <div className="form-control w-full">
+                      <label className="label">
+                        <span className="label-text">Selected Time Zone</span>
+                      </label>
+                    </div>
+                    <span className="bg-desciblue rounded-full px-2 py-1 font-semibold text-white text-xs">
+                      {" "}
+                      {timeZone}{" "}
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <LocationSearchInput
+                      label="Search Venue Address"
+                      value={address}
+                      onChange={(val) => setAddress(val)}
+                      className={"h-[40px]"}
                     />
                     <Field
-                      id="eventEndDate"
-                      label="End Date"
-                      type="datetime-local"
+                      id="eventCity"
+                      label="Event City"
+                      type="text"
                       register={register}
-                      errorMessage={errors.eventEndDate?.message}
+                      errorMessage={errors.eventCity?.message}
                     />
-                  </div>
-                  <div className="divider my-8" />
-                  <h4 className="text-2xl mb-4">Image</h4>
-                  <FileUpload
-                    onEventImageFileChange={onEventImageFileChange}
-                    eventImageFile={eventImageFile}
-                    fileUpload={fileUpload}
-                    fileDelete={fileDelete}
-                    isUploading={isUploading}
-                    uploadedFile={uploadedFile}
-                    isDeleting={isDeleting}
+                  </>
+                )}
+                <div className="divider my-8" />
+                <h4 className="text-2xl">Date and time</h4>
+                <div className="flex flex-col">
+                  <DateTimeField
+                    id="eventDate"
+                    label="Start Date"
+                    type="datetime-local"
+                    register={register}
+                    errorMessage={errors.eventDate?.message}
+                    setValue={setValue}
                   />
-                  <div className="divider my-8" />
-                  <button type="submit" className="btn flex ml-auto mb-8">
-                    {isSubmitting ? "Submitting" : "Submit"}
-                  </button>
-                </form>
-              </FormProvider>
-            </>
-          )}
+                  <DateTimeField
+                    id="eventEndDate"
+                    label="End Date"
+                    type="datetime-local"
+                    register={register}
+                    errorMessage={errors.eventEndDate?.message}
+                    setValue={setValue}
+                  />
+                </div>
+                <div className="divider my-8" />
+                <h4 className="text-2xl mb-4">Image</h4>
+                <FileUpload
+                  onEventImageFileChange={onEventImageFileChange}
+                  eventImageFile={eventImageFile}
+                  fileUpload={fileUpload}
+                  fileDelete={fileDelete}
+                  isUploading={isUploading}
+                  uploadedFile={uploadedFile}
+                  isDeleting={isDeleting}
+                />
+                <div className="divider my-8" />
+                <button
+                  type="submit"
+                  disabled={eventImageFile || !address}
+                  className="btn flex ml-auto mb-8"
+                >
+                  {isSubmitting ? "Submitting" : "Submit"}
+                </button>
+              </form>
+            </FormProvider>
+          </>
         </div>
       </div>
     </>

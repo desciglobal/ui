@@ -10,21 +10,14 @@ const font = fetch(
   )
 ).then((res) => res.arrayBuffer());
 
-// fetch('http://localhost:3000/api/og-image', {  headers: {
-//   'Accept': 'application/json',
-// },})
-//   .then((response) => response.json())
-//   .then((data) => console.log(data));
 
 
 export const config = {
   runtime: "experimental-edge",
 };
 
-export default async function () {
+export default async function ogImage () {
   const fontData = await font;
-  // const eventsData = await events;
-  // console.log(eventsData)
 
   return new ImageResponse(
     (
@@ -50,7 +43,9 @@ export default async function () {
             <div>DeSci Boston</div>
             <div>23 Sep 2023</div>
           </div>
-          <div tw="flex h-10 bg-[#1231D5] mt-10 p-2 text-white rounded-full w-full items-center text-xl justify-center">Join the Network</div>
+          <div tw="flex h-10 bg-[#1231D5] mt-10 p-2 text-white rounded-full w-full items-center text-xl justify-center">
+            Join the Network
+          </div>
         </div>
         <div tw="flex w-1/2 h-full">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -62,7 +57,6 @@ export default async function () {
         </div>
       </div>
     ),
-
     {
       fonts: [
         {

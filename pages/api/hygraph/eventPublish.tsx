@@ -1,14 +1,8 @@
 import { graphApiClient, gql } from "./createApiClient";
 
-
 export default async function publishFile(req, res) {
   if (req.method === "POST") {
     const { eventId } = req.body;
-
-    console.log(req.body);
-
-    console.log("PUBLISH REQUEST", req.body);
-
 
     const mutation = gql`
       mutation PublishEvent($id: ID!) {
