@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "hooks/useFileUpload.tsx"  ],
+, "hooks/useFileUpload.tsx", "components/Sections/featured/section-featured.js"  ],
   "exclude": [
     "node_modules"
   ]

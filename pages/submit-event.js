@@ -115,7 +115,7 @@ function SubmitEvent(props) {
       <Head>
         <title>Submit an event | Desci Global</title>
       </Head>
-      <div className="bg-[#f8f8f8] min-w-screen min-h-screen pb-20" style={{}}>
+      <div className="bg-[#f8f8f8] min-w-screen min-h-screen pb-20" style={{"background": "linear-gradient(to bottom, #f8f8f8, #e0e0e0)"}}>
         {" "}
         <HeaderForm />
         <div className="max-w-xl relative mt-[4rem]  mx-2 sm:mx-auto bg-white p-8 rounded-xl">

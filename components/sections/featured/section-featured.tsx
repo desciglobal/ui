@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+//@ts-ignore
 import { Carousel } from "react-responsive-carousel";
+//@ts-ignore
 import RoundArrowLeft from "../../Icons/RoundArrowLeft";
+//@ts-ignore
 import RoundArrowRight from "../../Icons/RoundArrowRight";
-// import { getFeaturedEvents } from "../../../dummy-data";
 import { MixpanelTracking } from "../../../lib/mixpanel";
-import defaultEventImage from "./../../../public/images/featured-bg.png";
 import Image from "next/image";
 
 function trackEventLinkClicked(eventName) {
