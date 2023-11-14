@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "hooks/useFileUpload.tsx", "components/Sections/featured/section-featured.js"  ],
+, "hooks/useFileUpload.js", "components/Sections/featured/section-featured.js", "components/Form/SuccessScreen.js", "components/Form/HeaderForm.js", "components/Form/Field.js"  ],
   "exclude": [
     "node_modules"
   ]

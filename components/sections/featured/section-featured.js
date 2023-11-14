@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-//@ts-ignore
 import { Carousel } from "react-responsive-carousel";
-//@ts-ignore
 import RoundArrowLeft from "../../Icons/RoundArrowLeft";
-//@ts-ignore
 import RoundArrowRight from "../../Icons/RoundArrowRight";
 import { MixpanelTracking } from "../../../lib/mixpanel";
 import Image from "next/image";
@@ -13,10 +10,7 @@ function trackEventLinkClicked(eventName) {
   MixpanelTracking.getInstance().eventLinkClicked(eventName);
 }
 
-export default class withCustomStatusArrowsAndIndicators extends Component<
-  any,
-  any
-> {
+export default class withCustomStatusArrowsAndIndicators extends Component {
   render() {
     const { featuredEvents } = this.props;
 
@@ -31,7 +25,7 @@ export default class withCustomStatusArrowsAndIndicators extends Component<
       showThumbs: false,
       showArrows: false,
       selectedItem: 0,
-      renderIndicator: (clickHandler, isSelected: boolean, index: number) => {
+      renderIndicator: (clickHandler, isSelected, index) => {
         if (isSelected == true) {
           return (
             <div>
@@ -54,7 +48,13 @@ export default class withCustomStatusArrowsAndIndicators extends Component<
                 onClick={clickHandler}
               >
                 <div className="h-6 w-6 hover:scale-110 duration-100 ">
-                  <Image src="/images/global.svg" className="rounded-full" alt="" width={10} height={10}></Image>
+                  <Image
+                    src="/images/global.svg"
+                    className="rounded-full"
+                    alt=""
+                    width={10}
+                    height={10}
+                  ></Image>
                 </div>
               </div>
             </div>
