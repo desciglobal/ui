@@ -14,6 +14,7 @@ import { Field } from "../components/Form/Field";
 import SuccessScreen from "../components/Form/SuccessScreen";
 import publishEvent from "../lib/hygraph/publishEvent";
 import { DateTimeField } from "../components/Form/DateTime";
+import discordSubmissionNotification from "../lib/notifyDiscord";
 
 const timezoneKey = process.env.NEXT_PUBLIC_GOOGLE_TIMEZONE_API_KEY;
 
@@ -94,7 +95,10 @@ function SubmitEvent(props) {
       if (hygraphResponseData.createEvent.id) {
         setIsSubmitted(true);
         setSubmittedEvent(data);
+        const imageHandle =
+          hygraphResponseData.createEvent.eventImageFile.handle;
         await publishEvent(hygraphResponseData.createEvent.id);
+        await discordSubmissionNotification(data, hygraphResponseData.createEvent.id, imageHandle);
       }
     } catch (err) {
       console.error("Error posting Event to Hygraph", err);
@@ -115,7 +119,10 @@ function SubmitEvent(props) {
       <Head>
         <title>Submit an event | Desci Global</title>
       </Head>
-      <div className="bg-[#f8f8f8] min-w-screen min-h-screen pb-20" style={{"background": "linear-gradient(to bottom, #f8f8f8, #e0e0e0)"}}>
+      <div
+        className="bg-[#f8f8f8] min-w-screen min-h-screen pb-20"
+        style={{ background: "linear-gradient(to bottom, #f8f8f8, #e0e0e0)" }}
+      >
         {" "}
         <HeaderForm />
         <div className="max-w-xl relative mt-[4rem]  mx-2 sm:mx-auto bg-white p-8 rounded-xl">

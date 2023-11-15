@@ -40,6 +40,10 @@ export default async function submitEvent(req, res) {
         ) {
           id
           eventTitle
+          eventImageFile {
+            id
+            handle
+          }
         }
       }
     `;

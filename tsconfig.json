@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "hooks/useFileUpload.js", "components/Sections/featured/section-featured.js", "components/Form/SuccessScreen.js", "components/Form/HeaderForm.js", "components/Form/Field.js"  ],
+, "hooks/useFileUpload.js", "components/Sections/featured/section-featured.js", "components/Form/SuccessScreen.js", "components/Form/HeaderForm.js", "components/Form/Field.js", "pages/api/hygraph/formSubmission.js", "pages/api/hygraph/fileUpload.js", "pages/api/hygraph/filePublish.js", "pages/api/hygraph/fileDelete.js", "pages/api/hygraph/eventPublish.js", "pages/api/hygraph/createApiClient.js", "lib/hygraph/publishEvent.js", "lib/hygraph/getPastEvents.js", "lib/hygraph/getLocalGroups.js", "lib/hygraph/getFutureEvents.js", "lib/hygraph/getFeaturedEvents.js", "lib/hygraph/getContributors.js", "lib/hygraph/createClient.js", "lib/airtable/getClient.js"  ],
   "exclude": [
     "node_modules"
   ]
