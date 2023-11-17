@@ -2,7 +2,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 import AddToCalendarButton from "./add-to-calendar-button/AddToCalendarButton";
-import EmailandEventCalForm from "../../form/EmailSubmitForm";
+import EmailandEventCalForm from "../../form/SubmitEmail";
 import { MixpanelTracking } from "../../../lib/mixpanel";
 import CalendarIcon from "../../icons/CalendarIcon";
 import Image from "next/image";
