@@ -4,7 +4,7 @@ import Link from "next/link";
 import AddToCalendarButton from "./AddToCalendarButton/AddToCalendarButton";
 import EmailandEventCalForm from "../../Form/EmailSubmitForm";
 import { MixpanelTracking } from "../../../lib/mixpanel";
-import CalendarIcon from "../../Icons/CalendarIcon";
+import CalendarIcon from "../../icons/CalendarIcon";
 import Image from "next/image";
 
 function AllEventsSection(props) {

@@ -1,6 +1,6 @@
-import ArrowDownRight from "../../Icons/ArrowUpRight";
-import Backdrop from "../../Modal/Backdrop";
-import ModalSubmitMail from "../../Modal/ModalSubmitMail";
+import ArrowDownRight from "../../icons/ArrowUpRight";
+import Backdrop from "../../modal/Backdrop";
+import ModalSubmitMail from "../../modal/ModalSubmitMail";
 import { MixpanelTracking } from "../../../lib/mixpanel";
 import Link from "next/link";
 import Image from "next/image";

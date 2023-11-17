@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Logo from "../../Icons/Logo";
+import Logo from "../../icons/Logo";
 import Link from "next/link";
 
 function Navigation() {
