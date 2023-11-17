@@ -2,7 +2,6 @@ import { useState } from "react";
 import Link from "next/link";
 
 import AddToCalendarButton from "./add-to-calendar-button/AddToCalendarButton";
-import EmailandEventCalForm from "../../form/Email";
 import { MixpanelTracking } from "../../../lib/mixpanel";
 import CalendarIcon from "../../icons/CalendarIcon";
 import Image from "next/image";
@@ -231,7 +230,6 @@ function AllEventsSection(props) {
           </ul>
         </div>
       </div>
-      <EmailandEventCalForm />
     </section>
   );
 }
