@@ -6,7 +6,7 @@ import AllEventsSection from "../components/sections/all-events/section-allevent
 import ResourcesSectionThree from "../components/sections/resources/section-resources-3";
 import VideoSection from "../components/sections/videos/section-videos";
 import ContributeSection from "../components/sections/contribute/s-contribute";
-import ContributorsSection from "../components/sections/ contribute/s-contributors";
+import ContributorsSection from "../components/sections/contribute/s-contributors";
 import PartnerLogoSection from "../components/sections/partners/section-partners";
 import Footer from "../components/footer/footer";
 import FeaturedSection from "../components/sections/featured/section-featured";

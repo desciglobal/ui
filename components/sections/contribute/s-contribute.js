@@ -1,6 +1,6 @@
-import ArrowUpRight from "../../Icons/ArrowUpRight";
-import Backdrop from "../../Modal/Backdrop";
-import ModalSubmitMail from "../../Modal/ModalSubmitMail";
+import ArrowUpRight from "../../icons/ArrowUpRight";
+import Backdrop from "../../modal/Backdrop";
+import ModalSubmitMail from "../../modal/ModalSubmitMail";
 import { useState } from "react";
 import Link from "next/link";
 
