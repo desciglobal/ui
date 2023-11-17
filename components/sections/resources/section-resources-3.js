@@ -8,10 +8,12 @@ function ResourcesSectionThree() {
         <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
           <div className="p-4 md:w-1/3 sm:mb-0 mb-6">
             <div className=" h-64 overflow-hidden">
-              <img
+              <Image
                 alt="content"
                 className="object-cover object-center h-full w-full"
                 src="/images/resources-1.png"
+                width={300}
+                height={300}
               />
             </div>
             <h2 className="text-xl font-medium title-font text-gray-900 mt-5">
@@ -21,7 +23,11 @@ function ResourcesSectionThree() {
               Explore this summary of decentralized science to better understand
               what this movement is about.
             </p>
-            <a className="text-desciblue inline-flex items-center mt-3" href="https://ethereum.org/en/desci/" target="_blank">
+            <a
+              className="text-desciblue inline-flex items-center mt-3"
+              href="https://ethereum.org/en/desci/"
+              target="_blank"
+            >
               Learn More
               <svg
                 fill="none"
@@ -38,10 +44,12 @@ function ResourcesSectionThree() {
           </div>
           <div className="p-4 md:w-1/3 sm:mb-0 mb-6">
             <div className="h-64 overflow-hidden">
-              <img
+              <Image
                 alt="content"
                 className="object-cover object-center h-full w-full"
                 src="/images/resources-2.png"
+                width={300}
+                height={300}
               />
             </div>
             <h2 className="text-xl font-medium title-font text-gray-900 mt-5">
@@ -51,7 +59,11 @@ function ResourcesSectionThree() {
               Join the Blockchain for Science community to stay connected with
               others.
             </p>
-            <a className="text-desciblue inline-flex items-center mt-3" href="https://t.me/BlockchainForScience" target="_blank">
+            <a
+              className="text-desciblue inline-flex items-center mt-3"
+              href="https://t.me/BlockchainForScience"
+              target="_blank"
+            >
               Learn More
               <svg
                 fill="none"
@@ -68,10 +80,12 @@ function ResourcesSectionThree() {
           </div>
           <div className="p-4 md:w-1/3 sm:mb-0 mb-6">
             <div className="h-64 overflow-hidden">
-              <img
+              <Image
                 alt="content"
                 className="object-cover object-center h-full w-full"
                 src="/images/resources-3.jpg"
+                width={300}
+                height={300}
               />
             </div>
             <h2 className="text-xl font-medium title-font text-gray-900 mt-5">
@@ -81,7 +95,11 @@ function ResourcesSectionThree() {
               DeSci WG - Check out this working group to get the most up to date
               alpha on what’s happening across the DeSci ecosystem.
             </p>
-            <a className="text-desciblue inline-flex items-center mt-3" href="https://t.me/BlockchainForScience" target="_blank">
+            <a
+              className="text-desciblue inline-flex items-center mt-3"
+              href="https://t.me/BlockchainForScience"
+              target="_blank"
+            >
               Learn More
               <svg
                 fill="none"
@@ -98,19 +116,26 @@ function ResourcesSectionThree() {
           </div>
           <div className="p-4 md:w-1/3 sm:mb-0 mb-6">
             <div className="h-64 overflow-hidden">
-              <img
+              <Image
                 alt="content"
                 className="object-cover object-center h-full w-full"
-                src="images/resources-4.jpg"
+                src="/images/resources-4.jpg"
+                width={300}
+                height={300}
               />
             </div>
             <h2 className="text-xl font-medium title-font text-gray-900 mt-5">
-            Landscape
+              Landscape
             </h2>
             <p className="text-base leading-relaxed mt-2">
-            Explore all of the organizations and sectors that make up the DeSci space.
+              Explore all of the organizations and sectors that make up the
+              DeSci space.
             </p>
-            <a className="text-desciblue inline-flex items-center mt-3" href="https://twitter.com/UltraRareBio/status/1580988333693730821?s=20&t=9eCaWimS9cyzpc-dn4N6GQ" target="_blank">
+            <a
+              className="text-desciblue inline-flex items-center mt-3"
+              href="https://twitter.com/UltraRareBio/status/1580988333693730821?s=20&t=9eCaWimS9cyzpc-dn4N6GQ"
+              target="_blank"
+            >
               Learn More
               <svg
                 fill="none"
@@ -126,21 +151,28 @@ function ResourcesSectionThree() {
             </a>
           </div>
 
-         <div className="p-4 md:w-1/3 sm:mb-0 mb-6">
+          <div className="p-4 md:w-1/3 sm:mb-0 mb-6">
             <div className="h-64 overflow-hidden">
-              <img
+              <Image
                 alt="content"
                 className="object-cover object-center h-full w-full"
-                src="images/descipod.png"
+                src="/images/descipod.png"
+                width={300}
+                height={300}
               />
             </div>
             <h2 className="text-xl font-medium title-font text-gray-900 mt-5">
-            DeSci Podcast
+              DeSci Podcast
             </h2>
             <p className="text-base leading-relaxed mt-2">
-            Rethinking Science - Let's talk to the leaders of this industry about the future of biotech.
+              Rethinking Science - Lets talk to the leaders of this industry
+              about the future of biotech.
             </p>
-            <a className="text-desciblue inline-flex items-center mt-3" href="https://www.youtube.com/playlist?list=PLYCWARA8YNdoZkSSdlJV0cdlMtP3rJcwu" target="_blank">
+            <a
+              className="text-desciblue inline-flex items-center mt-3"
+              href="https://www.youtube.com/playlist?list=PLYCWARA8YNdoZkSSdlJV0cdlMtP3rJcwu"
+              target="_blank"
+            >
               Learn More
               <svg
                 fill="none"
@@ -154,7 +186,7 @@ function ResourcesSectionThree() {
                 <path d="M5 12h14M12 5l7 7-7 7"></path>
               </svg>
             </a>
-          </div> 
+          </div>
         </div>
       </div>
     </section>

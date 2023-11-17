@@ -22,7 +22,7 @@ function PartnerLogoSection() {
               <a href={partner.Link} target="_blank" rel={"noreferrer"}>
                 <div className=" lg:w-36 w-28 flex items-center justify-center">
                   <div className="relative grayscale hover:grayscale-0">
-                    <img src={partner.image} layout="fill" objectFit="cover" />
+                    <Image src={partner.image} width={150}  height={150} alt=""  />
                   </div>
                 </div>
               </a>

@@ -1,4 +1,5 @@
 import defaultEventImage from "./../../../public/images/featured-bg.png";
+import Image from "next/image";
 
 function FeaturedSectionMobile(props) {
   const { featuredEvents } = props;
@@ -44,12 +45,14 @@ function FeaturedSectionMobile(props) {
                   <div className="h-10 border-solid border-t border-black flex items-center justify-between">
                     <p>Location</p>
                     <div className="flex">
-                      <img
+                      <Image
                         className="h-5 w-5 mr-2 rounded-full"
                         src={`/images/flags/${featuredEvents[0].eventCountry.toLowerCase()}.svg`}
                         alt=""
                         variant="flag"
-                      ></img>
+                        width={200}
+                        height={200}
+                      />
                       <p>{featuredEvents[0].eventCity}</p>
                     </div>
                   </div>

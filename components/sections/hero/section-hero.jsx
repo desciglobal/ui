@@ -34,8 +34,8 @@ function HeroSection() {
           </div>
         </div>
         <div className="lg:h-2/5">
-          <div class="lg:grid grid-cols-3 gap-0 h-full">
-            <div class="col-span-2 flex items-center pr-1.5 py-4">
+          <div className="lg:grid grid-cols-3 gap-0 h-full">
+            <div className="col-span-2 flex items-center pr-1.5 py-4">
               <p className="lg:text-2xl font-normal">
                 Desci.global provides you an calendar overview of upcoming and
                 past descentralized science events. You can add events to your
@@ -43,7 +43,7 @@ function HeroSection() {
                 help extend DeSci to the ends of the globe.{" "}
               </p>
             </div>
-            <div class="lg:bg-black lg:text-white lg:ml-2 flex items-center  pb-10">
+            <div className="lg:bg-black lg:text-white lg:ml-2 flex items-center  pb-10">
               <ul className="w-full lg:mt-6 mt-2">
                 <li>
                   <Link

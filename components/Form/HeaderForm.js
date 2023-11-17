@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 function HeaderForm() {
   const logoUrl = "/images/desci-global-white-logo.png";
@@ -6,7 +7,7 @@ function HeaderForm() {
   return (
     <div className="flex justify-between items-center w-full bg-white h-[4rem]">
       <div className="flex justify-start pl-10">
-        <img
+        <Image
           src={logoUrl}
           alt="DAO Logo"
           width={200}

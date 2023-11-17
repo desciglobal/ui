@@ -1,15 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: false,
   },
   env: {
     AIRTABLE_KEY: process.env.AIRTABLE_KEY,
   },
   reactStrictMode: true,
-  experimental: {
-    appDir: false,
-  },
   swcMinify: true,
   images: {
     domains: [
