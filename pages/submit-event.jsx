@@ -98,7 +98,11 @@ function SubmitEvent(props) {
         const imageHandle =
           hygraphResponseData.createEvent.eventImageFile.handle;
         await publishEvent(hygraphResponseData.createEvent.id);
-        await discordSubmissionNotification(data, hygraphResponseData.createEvent.id, imageHandle);
+        await discordSubmissionNotification(
+          data,
+          hygraphResponseData.createEvent.id,
+          imageHandle
+        );
       }
     } catch (err) {
       console.error("Error posting Event to Hygraph", err);
@@ -120,12 +124,12 @@ function SubmitEvent(props) {
         <title>Submit an event | Desci Global</title>
       </Head>
       <div
-        className="bg-[#f8f8f8] min-w-screen min-h-screen pb-20"
+        className="bg-[#f8f8f8] min-w-screen min-h-screen lg:pb-20"
         style={{ background: "linear-gradient(to bottom, #f8f8f8, #e0e0e0)" }}
       >
         {" "}
         <HeaderForm />
-        <div className="max-w-xl relative mt-[4rem]  mx-2 sm:mx-auto bg-white p-8 rounded-xl">
+        <div className="max-w-xl relative lg:mt-[4rem]  mx-2 sm:mx-auto bg-white p-8 rounded-xl">
           <>
             <h1 className="text-3xl pt-4 pb-4">Submit an event 📆 🔬</h1>
             <p className="text-md mb-12">
@@ -252,7 +256,7 @@ function SubmitEvent(props) {
                 <button
                   type="submit"
                   disabled={eventImageFile || !address}
-                  className="btn flex ml-auto mb-8"
+                  className="btn flex ml-auto mb-8  w-full"
                 >
                   {isSubmitting ? "Submitting" : "Submit"}
                 </button>

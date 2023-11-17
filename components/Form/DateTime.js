@@ -1,7 +1,13 @@
-import clsx from 'clsx';
-import React from 'react';
+import clsx from "clsx";
+import React from "react";
 
-export const DateTimeField = ({ id, label, register, errorMessage, setValue }) => {
+export const DateTimeField = ({
+  id,
+  label,
+  register,
+  errorMessage,
+  setValue,
+}) => {
   const dateId = `${id}_date`;
   const timeId = `${id}_time`;
 
@@ -32,15 +38,19 @@ export const DateTimeField = ({ id, label, register, errorMessage, setValue }) =
           type="date"
           id={dateId}
           name={dateId}
-          className={clsx("input-bordered bg-slate-100 input w-2/3", { "input-error": errorMessage })}
-          onChange={(e) => handleDateTimeChange(e, 'date')}
+          className={clsx("input-bordered bg-slate-100 input w-3/4 lg:w-2/3", {
+            "input-error": errorMessage,
+          })}
+          onChange={(e) => handleDateTimeChange(e, "date")}
         />
         <input
           type="time"
           id={timeId}
           name={timeId}
-          className={clsx("input-bordered input bg-slate-100 w-1/3", { "input-error": errorMessage })}
-          onChange={(e) => handleDateTimeChange(e, 'time')}
+          className={clsx("input-bordered input bg-slate-100 w-1/4 lg:w-1/3", {
+            "input-error": errorMessage,
+          })}
+          onChange={(e) => handleDateTimeChange(e, "time")}
         />
       </div>
       {errorMessage && (
