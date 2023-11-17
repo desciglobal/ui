@@ -1,7 +1,7 @@
 import React from "react";
 import AddToCalendarButtonTooltip from "./Tooltip/AddToCalendarButtonTooltip";
 import { CalendarEvent } from "./cal-event";
-import Backdrop from "../../../modal/Backdrop";
+import Backdrop from "../../../black-modal/Backdrop";
 
 interface AddToCalendarButtonProps {
   calendarEvent: CalendarEvent;
