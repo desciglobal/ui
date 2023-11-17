@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 import Navigation from "../components/sections/hero/navigation";
 import HeroSection from "../components/sections/hero/section-hero";
-import AllEventsSection from "../components/sections/all-events/section-allevents";
+import AllEventsSection from "../components/sections/all-events/SectionAllEvents";
 import ResourcesSectionThree from "../components/sections/resources/section-resources-3";
 import VideoSection from "../components/sections/videos/section-videos";
 import ContributeSection from "../components/sections/contribute/s-contribute";

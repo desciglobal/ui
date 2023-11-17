@@ -3,14 +3,10 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { MixpanelTracking } from "../../lib/mixpanel";
-import {airtablePostEmail} from "../../lib/airtable/airtablePostEmail";
-
-
-
+import { airtablePostEmail } from "../../lib/airtable/airtablePostEmail";
 
 function EmailandEventCalForm() {
   const [submitted, setSubmitted] = useState(false);
-
 
   const schema = yup
     .object({
@@ -25,21 +21,17 @@ function EmailandEventCalForm() {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = async (data) => {
-
     try {
       await airtablePostEmail(data);
       setSubmitted(true);
-      
     } catch (err) {
       alert(`Error submitting Email to Airtable: ${err.message}`);
     }
-
   };
 
-  function trackCalendarSubscribed(){
+  function trackCalendarSubscribed() {
     MixpanelTracking.getInstance().calendarSubscribed("form");
   }
-
 
   return (
     <>
@@ -58,14 +50,14 @@ function EmailandEventCalForm() {
               {...register("email")}
             />
             <button type="submit" className="lg:text-2xl">
-            {submitted ? "Submitted" : "Submit"}
+              {submitted ? "Submitted" : "Submit"}
             </button>
           </div>
         </form>
       </div>
       <div className="lg:p-4 p-2">
         <form>
-        {console.log(errors)}
+          {console.log(errors)}
           <label className="mb-5 text-[#B1B1B1]" htmlFor="email">
             SUBSCRIBE TO CALENDAR
           </label>
@@ -76,7 +68,6 @@ function EmailandEventCalForm() {
               placeholder="https://calendar.google.com/calendar/u/0/r?cid=3lql6qf1smr21uaf4kb7hdfg8btdq6v2@import.calendar.google.com"
               id="first"
               name="first"
-             
             />
             <a
               href="https://calendar.google.com/calendar/u/0/r?cid=3lql6qf1smr21uaf4kb7hdfg8btdq6v2@import.calendar.google.com"
