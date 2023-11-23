@@ -10,14 +10,20 @@ const font = fetch(
   )
 ).then((res) => res.arrayBuffer());
 
-
+const events = fetch(
+  new URL(
+    `${websiteUrl}/api/hygraph/getFeaturedEvents`,
+    import.meta.url
+  )
+).then((res) => res.json());
 
 export const config = {
   runtime: "experimental-edge",
 };
 
-export default async function ogImage () {
+export default async function ogImage() {
   const fontData = await font;
+  const sortedEvents = await events;
 
   return new ImageResponse(
     (
@@ -32,16 +38,16 @@ export default async function ogImage () {
           </div>
           <h1 tw="text-[52px]">Join global DeSci Events</h1>
           <div tw="flex w-full mt-10 justify-between h-10 text-2xl items-center border-solid border-t border-black">
-            <div>DeSci @ DappCon</div>
-            <div>11 Sep 2023</div>
+            <div>{sortedEvents[0].eventTitle.slice(0, 35)}</div>
+            <div>View Dates</div>
           </div>
           <div tw="flex w-full mt-10 justify-between h-10 text-2xl items-center border-solid border-t border-black">
-            <div>DeSci Berlin</div>
-            <div>14 Sep 2023</div>
+            <div>{sortedEvents[1].eventTitle.slice(0, 35)}</div>
+            <div>View Dates</div>
           </div>
           <div tw="flex w-full mt-10 justify-between h-10 text-2xl items-center border-solid border-t border-black">
-            <div>DeSci Boston</div>
-            <div>23 Sep 2023</div>
+            <div>{sortedEvents[2].eventTitle.slice(0, 35)}</div>
+            <div>View Dates</div>
           </div>
           <div tw="flex h-10 bg-[#1231D5] mt-10 p-2 text-white rounded-full w-full items-center text-xl justify-center">
             Join the Network
