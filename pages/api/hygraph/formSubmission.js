@@ -1,6 +1,5 @@
 import { graphApiClient, gql } from "./createApiClient";
 
-
 export default async function submitEvent(req, res) {
   if (req.method == "POST") {
     const { data } = req.body;
@@ -10,6 +9,7 @@ export default async function submitEvent(req, res) {
         $eventTitle: String!
         $eventDescription: String!
         $eventLink: String!
+        $isFeatured: Boolean
         $eventCountry: String!
         $eventCity: String!
         $fullAddress: String!
@@ -17,13 +17,14 @@ export default async function submitEvent(req, res) {
         $eventDate: DateTime!
         $eventEndDate: DateTime!
         $eventTimezone: String
-        $eventImageFileId: ID 
+        $eventImageFileId: ID
       ) {
         createEvent(
           data: {
             eventTitle: $eventTitle
             eventDescription: $eventDescription
             eventLink: $eventLink
+            isFeatured: $isFeatured
             eventCountry: $eventCountry
             eventCity: $eventCity
             fullAddress: $fullAddress
@@ -31,11 +32,7 @@ export default async function submitEvent(req, res) {
             eventDate: $eventDate
             eventEndDate: $eventEndDate
             eventTimezone: $eventTimezone
-            eventImageFile: {
-              connect: {
-                id: $eventImageFileId
-              }
-            }
+            eventImageFile: { connect: { id: $eventImageFileId } }
           }
         ) {
           id
@@ -55,6 +52,7 @@ export default async function submitEvent(req, res) {
         eventTitle: data.eventTitle,
         eventDescription: data.eventDescription,
         eventLink: data.eventLink,
+        isFeatured: data.isFeatured,
         eventCountry: data.eventCountry,
         eventCity: data.eventCity,
         fullAddress: data.fullAddress,

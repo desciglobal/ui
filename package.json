@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "@hookform/resolvers": "^2.9.10",
     "@react-google-maps/api": "^2.17.0",
     "@types/react": "^18.0.25",

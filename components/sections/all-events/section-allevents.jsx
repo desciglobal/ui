@@ -66,89 +66,92 @@ function AllEventsSection(props) {
         </div>
       </div>
       <div className="pt-4 pb-4">
-        <ul>
-          {futureEvents.map((e) => {
-            const CALENDAR_EVENT = {
-              title: e.eventTitle,
-              description: e.eventDescription,
-              startDate: new Date(e.eventDate),
-              endDate: new Date(e.eventEndDate),
-              durationInMinutes: 120,
-              address: e.fullAddress,
-            };
+      <ul>
+  {futureEvents.length === 0 ? (
+    <li className="lg:px-4 px-2">No upcoming events</li>
+  ) : (
+    futureEvents.map((e) => {
+      const CALENDAR_EVENT = {
+        title: e.eventTitle,
+        description: e.eventDescription + " " + e.eventLink,
+        startDate: new Date(e.eventDate),
+        endDate: new Date(e.eventEndDate),
+        durationInMinutes: 120,
+        address: e.fullAddress,
+      };
 
-            const month = CALENDAR_EVENT.startDate.toLocaleString("default", {
-              month: "long",
-            });
+      const month = CALENDAR_EVENT.startDate.toLocaleString("default", {
+        month: "long",
+      });
 
-            const year = CALENDAR_EVENT.startDate.getFullYear();
+      const year = CALENDAR_EVENT.startDate.getFullYear();
 
-            return (
-              <li key={e.id}>
-                <div className="w-full lg:px-4 px-2 grid grid-cols-12 lg:items-center lg:text-xl text-l leading-5 mb-6">
-                  <div className="col-span-8 sm:col-span-8 lg:col-span-5 xl:col-span-6">
-                    <a
-                      className="lg:hover:underline lg:font-normal md:text-base"
-                      target={"_blank"}
-                      href={e.eventLink}
-                      onClick={() => trackEventLinkClicked(e.eventTitle)}
-                      rel="noreferrer"
-                    >
-                      {e.eventTitle.slice(0, 80)}
-                    </a>
-                  </div>
-                  <div className="lg:flex justify-center items-center hidden">
-                    {e.meetupType == "to_be_finalized" ? (
-                      ""
-                    ) : (
-                      <AddToCalendarButton
-                        calendarEvent={CALENDAR_EVENT}
-                        buttonText={<CalendarIcon />}
-                      />
-                    )}
-                  </div>
-                  {/* https://codesandbox.io/s/8g6dl?file=/src/AddToCalendarButton/AddToCalendarButton.tsx:0-911 */}
+      return (
+        <li key={e.id}>
+          <div className="w-full lg:px-4 px-2 grid grid-cols-12 lg:items-center lg:text-xl text-l leading-5 mb-6">
+            <div className="col-span-8 sm:col-span-8 lg:col-span-5 xl:col-span-6">
+              <a
+                className="lg:hover:underline lg:font-normal md:text-base"
+                target={"_blank"}
+                href={e.eventLink}
+                onClick={() => trackEventLinkClicked(e.eventTitle)}
+                rel="noreferrer"
+              >
+                {e.eventTitle.slice(0, 80)}
+              </a>
+            </div>
+            <div className="lg:flex justify-center items-center hidden">
+              {e.meetupType == "to_be_finalized" ? (
+                ""
+              ) : (
+                <AddToCalendarButton
+                  calendarEvent={CALENDAR_EVENT}
+                  buttonText={<CalendarIcon />}
+                />
+              )}
+            </div>
 
-                  <div className="items-center lg:flex hidden text-base lg:col-span-2">
-                    <Image
-                      className="h-4 w-4 mr-2 rounded-full"
-                      src={`/images/flags/${e.eventCountry.toLowerCase()}.svg`}
-                      alt=""
-                      width={10}
-                      height={10}
-                      variant="flag"
-                    ></Image>
-                    <p className="lg:block hidden">{e.eventCity}</p>
-                  </div>
-                  <p className="lg:block hidden text-base lg:col-span-2">
-                    {e.meetupType}
-                  </p>
-                  {e.meetupType == "to_be_finalized" ? (
-                    <p className="lg:block hidden text-base lg:col-span-2 xl:col-span-1">
-                      {month} {year}
-                    </p>
-                  ) : (
-                    <p className="lg:block hidden text-base lg:col-span-2 xl:col-span-1">
-                      {e.eventDateConverted}
-                    </p>
-                  )}
+            <div className="items-center lg:flex hidden text-base lg:col-span-2">
+              <Image
+                className="h-4 w-4 mr-2 rounded-full"
+                src={`/images/flags/${e.eventCountry.toLowerCase()}.svg`}
+                alt=""
+                width={10}
+                height={10}
+                variant="flag"
+              ></Image>
+              <p className="lg:block hidden">{e.eventCity}</p>
+            </div>
+            <p className="lg:block hidden text-base lg:col-span-2">
+              {e.meetupType}
+            </p>
+            {e.meetupType == "to_be_finalized" ? (
+              <p className="lg:block hidden text-base lg:col-span-2 xl:col-span-1">
+                {month} {year}
+              </p>
+            ) : (
+              <p className="lg:block hidden text-base lg:col-span-2 xl:col-span-1">
+                {e.eventDateConverted}
+              </p>
+            )}
 
-                  <div className="lg:hidden text-l flex justify-end col-span-4 lg:col-span-2">
-                    {" "}
-                    {e.meetupType == "to_be_finalized" ? (
-                      <p className="block lg:hidden text-s">To be Finalized</p>
-                    ) : (
-                      <AddToCalendarButton
-                        calendarEvent={CALENDAR_EVENT}
-                        buttonText={e.eventDateConverted}
-                      />
-                    )}
-                  </div>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+            <div className="lg:hidden text-l flex justify-end col-span-4 lg:col-span-2">
+              {e.meetupType == "to_be_finalized" ? (
+                <p className="block lg:hidden text-s">To be Finalized</p>
+              ) : (
+                <AddToCalendarButton
+                  calendarEvent={CALENDAR_EVENT}
+                  buttonText={e.eventDateConverted}
+                />
+              )}
+            </div>
+          </div>
+        </li>
+      );
+    })
+  )}
+</ul>
+
       </div>
       {/*  . here invisible on mobile */}
       <div className="hidden lg:block">

@@ -15,6 +15,7 @@ import SuccessScreen from "../components/Form/SuccessScreen";
 import publishEvent from "../lib/hygraph/publishEvent";
 import { DateTimeField } from "../components/Form/DateTime";
 import discordSubmissionNotification from "../lib/notifyDiscord";
+import Toogle from "../components/Toogle";
 
 const timezoneKey = process.env.NEXT_PUBLIC_GOOGLE_TIMEZONE_API_KEY;
 
@@ -35,6 +36,7 @@ function SubmitEvent(props) {
   const [isOnline, setIsOnline] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submittedEvent, setSubmittedEvent] = useState();
+  const [featured, setFeatured] = useState(false);
 
   const { latLng, timeZone, address, setAddress, countryCode } =
     useEventLocation(timezoneKey);
@@ -76,6 +78,7 @@ function SubmitEvent(props) {
     data.eventCountry = countryCode;
     data.eventCity = data.eventCity;
     data.meetupType = isOnline ? "Online" : "Meetup";
+    data.isFeatured = featured;
 
     if (isOnline) {
       data.eventCity = "Online";
@@ -160,6 +163,13 @@ function SubmitEvent(props) {
                   register={register}
                   errorMessage={errors.eventDescription?.message}
                 />
+                <div className="flex text-xs items-center">
+                  <Toogle featured={featured} setFeatured={setFeatured} />
+                  <p className="ml-2">
+                    Request Event to appear in featured section
+                  </p>
+                </div>
+
                 <div className="divider" />
                 <h4 className="text-2xl">Location</h4>
                 <div className="">
