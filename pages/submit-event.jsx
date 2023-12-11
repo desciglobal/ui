@@ -101,11 +101,11 @@ function SubmitEvent(props) {
         const imageHandle =
           hygraphResponseData.createEvent.eventImageFile.handle;
         await publishEvent(hygraphResponseData.createEvent.id);
-        await discordSubmissionNotification(
-          data,
-          hygraphResponseData.createEvent.id,
-          imageHandle
-        );
+        // await discordSubmissionNotification(
+        //   data,
+        //   hygraphResponseData.createEvent.id,
+        //   imageHandle
+        // );
       }
     } catch (err) {
       console.error("Error posting Event to Hygraph", err);
